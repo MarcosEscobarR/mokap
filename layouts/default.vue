@@ -1,117 +1,176 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
+  <v-app>
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <footer class="footer">
+      <div class="row">
+        <div class="col d-flex justify-center">
+          <div class="info-container">
+            <div class="white-card">
+              <img src="feedback.png" alt="feedback">
+              <div class="phrase">
+                <p>
+                  "Me encanto la remera y la presentacion esta increible! No puedo creer que hasta perfume le pongan
+                  jaja se pasan"
+                </p>
+              </div>
+              <p class="author">
+                - Ramona Lezcano
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex justify-center">
+          <div class="info-container">
+            <img src="logo%20mokap.png" class="logo" alt="logo">
+
+            <div>
+              <div class="information">
+                <div class="img-container">
+                  <img src="location.png" alt="location">
+                </div>
+                <p>Bélgica 4624, Asunción, Paraguay</p>
+              </div>
+              <div class="information">
+                <div class="img-container">
+                  <img src="whatsapp.png" alt="whatsapp">
+                </div>
+                <p>0986 168880</p>
+              </div>
+            </div>
+
+            <div class="networks">
+              <img src="linkedin-logo.png" alt="lkd">
+              <img src="facebook-app-logo.png" alt="fb">
+              <img src="instagram%20(1).png" alt="ig">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright-container">
+        <hr>
+        <div class="copyright">
+          <div class="img-container">
+            <img src="copyright.png" alt="copyright">
+          </div>
+          <p>Copyright 2022, All Rights Reserved</p>
+        </div>
+      </div>
+    </footer>
   </v-app>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+export default {}
+</script>
+<style scoped lang="scss">
+.footer {
+  height: 65vh;
+  background-color: #4E4E51;
+  display: flex;
+  flex-direction: column;
+}
+
+.white-card {
+  width: 600px;
+  height: 350px;
+  border-radius: 25px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  transform: rotate(-5deg);
+  position: relative;
+
+  .phrase {
+    padding-bottom: 20px;
+
+    p {
+      font-size: 25px;
+      color: #4E4E51;
     }
   }
+
+  .author {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 25px;
+    color: #4E4E51;
+  }
+
+  img {
+    top: -60px;
+    left: -55px;
+    position: absolute;
+    width: 100px;
+    transform: rotate(-35deg);
+  }
 }
-</script>
+
+.copyright-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: max-content;
+  margin-top: auto;
+
+  hr {
+    color: white;
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.copyright {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0;
+  p {
+    color: white;
+    font-size: 30px;
+    font-weight: 200;
+  }
+}
+.logo {
+  width: 700px;
+}
+
+.info-container {
+ display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.information {
+  display: flex;
+
+  p {
+    font-size: 35px;
+    color: white;
+  }
+}
+
+.img-container {
+  width: 70px;
+  img {
+    width: 40px;
+  }
+}
+
+.networks {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  img {
+    width: 100px;
+  }
+}
+</style>

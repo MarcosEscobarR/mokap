@@ -1,77 +1,106 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+  <div>
+    <div class="main-container">
+      <div class="grey-container">
+        <appbar/>
+        <div class="info-container">
+          <div class="information">
+            <div class="big-title">
+              <p>HECHO POR HUMANOS, DISEÑADO POR ARTISTAS</p>
+            </div>
+            <div class="sub-title">
+              <p>
+                Remeras de la mejor calidad 100% algodón, estampadas con tecnologia DTG - lo ultimo en impresión textil.
+              </p>
+            </div>
+            <button class="btn">
+              Haz tu Pedido >
+            </button>
           </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+        </div>
+      </div>
+      <div class="white-container">
+        <img src="imagen%20principal.png" class="big-img">
+        <img src="cart.png" class="cart-img">
+      </div>
+    </div>
+    <cart/>
+  </div>
 </template>
+
+<script>
+export default {}
+</script>
+
+<style scoped lang="scss">
+  .main-container {
+    display: flex;
+    height: auto;
+  }
+  .grey-container {
+    height: 100vh;
+    width: 50vw;
+    background-color: #4E4E51;
+    box-shadow: 10px 0px 4px rgb(204,207,207);
+    position: relative;
+    z-index: 200;
+  }
+  .white-container {
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+  }
+
+  .white-container .big-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: fill;
+    position: absolute;
+    z-index: 50;
+  }
+
+  .white-container .cart-img {
+    position: absolute;
+    z-index: 100;
+    left: 90%;
+    top: 20px;
+  }
+  .big-title {
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  }
+
+  .sub-title {
+    color: white;
+    font-size: 30px;
+    font-weight: 200;
+  }
+
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 100px);
+    width: 100%;
+  }
+
+  .information {
+    width: 60%;
+    height: min-content;
+  }
+
+  .btn {
+    elevation: 0;
+    border: 0;
+    width: 350px;
+    height: 70px;
+    border-radius: 10px;
+    color: white;
+    background-color: #43BFA2;
+    font-size: 25px;
+  }
+
+</style>
