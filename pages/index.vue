@@ -7,9 +7,9 @@
         <t-shirt/>
       </div>
       <div class="white-container">
-<!--        <home-image/>-->
+<!--        <home-image />-->
         <img src="cart.png" class="cart-img" alt="cart">
-
+        <customize/>
       </div>
     </div>
     <cart />
