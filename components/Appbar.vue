@@ -7,7 +7,7 @@
       </div>
       <v-spacer />
       <div class="info-text">
-        <p>Contacto</p>
+        <a href="#footer">Contacto</a>
       </div>
     </div>
   </header>
@@ -34,9 +34,13 @@ export default {
     justify-content: space-between;
     align-content: center;
     .info-text {
-      color: white;
       font-size: 20px;
       padding: 20px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 </style>

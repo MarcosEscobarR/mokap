@@ -3,7 +3,7 @@
     <v-main>
       <Nuxt />
     </v-main>
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="row">
         <div class="col d-flex justify-center">
           <div class="info-container">

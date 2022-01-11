@@ -9,7 +9,8 @@
       <div class="white-container">
 <!--        <home-image />-->
         <img src="cart.png" class="cart-img" alt="cart">
-        <customize/>
+<!--        <customize/>-->
+        <design-t-shirt/>
       </div>
     </div>
     <cart />
