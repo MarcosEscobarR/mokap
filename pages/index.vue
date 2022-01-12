@@ -3,14 +3,16 @@
     <div class="main-container">
       <div class="grey-container">
         <appbar />
-<!--        <home-info />-->
-        <t-shirt/>
+        <home-info v-if="!createNewOrder" />
+        <t-shirt v-else />
       </div>
       <div class="white-container">
-<!--        <home-image />-->
-        <img src="cart.png" class="cart-img" alt="cart">
-<!--        <customize/>-->
-        <design-t-shirt/>
+        <home-image v-if="!createNewOrder" />
+        <div v-else>
+          <img src="cart.png" class="cart-img" alt="cart">
+          <customize v-if="step === 1" />
+          <design-t-shirt v-else />
+        </div>
       </div>
     </div>
     <cart />
@@ -18,7 +20,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    step: {
+      get () {
+        return this.$store.getters.step
+      }
+    },
+    createNewOrder: {
+      get () {
+        return this.$store.getters.createNewOrder
+      }
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -28,7 +43,7 @@ export default {}
     }
     .grey-container {
       height: 100vh;
-      width: 50vw;
+      width: 48vw;
       background-color: #4E4E51;
       box-shadow: 10px 0px 4px rgb(204,207,207);
       position: relative;
@@ -36,7 +51,7 @@ export default {}
     }
     .white-container {
       height: 100vh;
-      width: 50vw;
+      width: 52vw;
       position: relative;
     }
     .cart-img {

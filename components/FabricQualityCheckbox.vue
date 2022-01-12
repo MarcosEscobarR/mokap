@@ -1,16 +1,44 @@
 <template>
   <div class="radio-toolbar">
-    <input id="radioMedium" name="quality" type="radio" value="media" checked>
+    <input
+      id="radioMedium"
+      name="quality"
+      type="radio"
+      value="Media"
+      checked
+      @click="handleClick"
+    >
     <label for="radioMedium">Media</label>
 
-    <input id="radioHigh" name="quality" type="radio" value="alta">
+    <input id="radioHigh" name="quality" type="radio" value="Alta" @click="handleClick">
     <label for="radioHigh">Alta</label>
   </div>
 </template>
 
 <script>
+import { Colors } from '@/helpers/constants'
+
 export default {
-  name: 'FabricQualityCheckbox'
+  props: {
+    value: {
+      type: Colors
+    }
+  },
+  computed: {
+    quality: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
+    }
+  },
+  methods: {
+    handleClick (e) {
+      this.quality = e.target.value
+    }
+  }
 }
 </script>
 

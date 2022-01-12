@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :style="{backgroundColor: color}">
+  <button class="btn" :style="{backgroundColor: color}" @click="btnModel = $event">
     {{ title }}
   </button>
 </template>
@@ -15,6 +15,17 @@ export default {
     color: {
       type: String,
       default: '#43BFA2'
+    },
+    value: null
+  },
+  computed: {
+    btnModel: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   }
 }

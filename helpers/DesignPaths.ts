@@ -1,0 +1,22 @@
+export default [
+  'Diseños%20disponibles/Alien.png',
+  'Diseños%20disponibles/Astro_Rock.png',
+  'Diseños%20disponibles/Auto_Retro.png',
+  'Diseños%20disponibles/Carpi_Diem.png',
+  'Diseños%20disponibles/Cerveza_Fría.png',
+  'Diseños%20disponibles/Chewbacca.png',
+  'Diseños%20disponibles/Combi.png',
+  'Diseños%20disponibles/Comida_Chatarra.png',
+  'Diseños%20disponibles/Gato_Cool.png',
+  'Diseños%20disponibles/Langostino.png',
+  'Diseños%20disponibles/Mono_Hipster.png',
+  'Diseños%20disponibles/Montañas_Vintage.jpg',
+  'Diseños%20disponibles/Mykure.png',
+  'Diseños%20disponibles/No_Prob_Llama.png',
+  'Diseños%20disponibles/No_Drama_Llama.png',
+  'Diseños%20disponibles/Paisaje_Vintage.jpg',
+  'Diseños%20disponibles/Pez.png',
+  'Diseños%20disponibles/Samurai.png',
+  'Diseños%20disponibles/Shut_Up.png',
+  'Diseños%20disponibles/Sushi.png'
+]

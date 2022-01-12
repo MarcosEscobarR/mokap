@@ -14,40 +14,57 @@
           <p class="sub-title">
             Color
           </p>
-          <color-checkbox />
+          <color-checkbox v-model="order.color" />
         </div>
         <div class="item">
           <p class="sub-title">
             Tamaño
           </p>
-          <size-checkbox />
+          <size-checkbox v-model="order.size" />
         </div>
         <div class="item">
           <p class="sub-title">
             Calidad de tela
           </p>
-          <fabric-quality-checkbox />
+          <fabric-quality-checkbox v-model="order.quality" />
         </div>
       </div>
       <div class="navigator">
         <div class="dots-container">
-          <navigator-dots class="mb-8"/>
+          <navigator-dots class="mb-8" />
         </div>
         <div class="btn-container">
-          <p class="back">
+          <p class="back" @click="$store.commit('newOrder', 1)">
             Atras
           </p>
-          <custom-button title="Continuar >" />
+          <custom-button v-model="nextStep" title="Continuar >" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Customize'
-}
+<script lang="ts">
+import Vue from 'vue'
+import { OrderModel } from '~/models/OrderModel'
+export default Vue.extend({
+  name: 'Customize',
+  data: () => ({
+    order: {} as OrderModel,
+    nextStep: 0
+  }),
+  watch: {
+    order: {
+      handler (val) {
+        this.$store.commit('newOrder', val)
+      },
+      deep: true
+    },
+    nextStep () {
+      this.$store.commit('nextStep', 2)
+    }
+  }
+})
 </script>
 
 <style scoped lang="scss">

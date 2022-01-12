@@ -4,16 +4,21 @@
     <label for="basic">Remera básica</label>
 
     <input id="current-design" name="design" type="radio" value="alta">
-    <label for="current-design">Diseños disponibles</label>
+    <label for="current-design" @click="openDialog = !openDialog">Diseños disponibles</label>
 
-    <input id="own-design" name="design" type="radio" value="alta">
+    <input id="own-design" name="design" type="file" value="alta" accept="image/*">
     <label for="own-design">Cargar tu Diseño</label>
+
+    <current-designs-dialog v-model="openDialog" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DesignCheckbox'
+  name: 'DesignCheckbox',
+  data: () => ({
+    openDialog: false
+  })
 }
 </script>
 
@@ -24,6 +29,11 @@ export default {
 }
 
 .radio-toolbar input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+.radio-toolbar input[type="file"] {
   opacity: 0;
   position: fixed;
   width: 0;

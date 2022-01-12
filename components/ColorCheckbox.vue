@@ -1,10 +1,17 @@
 <template>
   <div class="radio-toolbar">
-    <input type="radio" id="radioWhite" name="colors" value="apple" checked>
-    <label for="radioWhite" class="radio-white"/>
+    <input
+      id="radioWhite"
+      type="radio"
+      name="colors"
+      value="Blanco"
+      checked
+      @click="handleClick"
+    >
+    <label for="radioWhite" class="radio-white" />
 
-    <input type="radio" id="radioBlack" name="colors" value="banana">
-    <label for="radioBlack" class="radio-black"/>
+    <input id="radioBlack" type="radio" name="colors" value="Negro" @click="handleClick">
+    <label for="radioBlack" class="radio-black" />
   </div>
 </template>
 
@@ -19,7 +26,6 @@ export default {
     }
   },
   data: () => ({
-    clicked: false
   }),
   computed: {
     color: {
@@ -32,9 +38,8 @@ export default {
     }
   },
   methods: {
-    handleClick () {
-      this.clicked = !this.clicked
-      this.color = this.$refs.radio.getAttribute('data-value')
+    handleClick (e) {
+      this.color = e.target.value
     }
   }
 }

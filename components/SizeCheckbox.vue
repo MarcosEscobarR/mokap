@@ -1,24 +1,54 @@
 <template>
   <div class="radio-toolbar">
-    <input type="radio" id="radioP" name="size" value="apple" checked>
+    <input
+      id="radioP"
+      type="radio"
+      name="size"
+      value="P"
+      checked
+      @click="handleClick"
+    >
     <label for="radioP">P</label>
 
-    <input type="radio" id="radioM" name="size" value="banana">
+    <input id="radioM" type="radio" name="size" value="M" @click="handleClick">
     <label for="radioM">M</label>
 
-    <input type="radio" id="radioG" name="size" value="orange">
+    <input id="radioG" type="radio" name="size" value="G" @click="handleClick">
     <label for="radioG">G</label>
 
-    <input type="radio" id="radioXG" name="size" value="orange">
+    <input id="radioXG" type="radio" name="size" value="XG" @click="handleClick">
     <label for="radioXG">XG</label>
 
-    <input type="radio" id="radio2XG" name="size" value="orange">
+    <input id="radio2XG" type="radio" name="size" value="2XG" @click="handleClick">
     <label for="radio2XG">2XG</label>
   </div>
 </template>
 
 <script>
+
 export default {
+  props: {
+    value: {
+      type: String
+    }
+  },
+
+  computed: {
+    size: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
+    }
+  },
+
+  methods: {
+    handleClick (e) {
+      this.size = e.target.value
+    }
+  }
 }
 </script>
 
