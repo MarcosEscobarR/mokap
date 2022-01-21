@@ -6,7 +6,15 @@
     <input id="current-design" name="design" type="radio" value="alta">
     <label for="current-design" @click="openDialog = !openDialog">Diseños disponibles</label>
 
-    <input id="own-design" name="design" type="file" value="alta" accept="image/*">
+    <input
+      id="own-design"
+      ref="file"
+      name="design"
+      type="file"
+      value="alta"
+      accept="image/*"
+      @change="handleFile"
+    >
     <label for="own-design">Cargar tu Diseño</label>
 
     <current-designs-dialog v-model="openDialog" />
@@ -17,8 +25,30 @@
 export default {
   name: 'DesignCheckbox',
   data: () => ({
-    openDialog: false
-  })
+    openDialog: false,
+    imageUrl: ''
+  }),
+  methods: {
+    handleFile () {
+      const file = this.$refs.file.files[0]
+      if (!file.type.match('image.*')) {
+        alert('no es una imagen')
+      }
+
+      const metadata = {
+        contentType: file.type
+      }
+      const storage = this.$fire.storage
+      const imageRef = storage.ref(`images/${file.name}`)
+      const uploadTask = imageRef.put(file, metadata)
+        .then(snapshot => (snapshot.ref.getDownloadURL().then(url => (url))))
+        .catch(e => console.log(e))
+
+      uploadTask.then((url) => {
+        this.$store.commit('setOrder', { image: url })
+      })
+    }
+  }
 }
 </script>
 
@@ -33,6 +63,7 @@ export default {
   position: fixed;
   width: 0;
 }
+
 .radio-toolbar input[type="file"] {
   opacity: 0;
   position: fixed;
@@ -46,7 +77,7 @@ export default {
   justify-content: center;
   align-content: center;
   background-color: white;
-  font-family: 'Open Sans',"Roboto", sans-serif;
+  font-family: 'Open Sans', "Roboto", sans-serif;
   font-size: 25px;
   border: 2px solid #8B8888;
   color: #8B8888;

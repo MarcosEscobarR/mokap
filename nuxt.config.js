@@ -42,7 +42,24 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyA7srN_GT9qFHJ6uuBy0R7A_pmTjjznA3o',
+          authDomain: 'composed-facet-311322.firebaseapp.com',
+          projectId: 'composed-facet-311322',
+          storageBucket: 'composed-facet-311322.appspot.com',
+          messagingSenderId: '350658360494',
+          appId: '1:350658360494:web:385d3b88112cd5c0b1a93f',
+          measurementId: 'G-E2FFJ6LDJ9'
+        },
+        services: {
+          storage: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,7 +67,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    // customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     theme: {
       dark: false,

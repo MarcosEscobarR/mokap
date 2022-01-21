@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :style="{backgroundColor: color}" @click="btnModel = $event">
+  <button class="btn" :style="{backgroundColor: color}" @click="$emit('click', $event)">
     {{ title }}
   </button>
 </template>
@@ -11,6 +11,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    outlined: {
+      type: Boolean,
+      default: false
     },
     color: {
       type: String,

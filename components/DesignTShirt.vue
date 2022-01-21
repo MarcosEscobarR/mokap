@@ -24,7 +24,7 @@
           <p class="sub-title">
             Cantidad
           </p>
-          <input type="number" class="quantity" value="1">
+          <input type="number" class="quantity" value="1" @change="$store.commit('setOrder', {quantity: $event.target.value})">
         </div>
       </div>
       <div class="navigator">
@@ -32,10 +32,10 @@
           <navigator-dots class="mb-8" />
         </div>
         <div class="btn-container">
-          <p class="back">
+          <p class="back" @click="$store.commit('nextStep', 1)">
             Atras
           </p>
-          <custom-button title="Agregar al carrito" color="#D66A6A" />
+          <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
         </div>
       </div>
     </div>
@@ -44,7 +44,13 @@
 
 <script>
 export default {
-  name: 'DesignTShirt'
+  name: 'DesignTShirt',
+  methods: {
+    addToCart () {
+      this.$store.commit('newOrder')
+      this.$store.commit('nextStep', 3)
+    }
+  }
 }
 </script>
 
@@ -103,6 +109,7 @@ export default {
   font-size: 25px;
   color: #8B8888;
   align-self: end;
+  cursor: pointer;
 }
 }
 

@@ -41,6 +41,10 @@ export default {
         color: white;
         text-decoration: none;
       }
+
+      p {
+        color: white;
+      }
     }
   }
 </style>

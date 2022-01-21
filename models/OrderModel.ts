@@ -4,7 +4,7 @@ export interface OrderModel {
   size: 'P' | 'M' | 'G' | 'XG' | '2XG',
   quality: 'Media' | 'Alta',
   TShirtBasic: boolean,
-  designImage: File,
+  image: string,
   location: 'Centro' | 'Pecho',
   quantity: number
 }

@@ -1,9 +1,15 @@
 <template>
   <div class="container">
-    <div class="img-container">
-      <img src="Blanco%20-%20Hombre.png" alt="white-tshirt">
+    <div>
+      <div class="img-container">
+        <div v-if="order.image" :class="order.location === 'Centro' ? 'center-design-container' : 'chest-design-container'">
+          <img :src="order.image" alt="design">
+        </div>
+        <img v-if="order.color === 'Blanco'" src="Blanco%20-%20Hombre.png" alt="white-tshirt">
+        <img v-else src="Negro%20-%20Hombre.png" alt="black-tshirt">
+      </div>
     </div>
-    <div class="price-container">
+    <div class="price-container" v-if="!order.TShirtBasic">
       <span class="price-title">Precio</span>
       <span class="price">25.000 Gs</span>
     </div>
@@ -12,7 +18,14 @@
 
 <script>
 export default {
-  name: 'TShirt'
+  name: 'TShirt',
+  computed: {
+    order: {
+      get () {
+        return this.$store.getters.order
+      }
+    }
+  }
 }
 </script>
 
@@ -28,7 +41,7 @@ export default {
 }
 
 .img-container {
-
+  position: relative;
   img {
     width: 900px;
     height: 900px;
@@ -37,6 +50,29 @@ export default {
   }
 }
 
+.center-design-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 450px;
+    height: 450px;
+    size: 450px;
+  }
+}
+
+.chest-design-container {
+  position: absolute;
+  top: 35%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 170px;
+    height: 170px;
+    size: 120px;
+  }
+}
 .price-container {
   width: 100%;
   margin-bottom: 50px;

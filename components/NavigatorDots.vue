@@ -5,12 +5,19 @@
       type="radio"
       name="dots"
       value="first"
-      checked
+      :checked="step === 1"
       @click="handleClick"
     >
     <label for="firstDot" />
 
-    <input id="secondDot" type="radio" name="dots" value="second" @click="handleClick">
+    <input
+      id="secondDot"
+      type="radio"
+      name="dots"
+      value="second"
+      :checked="step === 2"
+      @click="handleClick"
+    >
     <label for="secondDot" />
   </div>
 </template>
@@ -18,6 +25,13 @@
 <script>
 export default {
   name: 'NavigatorDots',
+  computed: {
+    step: {
+      get () {
+        return this.$store.getters.step
+      }
+    }
+  },
   methods: {
     handleClick (e) {
       if (e.target.value === 'first') {

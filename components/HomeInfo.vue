@@ -9,22 +9,14 @@
           Remeras de la mejor calidad 100% algodón, estampadas con tecnologia DTG - lo ultimo en impresión textil.
         </p>
       </div>
-      <custom-button v-model="clicked" title="Haz tu Pedido >" />
+      <custom-button title="Haz tu Pedido >" @click="$store.commit('createNewOrder')" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeInfo',
-  data: () => ({
-    clicked: false
-  }),
-  watch: {
-    clicked () {
-      this.$store.commit('createNewOrder')
-    }
-  }
+  name: 'HomeInfo'
 }
 </script>
 
@@ -55,6 +47,5 @@ export default {
   width: 60%;
   height: min-content;
 }
-
 
 </style>

@@ -6,22 +6,32 @@
           v-for="(item, index) in itemNames"
           :key="index"
           class="radio-toolbar"
-          @click="selectImage(item, index)"
         >
           <input :id="index" name="design" type="radio" :value="item">
-          <label class="img-container" :for="index"><img :src="item" alt="design">
-            <p>{{ getFileName(item) }}</p></label>
+          <label class="img-container" :for="index">
+            <img
+              :id="index + '-img'"
+              :src="item"
+              alt="design"
+              @click="indexSelected = index"
+            >
+            <p>{{ getFileName(item) }}</p>
+          </label>
         </div>
       </div>
       <div class="btn-container">
-        <custom-button title="Seleccionar" />
+        <custom-button
+          title="Seleccionar"
+          :color="indexSelected === 0 ? '#8B8888' : '#43BFA2'"
+          @click="selectImage"
+        />
       </div>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import DesignPaths from '@/helpers/DesignPaths'
+import DesignPaths from '~/helpers/DesignPaths'
 
 export default {
   name: 'CurrentDesignsDialog',
@@ -32,8 +42,7 @@ export default {
   },
   data: () => ({
     itemNames: DesignPaths,
-    indexToChecked: -1,
-    fileSelected: null
+    indexSelected: 0
   }),
   computed: {
     dialogModel: {
@@ -46,15 +55,32 @@ export default {
     }
   },
   methods: {
-    selectImage (item, index) {
-      // reset index
-      this.indexToChecked = -1
-      this.indexToChecked = index
-      this.fileSelected = item
+    async selectImage () {
+      const img = document.getElementById(this.indexSelected + '-img')
+      const blob = await this.$axios.$get(img.src, { responseType: 'blob' })
+      const file = new File([blob], Date.now().toString(), { type: blob.type, lastModified: Date.now() })
+      if (!file.type.match('image.*')) {
+        alert('no es una imagen')
+      }
+
+      const metadata = {
+        contentType: file.type
+      }
+      const storage = this.$fire.storage
+      const imageRef = storage.ref(`images/${file.name}`)
+      const uploadTask = imageRef.put(file, metadata)
+        .then(snapshot => (snapshot.ref.getDownloadURL().then(url => (url))))
+        .catch(e => console.log(e))
+
+      uploadTask.then((url) => {
+        this.$store.commit('setOrder', { image: url })
+      })
+      this.dialogModel = false
     },
+
     getFileName (val) {
       const stringSplitter = val.split('/')
-      const fileName = stringSplitter[1].slice(0, -4)
+      const fileName = stringSplitter.pop().slice(0, -4)
 
       try {
         return fileName.replaceAll('_', ' ')
@@ -68,6 +94,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .radio-toolbar {
   display: flex;
   justify-content: space-between;

@@ -1,16 +1,34 @@
 <template>
   <div class="radio-toolbar">
-    <input id="center" name="location" type="radio" value="media" checked>
+    <input
+      id="center"
+      name="location"
+      type="radio"
+      value="Centro"
+      checked
+      @change="handleInput"
+    >
     <label for="center">Centro</label>
 
-    <input id="side" name="location" type="radio" value="alta">
+    <input
+      id="side"
+      name="location"
+      type="radio"
+      value="Pecho"
+      @change="handleInput"
+    >
     <label for="side">Pecho</label>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LocationCheckbox'
+  name: 'LocationCheckbox',
+  methods: {
+    handleInput (e) {
+      this.$store.commit('setOrder', { location: e.target.value })
+    }
+  }
 }
 </script>
 

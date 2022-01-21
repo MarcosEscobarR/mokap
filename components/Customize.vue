@@ -5,7 +5,7 @@
         <p class="big-title">
           Customize su Remera
         </p>
-        <v-checkbox color="#43BFA2">
+        <v-checkbox color="#43BFA2" @change="$store.commit('setOrder', {TShirtBasic: $event})">
           <template #label>
             <span class="checkbox-label">Tengo mi propia remera</span>
           </template>
@@ -34,10 +34,14 @@
           <navigator-dots class="mb-8" />
         </div>
         <div class="btn-container">
-          <p class="back" @click="$store.commit('newOrder', 1)">
+          <p class="back" @click="$store.commit('createNewOrder')">
             Atras
           </p>
-          <custom-button v-model="nextStep" title="Continuar >" />
+          <custom-button
+            title="Continuar >"
+            @click=" $store.commit('nextStep', 2)
+            "
+          />
         </div>
       </div>
     </div>
@@ -56,12 +60,9 @@ export default Vue.extend({
   watch: {
     order: {
       handler (val) {
-        this.$store.commit('newOrder', val)
+        this.$store.commit('setOrder', val)
       },
       deep: true
-    },
-    nextStep () {
-      this.$store.commit('nextStep', 2)
     }
   }
 })
@@ -122,6 +123,7 @@ export default Vue.extend({
     font-size: 25px;
     color: #8B8888;
     align-self: end;
+    cursor: pointer ;
   }
 }
 
