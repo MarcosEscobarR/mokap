@@ -5,7 +5,7 @@
       <div class="info-text">
         <p>Que Hacemos</p>
       </div>
-      <v-spacer />
+      <v-spacer/>
       <div class="info-text">
         <a href="#footer">Contacto</a>
       </div>
@@ -14,37 +14,64 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style scoped lang="scss">
-  .appbar-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 60px;
-    height: 100px;
-  }
-  .logo {
-    width: 200px;
-  }
+.appbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 60px;
+  height: 100px;
+}
 
-  .info-container {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    .info-text {
-      font-size: 20px;
-      padding: 20px;
+.logo {
+  width: 200px;
+}
 
-      a {
-        color: white;
-        text-decoration: none;
-      }
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 
-      p {
-        color: white;
-      }
+  .info-text {
+    font-size: 20px;
+    padding: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    p {
+      color: white;
     }
   }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .info-container {
+    .info-text {
+      font-size: 15px;
+    }
+  }
+
+  .logo {
+    align-self: center;
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 769px) {
+  //Disenho mobile
+}
+
+@media screen and (min-width: 768px) and (max-width: 481px) {
+  //Disenho mobile
+}
+
+@media screen and (min-width: 480px) and (max-width: 320px) {
+  //Disenho mobile
+}
 </style>

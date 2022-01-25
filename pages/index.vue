@@ -98,4 +98,22 @@ export default {
   left: 90%;
   top: 20px;
 }
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .cart-img {
+    width: 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 769px) {
+  //Disenho mobile
+}
+
+@media screen and (min-width: 768px) and (max-width: 481px) {
+  //Disenho mobile
+}
+
+@media screen and (min-width: 480px) and (max-width: 320px) {
+  //Disenho mobile
+}
 </style>

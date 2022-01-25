@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .btn {
   elevation: 0;
   border: 0;
@@ -44,5 +44,24 @@ export default {
   border-radius: 10px;
   color: white;
   font-size: 25px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .btn {
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 769px) {
+//Disenho mobile
+}
+
+@media screen and (min-width: 768px) and (max-width: 481px) {
+//Disenho mobile
+}
+
+@media screen and (min-width: 480px) and (max-width: 320px) {
+//Disenho mobile
 }
 </style>
