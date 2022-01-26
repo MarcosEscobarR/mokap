@@ -50,6 +50,7 @@ export default {
   .btn {
     height: 50px;
     font-size: 20px;
+    width: 200px;
   }
 }
 

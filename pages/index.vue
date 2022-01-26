@@ -103,6 +103,13 @@ export default {
   .cart-img {
     width: 50px;
   }
+
+  .cart-img-container {
+    .counter {
+      width: 25px;
+      height: 25px;
+    }
+  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 769px) {

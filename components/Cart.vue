@@ -35,57 +35,16 @@
             <p class="subt">
               Carrito de compras
             </p>
-            <v-data-table
-              hide-default-footer
-              :headers="datatableHeaders"
-              :items="orders"
-            >
-              <template #header.quantity>
-                <p class="subt">
-                  Cantidad
-                </p>
-              </template>
-              <template #header.total>
-                <p class="subt">
-                  Total
-                </p>
-              </template>
-              <template #item.tshirt="{item}">
-                <div class="info-text">
-                  <p>
-                    {{ item.TShirtBasic ? 'Remera Básica' : 'Remera con Diseño' }}
-                  </p>
-                </div>
-              </template>
-              <template #item.total="{item}">
-                <div class="info-text">
-                  <p>
-                    {{ item.quantity * 25000 }}
-                  </p>
-                </div>
-              </template>
-              <template #item.quantity="{item}">
-                <div class="info-text">
-                  <p>
-                    {{ item.quantity }}
-                  </p>
-                </div>
-              </template>
-              <template #item.remove="{item}">
-                <v-btn icon @click="$store.commit('removeOrder', item)">
-                  <v-icon size="50px">
-                    mdi-trash-can-outline
-                  </v-icon>
-                </v-btn>
-              </template>
-            </v-data-table>
+
+            <cart-datatable :orders="orders" />
+
             <div class="d-flex justify-end mt-4">
-              <p class="subt" style="font-size: 35px">
+              <p class="subt">
                 TOTAL
               </p>
             </div>
             <p class="total">
-              {{ orders.reduce((a,b) => a + b.quantity * 25000, 0) }}
+              {{ orders.reduce((a, b) => a + b.quantity * 25000, 0) }}
             </p>
             <div class="btn-container">
               <custom-button title="Continuar" @click="step = 2" />
@@ -96,27 +55,30 @@
             <p class="subt">
               Datos del Cliente
             </p>
-            <div style="width: 800px">
+            <div class="form-group">
               <form-input v-model="user.name" label="Nombre" />
               <form-input v-model="user.email" label="Email" />
               <form-input v-model="user.phone" label="Celular" />
               <form-input v-model="user.ruc" label="Ruc" />
               <form-select v-model="user.payment" label="Forma de Pago" :items="payment" />
 
-              <div class="d-flex justify-end mt-4">
-                <p class="subt" style="font-size: 35px">
-                  TOTAL
-                </p>
+              <div class="totals">
+                <div class="btn-container">
+                  <p class="back" @click="step = 1">
+                    Atras
+                  </p>
+                  <custom-button title="Finalizar" color="#D66A6A" @click="step = 2" />
+                </div>
+                <div>
+                  <div class="d-flex justify-end mt-4">
+                    <p class="subt">
+                      TOTAL
+                    </p>
+                  </div>
+                  <p class="total">
+                    {{ orders.reduce((a, b) => a + b.quantity * 25000, 0) }}
+                  </p></div>
               </div>
-              <p class="total">
-                {{ orders.reduce((a,b) => a + b.quantity * 25000, 0) }}
-              </p>
-            </div>
-            <div class="btn-container">
-              <p class="back" @click="step = 1">
-                Atras
-              </p>
-              <custom-button title="Finalizar" color="#D66A6A" @click="step = 2" />
             </div>
           </div>
         </div>
@@ -129,34 +91,20 @@
 import CustomButton from './CustomButton'
 import FormInput from './FormInput'
 import FormSelect from './FormSelect'
+import CartDatatable from './CartDatatable'
+
 export default {
   name: 'Cart',
-  components: { FormSelect, FormInput, CustomButton },
+  components: {
+    CartDatatable,
+    FormSelect,
+    FormInput,
+    CustomButton
+  },
   data: () => ({
     step: 1,
     user: {},
-    payment: ['Efectivo', 'Transferencia'],
-    datatableHeaders: [
-      {
-        text: '',
-        value: 'tshirt'
-      },
-      {
-        text: 'Cantidad',
-        value: 'quantity',
-        cellClass: 'header-text'
-      },
-      {
-        text: 'Total',
-        value: 'total',
-        cellClass: 'header-text'
-      },
-      {
-        text: '',
-        width: '50',
-        value: 'remove'
-      }
-    ]
+    payment: ['Efectivo', 'Transferencia']
   }),
   computed: {
     orders: {
@@ -177,6 +125,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.form-group {
+  width: 100%;
+}
+
+.totals {}
 .back {
   font-size: 35px;
   color: #d5d5d5;
@@ -184,6 +137,7 @@ export default {
   cursor: pointer;
   margin-right: 20px;
 }
+
 .btn-container {
   display: flex;
   justify-content: end;
@@ -192,6 +146,7 @@ export default {
   bottom: 100px;
   right: 0;
 }
+
 .total {
   display: flex;
   justify-content: end;
@@ -199,6 +154,7 @@ export default {
   font-weight: bold;
   color: #8B8888;
 }
+
 .header-text {
   font-size: 30px;
   font-weight: bold;
@@ -206,19 +162,23 @@ export default {
   color: #8B8888;
   padding: 10px;
 }
+
 .cart-items {
   //width: 500px;
   height: 100%;
   position: relative;
+
   .headers {
     margin-right: auto;
     display: flex;
     width: 100%;
     justify-content: right;
+
     .header-items {
       display: flex;
       width: 50%;
       justify-content: space-evenly;
+
       p {
         font-size: 30px;
         font-weight: bold;
@@ -229,84 +189,152 @@ export default {
     }
   }
 }
-  .cart-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: #E0E0E0;
+
+.cart-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #E0E0E0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.card {
+  width: 90%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  elevation: 1deg;
+  box-shadow: 0 0 15px rgb(204, 207, 207);
+  padding: 50px 60px;
+}
+
+.big-title {
+  width: 100%;
+
+  p {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    color: #8B8888;
+  }
+}
+
+.subt {
+  font-size: 35px;
+  color: #4E4E51;
+  font-weight: 400;
+}
+
+.map {
+  height: 300px;
+}
+
+.info-text {
+  width: 60%;
+
+  p {
+    font-size: 25px;
+    font-weight: 300;
+    color: #8B8888;
+  }
+}
+
+.empty-cart {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .empty-cart-items {
+    height: max-content;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: auto;
-  }
-  .card {
-    width: 90%;
-    height: 80%;
-    background-color: white;
-    border-radius: 25px;
-    elevation: 1deg;
-    box-shadow: 0 0 15px rgb(204,207,207);
-    padding: 50px 60px;
-  }
+    align-content: center;
 
-  .big-title {
-    width: 100%;
+    img {
+      width: 200px;
+    }
 
     p {
-      font-size: 60px;
-      font-weight: bold;
-      text-align: center;
+      font-size: 25px;
+      color: #4E4E51;
+    }
+
+    .link {
       color: #8B8888;
+      font-size: 25px;
+      text-decoration: underline;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
+  .totals {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-container {
+    position: relative;
+    bottom: 0;
+    margin-bottom: 20px;
+  }
+  .back {
+    font-size: 16px;
+  }
+  .total {
+    font-size: 16px;
+  }
+  .subt {
+    font-size: 16px;
+  }
+  .big-title {
+    p {
+      font-size: 40px;
     }
   }
 
   .subt {
-    font-size: 25px;
-    color: #4E4E51;
-    font-weight: 400;
-  }
-
-  .map {
-    height: 300px;
+    font-size: 16.6px;
   }
 
   .info-text {
-    width: 60%;
     p {
-      font-size: 25px;
-      font-weight: 300;
-      color: #8B8888;
+      font-size: 16.6px;
     }
   }
 
   .empty-cart {
-
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .empty-cart-items {
-      height: max-content;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-
       img {
-        width: 200px;
+        width: 133.3px;
       }
 
       p {
-        font-size: 25px;
-        color: #4E4E51;
+        font-size: 16.6px;
       }
 
       .link {
-        color: #8B8888;
-        font-size: 25px;
-        text-decoration: underline;
-        text-align: center;
+        font-size: 16.6px;
       }
     }
   }
+}
+
+@media screen and(min-width: 1024px) and(max-width: 769px) {
+  //Disenhomobile
+}
+
+@media screen and(min-width: 768px) and(max-width: 481px) {
+  //Disenhomobile
+}
+
+@media screen and(min-width: 480px) and(max-width: 320px) {
+  //Disenhomobile
+}
 </style>

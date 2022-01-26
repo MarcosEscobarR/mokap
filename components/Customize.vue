@@ -39,8 +39,7 @@
           </p>
           <custom-button
             title="Continuar >"
-            @click=" $store.commit('nextStep', 2)
-            "
+            @click=" $store.commit('nextStep', 2)"
           />
         </div>
       </div>
@@ -115,10 +114,13 @@ export default Vue.extend({
 
 .btn-container {
   display: flex;
-  width: 450px;
+  width: 60%;
   justify-content: space-between;
   margin-left: auto;
 
+  .custom-btn-container {
+    width: 200px;
+  }
   .back {
     font-size: 25px;
     color: #8B8888;
@@ -132,5 +134,46 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 150px 0;
+  }
+  .item {
+    padding: 10px 0;
+  }
+  .big-title {
+    font-size: 45px;
+  }
+
+  .checkbox-label {
+    font-size: 17px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+  .btn-container {
+    width: 300px;
+    .back {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+  //Disenhomobile
 }
 </style>

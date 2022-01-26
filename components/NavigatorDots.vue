@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .radio-toolbar {
   margin: 10px;
   display: flex;
@@ -69,5 +69,27 @@ export default {
 
 .radio-toolbar input[type="radio"]:checked + label {
   background-color: #8B8888;
+}
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .radio-toolbar {
+    width: 40px;
+  }
+  .radio-toolbar label {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+//Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+//Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+//Disenhomobile
 }
 </style>

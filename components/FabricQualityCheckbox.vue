@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .radio-toolbar {
     display: flex;
   justify-content: space-between;
@@ -83,5 +83,28 @@ export default {
   border: 6px solid #43BFA2;
   color: #43BFA2;
   font-weight: bold;
+}
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .radio-toolbar {
+    width: auto;
+  }
+  .radio-toolbar label {
+    font-size: 26px;
+    width: 150px;
+    height: 60px;
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+//Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+//Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+//Disenhomobile
 }
 </style>

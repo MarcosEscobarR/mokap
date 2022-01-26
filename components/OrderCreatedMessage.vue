@@ -1,11 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <div class="title-container">
-        <p class="big-title">
-          Se ha agregado tu orden al carrito
-        </p>
-      </div>
+      <p class="big-title">
+        Se ha agregado tu orden al carrito
+      </p>
 
       <div class="btn-container">
         <a class="btn-outlined" href="#cart">Ir a Carrito</a>
@@ -38,14 +36,12 @@ export default {
   text-decoration: none;
 }
 
-.title-container {
   .big-title {
     font-size: 70px;
     font-weight: bold;
     text-align: center;
     color: #4E4E51;
   }
-}
 
 .btn-container {
   display: flex;
@@ -60,5 +56,31 @@ export default {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .container {
+    padding: 0 30px ;
+  }
+  .big-title {
+    font-size: 40px;
+  }
+  .btn-outlined {
+    height: 50px;
+    font-size: 20px;
+    width: 200px;
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+  //Disenhomobile
 }
 </style>

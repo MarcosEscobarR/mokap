@@ -135,4 +135,42 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   opacity: 0;
 }
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 150px 0;
+  }
+  .big-title {
+    font-size: 45px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+
+  .item {
+    padding: 10px 0;
+  }
+  .btn-container {
+    width: 300px;
+    .back {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+  //Disenhomobile
+}
 </style>
