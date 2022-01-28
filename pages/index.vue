@@ -111,6 +111,18 @@ export default {
     }
   }
 }
+@media screen and (min-height: 800px) and (max-height: 1024px) {
+  .cart-img {
+    width: 70px;
+  }
+
+  .cart-img-container {
+    .counter {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
 
 @media screen and (min-width: 1024px) and (max-width: 769px) {
   //Disenho mobile

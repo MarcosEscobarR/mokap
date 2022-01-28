@@ -103,6 +103,16 @@ export default {
     height: 60px;
   }
 }
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  .radio-toolbar {
+    width: auto;
+  }
+  .radio-toolbar label {
+    font-size: 26px;
+    width: 60px;
+    height: 60px;
+  }
+}
 
 @media screen and(min-width:1024px)and(max-width:769px){
 //Disenhomobile

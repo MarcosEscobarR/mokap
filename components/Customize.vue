@@ -86,7 +86,7 @@ export default Vue.extend({
 }
 .big-title {
   font-weight: bold;
-  font-size: 65px;
+  font-size: 55px;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -126,6 +126,7 @@ export default Vue.extend({
     color: #8B8888;
     align-self: end;
     cursor: pointer ;
+    padding: 0 10px;
   }
 }
 
@@ -137,6 +138,33 @@ export default Vue.extend({
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 150px 0;
+  }
+  .item {
+    padding: 10px 0;
+  }
+  .big-title {
+    font-size: 45px;
+  }
+
+  .checkbox-label {
+    font-size: 17px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+  .btn-container {
+    width: 300px;
+    .back {
+      font-size: 20px;
+    }
+  }
+}@media screen and(min-height: 800px) and (max-height: 1024px){
   .container {
     width: 90%;
   }

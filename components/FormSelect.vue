@@ -2,6 +2,7 @@
   <div class="form">
     <label>{{label}}</label>
     <v-select
+      :rules="rules"
       :items="items"
       color="#43BFA2"
       dense
@@ -19,6 +20,7 @@ export default {
       required: true
     },
     items: null,
+    rules: [],
     value: {
       type: String
     }

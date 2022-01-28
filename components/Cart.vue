@@ -56,18 +56,20 @@
               Datos del Cliente
             </p>
             <div class="form-group">
-              <form-input v-model="user.name" label="Nombre" />
-              <form-input v-model="user.email" label="Email" />
-              <form-input v-model="user.phone" label="Celular" />
-              <form-input v-model="user.ruc" label="Ruc" />
-              <form-select v-model="user.payment" label="Forma de Pago" :items="payment" />
+              <v-form v-model="valid">
+                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]"/>
+                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]"/>
+                <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
+                <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+                <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]"/>
+              </v-form>
 
               <div class="totals">
                 <div class="btn-container">
                   <p class="back" @click="step = 1">
                     Atras
                   </p>
-                  <custom-button title="Finalizar" color="#D66A6A" @click="step = 2" />
+                  <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
                 </div>
                 <div>
                   <div class="d-flex justify-end mt-4">
@@ -77,7 +79,8 @@
                   </div>
                   <p class="total">
                     {{ orders.reduce((a, b) => a + b.quantity * 25000, 0) }}
-                  </p></div>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -87,13 +90,18 @@
   </div>
 </template>
 
-<script>
-import CustomButton from './CustomButton'
-import FormInput from './FormInput'
-import FormSelect from './FormSelect'
-import CartDatatable from './CartDatatable'
+<script lang="ts">
+import Vue from 'vue'
+import CustomButton from './CustomButton.vue'
+import FormInput from './FormInput.vue'
+import FormSelect from './FormSelect.vue'
+import CartDatatable from './CartDatatable.vue'
+import { EmailSenderModel } from '~/models/EmailSenderModel'
+import { OrderModel } from '~/models/OrderModel'
+import { UserModel } from '~/models/UserModel'
+import { Validators } from '~/shared/validators'
 
-export default {
+export default Vue.extend({
   name: 'Cart',
   components: {
     CartDatatable,
@@ -103,25 +111,42 @@ export default {
   },
   data: () => ({
     step: 1,
-    user: {},
+    valid: false,
+    validators: Validators,
+    user: {
+      email: null,
+      name: null,
+      ruc: null,
+      payment: 'Efectivo',
+      phone: null
+    } as UserModel,
     payment: ['Efectivo', 'Transferencia']
   }),
   computed: {
     orders: {
-      get () {
+      get (): OrderModel[] {
         return this.$store.getters.orders
       }
     }
   },
   methods: {
-    sendEmail () {
+    async sendEmail () {
+      this.step = 2
+      try {
+        if (Object.values(this.user).includes(null)) { return }
+        const model: EmailSenderModel = { user: this.user, order: this.orders }
+        await this.$axios.$post('email-sender', model)
+        this.$store.commit('reset')
+      } catch (e) {
+        console.log(e)
+      }
     },
     addNewOrder () {
       this.$store.commit('createNewOrder', true)
       this.$store.commit('reset')
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
@@ -321,6 +346,55 @@ export default {
 
       .link {
         font-size: 16.6px;
+      }
+    }
+  }
+}
+@media screen and(min-height: 800px) and (max-height: 1024px) {
+  .totals {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-container {
+    position: relative;
+    bottom: 0;
+    margin-bottom: 20px;
+  }
+  .back {
+    font-size: 16px;
+  }
+  .total {
+    font-size: 16px;
+  }
+  .big-title {
+    p {
+      font-size: 50px;
+    }
+  }
+
+  .subt {
+    font-size: 26.6px;
+  }
+
+  .info-text {
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .empty-cart {
+    .empty-cart-items {
+      img {
+        width: 180px;
+      }
+
+      p {
+        font-size: 26.6px;
+      }
+
+      .link {
+        font-size: 26.6px;
       }
     }
   }

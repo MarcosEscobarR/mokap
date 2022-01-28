@@ -1,7 +1,7 @@
 export interface UserModel {
-  name: string,
-  email: string,
-  phone: string,
-  ruc: string,
+  name: string | null,
+  email: string | null,
+  phone: string | null,
+  ruc: string | null,
   payment: 'Efectivo' | 'Transferencia'
 }

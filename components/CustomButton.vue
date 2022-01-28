@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :style="{backgroundColor: color}" @click="$emit('click', $event)">
+  <button class="btn" :style="disabled ? {backgroundColor: '#a6a4a4', cursor: 'default'} : {backgroundColor: color}" @click="handleClick">
     {{ title }}
   </button>
 </template>
@@ -20,7 +20,17 @@ export default {
       type: String,
       default: '#43BFA2'
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     value: null
+  },
+  methods: {
+    handleClick($event) {
+      if (this.disabled) return{}
+      this.$emit('click', $event)
+    }
   },
   computed: {
     btnModel: {
@@ -47,6 +57,13 @@ export default {
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .btn {
+    height: 50px;
+    font-size: 20px;
+    width: 200px;
+  }
+}
+@media screen and (min-height: 800px) and (max-height: 1024px) {
   .btn {
     height: 50px;
     font-size: 20px;

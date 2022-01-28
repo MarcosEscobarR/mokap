@@ -63,7 +63,12 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL:
+      process.env.NODE_ENV === 'development'
+        ? 'https://morning-earth-78099.herokuapp.com/api'
+        : 'https://morning-earth-78099.herokuapp.com/api' // put in here your api production URL
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <label>{{ label }}</label>
-    <v-text-field v-model="model" color="#43BFA2" outlined dense />
+    <v-text-field v-model="model" color="#43BFA2" outlined dense :rules="rules" />
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default {
     },
     value: {
       type: String
-    }
+    },
+    rules: []
   },
   computed: {
     model: {

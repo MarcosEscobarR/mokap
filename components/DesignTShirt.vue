@@ -24,7 +24,12 @@
           <p class="sub-title">
             Cantidad
           </p>
-          <input type="number" class="quantity" value="1" @change="$store.commit('setOrder', {quantity: $event.target.value})">
+          <input
+            type="number"
+            class="quantity"
+            value="1"
+            @change="$store.commit('setOrder', {quantity: $event.target.value})"
+          >
         </div>
       </div>
       <div class="navigator">
@@ -64,18 +69,20 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .main {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 150px  0 50px 0;
+  padding: 150px 0 50px 0;
 }
+
 .big-title {
   font-weight: bold;
   font-size: 65px;
   color: #4E4E51;
-  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
 }
 
 .sub-title {
@@ -83,10 +90,11 @@ export default {
   font-size: 35px;
   color: #4E4E51;
 }
+
 .checkbox-label {
   font-size: 25px;
   color: #4E4E51;
-  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
 }
 
 .item {
@@ -105,12 +113,13 @@ export default {
   justify-content: space-between;
   margin-left: auto;
 
-.back {
-  font-size: 25px;
-  color: #8B8888;
-  align-self: end;
-  cursor: pointer;
-}
+  .back {
+    font-size: 25px;
+    color: #8B8888;
+    align-self: end;
+    padding: 0 10px;
+    cursor: pointer;
+  }
 }
 
 .dots-container {
@@ -136,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
   opacity: 0;
 }
 
-@media screen and(min-width:1025px)and(max-width:1200px){
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
   .container {
     width: 90%;
   }
@@ -156,21 +165,48 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .btn-container {
     width: 300px;
+
+    .back {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and(min-height: 800px) and (max-height: 1024px) {
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 150px 0;
+  }
+  .big-title {
+    font-size: 45px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+
+  .item {
+    padding: 10px 0;
+  }
+  .btn-container {
+    width: 300px;
+
     .back {
       font-size: 20px;
     }
   }
 }
 
-@media screen and(min-width:1024px)and(max-width:769px){
+@media screen and(min-width: 1024px) and(max-width: 769px) {
   //Disenhomobile
 }
 
-@media screen and(min-width:768px)and(max-width:481px){
+@media screen and(min-width: 768px) and(max-width: 481px) {
   //Disenhomobile
 }
 
-@media screen and(min-width:480px)and(max-width:320px){
+@media screen and(min-width: 480px) and(max-width: 320px) {
   //Disenhomobile
 }
 </style>

@@ -33,7 +33,7 @@ export const mutations: MutationTree<State> = {
   },
   newOrder (state) {
     if (Object.values(state.order).includes(undefined)) { return }
-    state.orders.push(state.order)
+    state.orders.push({ ...state.order, TShirtType: state.order.image ? 'Remera Con Diseño' : 'Remera Basica' })
   },
   setOrder (state, order: OrderModel) {
     state.order = { ...state.order, ...order }
@@ -57,5 +57,6 @@ export const getters: GetterTree<State, State> = {
   orders: state => state.orders,
   order: state => state.order,
   step: state => state.navigationStep,
-  createNewOrder: state => state.createOrder
+  createNewOrder: state => state.createOrder,
+  user: state => state.user
 }

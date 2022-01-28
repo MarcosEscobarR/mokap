@@ -99,6 +99,19 @@ export default {
     width: 60px;
   }
 }
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  .radio-toolbar {
+    width: 150px;
+  }
+  .radio-toolbar .radio-black {
+    height: 60px;
+    width: 60px;
+  }
+  .radio-toolbar .radio-white {
+    height: 60px;
+    width: 60px;
+  }
+}
 
 @media screen and(min-width:1024px)and(max-width:769px){
 //Disenhomobile

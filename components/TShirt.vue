@@ -119,6 +119,27 @@ export default {
   }
 }
 
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  .container {
+    justify-content: space-around;
+  }
+  .img-container {
+    img {
+      width: 600px;
+      height: 600px;
+    }
+  }
+
+  .price-container {
+    .price-title {
+      font-size: 25px;
+    }
+    .price {
+      font-size: 57px;
+    }
+  }
+}
+
 @media screen and(min-width:1024px)and(max-width:769px){
   //Disenhomobile
 }

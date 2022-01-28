@@ -80,6 +80,15 @@ export default {
     height: 15px;
   }
 }
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  .radio-toolbar {
+    width: 40px;
+  }
+  .radio-toolbar label {
+    width: 15px;
+    height: 15px;
+  }
+}
 
 @media screen and(min-width:1024px)and(max-width:769px){
 //Disenhomobile
