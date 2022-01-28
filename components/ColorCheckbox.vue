@@ -104,12 +104,12 @@ export default {
     width: 150px;
   }
   .radio-toolbar .radio-black {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
   }
   .radio-toolbar .radio-white {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
   }
 }
 

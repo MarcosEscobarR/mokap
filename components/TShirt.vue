@@ -125,8 +125,8 @@ export default {
   }
   .img-container {
     img {
-      width: 600px;
-      height: 600px;
+      width: 650px;
+      height: 650px;
     }
   }
 

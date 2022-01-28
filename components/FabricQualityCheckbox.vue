@@ -102,7 +102,7 @@ export default {
   .radio-toolbar label {
     font-size: 26px;
     width: 150px;
-    height: 60px;
+    height: 70px;
   }
 }
 
