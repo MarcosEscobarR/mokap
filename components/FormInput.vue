@@ -52,6 +52,15 @@ label {
     margin: 0;
   }
 }
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  label {
+    font-size: 16px;
+  }
+
+  .form {
+    margin: 0;
+  }
+}
 
 @media screen and(min-width:1024px)and(max-width:769px){
   //Disenhomobile

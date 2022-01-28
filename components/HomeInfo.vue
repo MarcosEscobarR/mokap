@@ -68,6 +68,14 @@ export default {
     font-size: 19px;
   }
 }
+@media screen and (min-height: 800px) and (max-height: 1024px) {
+  .big-title {
+    font-size: 65px;
+  }
+  .sub-title {
+    font-size: 32px;
+  }
+}
 
 @media screen and (min-width: 1024px) and (max-width: 769px) {
   //Disenho mobile

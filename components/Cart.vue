@@ -57,11 +57,11 @@
             </p>
             <div class="form-group">
               <v-form v-model="valid">
-                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]"/>
-                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]"/>
-                <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
-                <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
-                <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]"/>
+                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
+                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
+                <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+                <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
+                <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]" />
               </v-form>
 
               <div class="totals">
@@ -136,7 +136,8 @@ export default Vue.extend({
         if (Object.values(this.user).includes(null)) { return }
         const model: EmailSenderModel = { user: this.user, order: this.orders }
         await this.$axios.$post('email-sender', model)
-        this.$store.commit('reset')
+        this.$store.commit('resetCart')
+        window.location.href = '#home'
       } catch (e) {
         console.log(e)
       }

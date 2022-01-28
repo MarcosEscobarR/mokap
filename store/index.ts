@@ -31,6 +31,11 @@ export const mutations: MutationTree<State> = {
 
     state.navigationStep = 1
   },
+
+  resetCart (state) {
+    state.orders = []
+    state.createOrder = false
+  },
   newOrder (state) {
     if (Object.values(state.order).includes(undefined)) { return }
     state.orders.push({ ...state.order, TShirtType: state.order.image ? 'Remera Con Diseño' : 'Remera Basica' })
