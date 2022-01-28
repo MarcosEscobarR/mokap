@@ -123,7 +123,7 @@ export default {
   .radio-toolbar label {
     margin-right: 10px;
     width: 150px;
-    height: 60px;
+    height: 70px;
     font-size: 20px;
 
   }
