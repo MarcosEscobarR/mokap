@@ -30,6 +30,7 @@ export default {
   }),
   methods: {
     handleFile () {
+      this.$store.commit('setLoading')
       const file = this.$refs.file.files[0]
       if (!file.type.match('image.*')) {
         alert('no es una imagen')
@@ -46,6 +47,7 @@ export default {
 
       uploadTask.then((url) => {
         this.$store.commit('setOrder', { image: url })
+        this.$store.commit('setLoading')
       })
     }
   }

@@ -134,9 +134,11 @@ export default Vue.extend({
       this.step = 2
       try {
         if (Object.values(this.user).includes(null)) { return }
+        this.$store.commit('setLoading')
         const model: EmailSenderModel = { user: this.user, order: this.orders }
         await this.$axios.$post('email-sender', model)
         this.$store.commit('resetCart')
+        this.$store.commit('setLoading')
         window.location.href = '#home'
       } catch (e) {
         console.log(e)

@@ -22,7 +22,7 @@
       <div class="btn-container">
         <custom-button
           title="Seleccionar"
-          :color="indexSelected === 0 ? '#8B8888' : '#43BFA2'"
+          :color="indexSelected === -1 ? '#8B8888' : '#43BFA2'"
           @click="selectImage"
         />
       </div>
@@ -42,7 +42,7 @@ export default {
   },
   data: () => ({
     itemNames: DesignPaths,
-    indexSelected: 0
+    indexSelected: -1
   }),
   computed: {
     dialogModel: {
@@ -56,6 +56,7 @@ export default {
   },
   methods: {
     async selectImage () {
+      this.$store.commit('setLoading')
       const img = document.getElementById(this.indexSelected + '-img')
       const blob = await this.$axios.$get(img.src, { responseType: 'blob' })
       const file = new File([blob], Date.now().toString(), { type: blob.type, lastModified: Date.now() })
@@ -74,8 +75,9 @@ export default {
 
       uploadTask.then((url) => {
         this.$store.commit('setOrder', { image: url })
+        this.$store.commit('setLoading')
+        this.dialogModel = false
       })
-      this.dialogModel = false
     },
 
     getFileName (val) {
@@ -150,5 +152,28 @@ export default {
   justify-content: end;
   background-color: white;
   padding-top: 30px;
+}
+
+@media screen and(min-width:1025px)and(max-width:1200px){
+  .grid {
+    height: 600px;
+  }
+}
+@media screen and(min-height: 800px) and (max-height: 1024px){
+  .grid {
+    height: 600px;
+  }
+}
+
+@media screen and(min-width:1024px)and(max-width:769px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:768px)and(max-width:481px){
+  //Disenhomobile
+}
+
+@media screen and(min-width:480px)and(max-width:320px){
+  //Disenhomobile
 }
 </style>

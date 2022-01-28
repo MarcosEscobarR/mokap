@@ -13,12 +13,16 @@ export const state = () => ({
     location: 'Centro'
   } as OrderModel,
   navigationStep: 1,
-  createOrder: false
+  createOrder: false,
+  loading: false
 })
 
 type State = ReturnType<typeof state>
 
 export const mutations: MutationTree<State> = {
+  setLoading (state) {
+    state.loading = !state.loading
+  },
   reset (state) {
     state.order = {
       color: 'Blanco',
@@ -63,5 +67,6 @@ export const getters: GetterTree<State, State> = {
   order: state => state.order,
   step: state => state.navigationStep,
   createNewOrder: state => state.createOrder,
-  user: state => state.user
+  user: state => state.user,
+  loading: state => state.loading
 }

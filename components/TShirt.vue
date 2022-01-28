@@ -117,6 +117,30 @@ export default {
       font-size: 57px;
     }
   }
+
+  .center-design-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 320px;
+      height: 320px;
+      size: 450px;
+    }
+  }
+
+  .chest-design-container {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 150px;
+      height: 150px;
+      size: 120px;
+    }
+  }
 }
 
 @media screen and(min-height: 800px) and (max-height: 1024px){
@@ -136,6 +160,29 @@ export default {
     }
     .price {
       font-size: 57px;
+    }
+  }
+
+  .center-design-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  .chest-design-container {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 130px;
+      height: 130px;
+      size: 120px;
     }
   }
 }
