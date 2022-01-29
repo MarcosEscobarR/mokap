@@ -80,8 +80,23 @@ export default {}
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  //Disenho mobile
-}
+  .appbar-container {
+    display: none;
+    background-color: #4E4E51;
+    opacity: 1 !important;
+  }
+  .info-container {
+    display: none;
+    .info-text {
+      font-size: 13px;
+      text-align: center;
+      align-self: center;
+    }
+  }
+
+  .logo {
+    align-self: center;
+  }}
 
 @media screen and (max-width: 480px) and (min-width: 320px) {
   //Disenho mobile

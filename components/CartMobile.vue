@@ -4,23 +4,8 @@
       <div class="big-title">
         <p>Resumen de Pedido</p>
       </div>
-      <div class="row" style="height: 100%">
-        <div class="col">
-          <p class="subt">
-            Entregamos pedidos en la Zona Marcada
-          </p>
-          <div class="map" />
-          <p class="subt">
-            Detalles del envío
-          </p>
-          <div class="info-text">
-            <p>
-              El envío puede tardar hasta 24 hrs dependiendo de la carga de pedidos. Una
-              vez confirmada la orden, atención al cliente se contactara contigo por WhatsApp para ultimar detalles
-            </p>
-          </div>
-        </div>
-        <div class="col">
+      <div style="height: 100%">
+        <div >
           <div v-if="orders.length === 0" class="empty-cart">
             <div class="empty-cart-items">
               <img src="sad%20face.png" alt="sad-face">
@@ -30,7 +15,21 @@
               </a>
             </div>
           </div>
-
+          <div >
+            <p class="subt">
+              Entregamos pedidos en la Zona Marcada
+            </p>
+            <div class="map" />
+            <p class="subt">
+              Detalles del envío
+            </p>
+            <div class="info-text">
+              <p>
+                El envío puede tardar hasta 24 hrs dependiendo de la carga de pedidos. Una
+                vez confirmada la orden, atención al cliente se contactara contigo por WhatsApp para ultimar detalles
+              </p>
+            </div>
+          </div>
           <div v-if="step === 1 && orders.length > 0" class="cart-items">
             <p class="subt">
               Carrito de compras
@@ -104,7 +103,6 @@ import { UserModel } from '~/models/UserModel'
 import { Validators } from '~/shared/validators'
 
 export default Vue.extend({
-  name: 'Cart',
   components: {
     CartDatatable,
     FormSelect,
@@ -223,8 +221,8 @@ export default Vue.extend({
 }
 
 .cart-container {
-  width: 100vw;
-  height: 100vh;
+  height: auto;
+  padding: 20px 0;
   background-color: #E0E0E0;
   display: flex;
   justify-content: center;
@@ -234,7 +232,6 @@ export default Vue.extend({
 
 .card {
   width: 90%;
-  height: 80%;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;
@@ -246,7 +243,7 @@ export default Vue.extend({
   width: 100%;
 
   p {
-    font-size: 60px;
+    font-size: 35px;
     font-weight: bold;
     text-align: center;
     color: #8B8888;
@@ -254,9 +251,10 @@ export default Vue.extend({
 }
 
 .subt {
-  font-size: 35px;
+  font-size: 28px;
   color: #4E4E51;
   font-weight: 400;
+  text-align: center;
 }
 
 .map {
@@ -264,17 +262,17 @@ export default Vue.extend({
 }
 
 .info-text {
-  width: 60%;
 
   p {
     font-size: 25px;
     font-weight: 300;
     color: #8B8888;
+    text-align: center;
   }
 }
 
 .empty-cart {
-  height: 100%;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -288,239 +286,25 @@ export default Vue.extend({
     align-content: center;
 
     img {
-      width: 200px;
+      width: 120px;
+      padding: 20px 0;
     }
 
     p {
-      font-size: 25px;
+      font-size: 22px;
       color: #4E4E51;
     }
 
     .link {
       color: #8B8888;
-      font-size: 25px;
+      font-size: 22px;
       text-decoration: underline;
       text-align: center;
     }
   }
 }
 
-@media screen and(min-width: 1025px) and(max-width: 1200px) {
-  .totals {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
-  }
-  .back {
-    font-size: 16px;
-  }
-  .total {
-    font-size: 16px;
-  }
-  .subt {
-    font-size: 16px;
-  }
-  .big-title {
-    p {
-      font-size: 40px;
-    }
-  }
-
-  .subt {
-    font-size: 16.6px;
-  }
-
-  .info-text {
-    p {
-      font-size: 16.6px;
-    }
-  }
-
-  .empty-cart {
-    .empty-cart-items {
-      img {
-        width: 133.3px;
-      }
-
-      p {
-        font-size: 16.6px;
-      }
-
-      .link {
-        font-size: 16.6px;
-      }
-    }
-  }
-}
-@media screen and(min-height: 800px) and (max-height: 1024px) {
-  .totals {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
-  }
-  .back {
-    font-size: 16px;
-  }
-  .total {
-    font-size: 16px;
-  }
-  .big-title {
-    p {
-      font-size: 50px;
-    }
-  }
-
-  .subt {
-    font-size: 26.6px;
-  }
-
-  .info-text {
-    p {
-      font-size: 20px;
-    }
-  }
-
-  .empty-cart {
-    .empty-cart-items {
-      img {
-        width: 180px;
-      }
-
-      p {
-        font-size: 26.6px;
-      }
-
-      .link {
-        font-size: 26.6px;
-      }
-    }
-  }
-}
-
-@media screen and(max-width: 1024px) and(min-width: 769px) {
-  .totals {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
-  }
-  .back {
-    font-size: 16px;
-  }
-  .total {
-    font-size: 16px;
-  }
-  .big-title {
-    p {
-      font-size: 35px;
-    }
-  }
-
-  .subt {
-    font-size: 14px;
-  }
-
-  .info-text {
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .empty-cart {
-    .empty-cart-items {
-      img {
-        width: 120px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-
-      .link {
-        font-size: 14px;
-      }
-    }
-  }
-
-  .map {
-    height: 180px;
-  }
-
-  .form-divider {
-    display: flex;
-  }
-}
-
 @media screen and(max-width: 768px) and(min-width: 481px) {
-  .totals {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
-  }
-  .back {
-    font-size: 16px;
-  }
-  .total {
-    font-size: 16px;
-  }
-  .big-title {
-    p {
-      font-size: 20px;
-    }
-  }
-
-  .subt {
-    font-size: 14px;
-  }
-
-  .info-text {
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .empty-cart {
-    .empty-cart-items {
-      img {
-        width: 120px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-
-      .link {
-        font-size: 14px;
-      }
-    }
-  }
-
-  .map {
-    height: 180px;
-  }
-
-  .form-divider {
-    display: flex;
-  }
 }
 
 @media screen and(max-width: 480px) and(min-width: 320px) {

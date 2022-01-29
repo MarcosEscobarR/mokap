@@ -273,7 +273,6 @@ export default {}
 }
 
 @media screen and(max-width: 768px) and(min-width: 481px) {
-  //Disenhomobile
 }
 
 @media screen and(max-width: 480px) and(min-width: 320px) {

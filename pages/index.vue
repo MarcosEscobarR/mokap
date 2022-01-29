@@ -2,9 +2,9 @@
   <div id="home">
     <div class="main-container">
       <div class="grey-container">
-        <appbar/>
-        <home-info v-if="!createNewOrder"/>
-        <t-shirt v-else/>
+        <appbar />
+        <home-info v-if="!createNewOrder" />
+        <t-shirt v-else />
       </div>
       <div class="white-container">
         <div class="cart-img-container">
@@ -13,15 +13,20 @@
             <p>{{ orders.length }}</p>
           </div>
         </div>
-        <home-image v-if="!createNewOrder"/>
+        <home-image v-if="!createNewOrder" />
         <div v-else>
-          <customize v-if="step === 1"/>
-          <design-t-shirt v-if="step === 2"/>
-          <order-created-message v-if="step === 3"/>
+          <customize v-if="step === 1" />
+          <design-t-shirt v-if="step === 2" />
+          <order-created-message v-if="step === 3" />
         </div>
       </div>
     </div>
-    <cart/>
+    <div class="cart">
+      <cart />
+    </div>
+    <div class="cart-mobile">
+      <cart-mobile />
+    </div>
   </div>
 </template>
 
@@ -51,6 +56,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.cart {
+  display: block;
+}
+.cart-mobile {
+  display: none;
+}
 .cart-img-container {
   position: relative;
 
@@ -137,7 +148,26 @@ export default {
   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  //Disenho mobile
+  .grey-container {
+    //z-index: 220;
+    opacity: 0.95;
+    width: 100vw;
+  }
+  .white-container {
+    width: 100vw;
+    position: absolute;
+  }
+
+  .cart-img-container{
+    display: none;
+  }
+
+  .cart-mobile {
+    display: block;
+  }
+  .cart {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {

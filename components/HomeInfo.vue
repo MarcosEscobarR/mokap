@@ -86,7 +86,13 @@ export default {
   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  //Disenho mobile
+  .big-title {
+    font-size: 45px;
+    text-align: center;
+  }
+  .sub-title {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {
