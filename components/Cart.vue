@@ -59,8 +59,10 @@
               <v-form v-model="valid">
                 <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
                 <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
-                <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
-                <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
+                <div class="form-divider">
+                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
+                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+                </div>
                 <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]" />
               </v-form>
 
@@ -156,7 +158,9 @@ export default Vue.extend({
 .form-group {
   width: 100%;
 }
-
+.form-divider{
+  display: block;
+}
 .totals {}
 .back {
   font-size: 35px;
@@ -403,15 +407,69 @@ export default Vue.extend({
   }
 }
 
-@media screen and(min-width: 1024px) and(max-width: 769px) {
+@media screen and(max-width: 1024px) and(min-width: 769px) {
+  .totals {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-container {
+    position: relative;
+    bottom: 0;
+    margin-bottom: 20px;
+  }
+  .back {
+    font-size: 16px;
+  }
+  .total {
+    font-size: 16px;
+  }
+  .big-title {
+    p {
+      font-size: 35px;
+    }
+  }
+
+  .subt {
+    font-size: 14px;
+  }
+
+  .info-text {
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .empty-cart {
+    .empty-cart-items {
+      img {
+        width: 120px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .link {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .map {
+    height: 180px;
+  }
+
+  .form-divider {
+    display: flex;
+  }
+}
+
+@media screen and(max-width: 768px) and(min-width: 481px) {
   //Disenhomobile
 }
 
-@media screen and(min-width: 768px) and(max-width: 481px) {
-  //Disenhomobile
-}
-
-@media screen and(min-width: 480px) and(max-width: 320px) {
+@media screen and(max-width: 480px) and(min-width: 320px) {
   //Disenhomobile
 }
 </style>

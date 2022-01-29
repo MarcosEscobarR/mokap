@@ -88,6 +88,7 @@ export default {}
       font-size: 25px;
       color: #4E4E51;
     }
+
   }
 
   .author {
@@ -219,15 +220,63 @@ export default {}
   }
 }
 
-@media screen and(min-width: 1024px) and(max-width: 769px) {
+@media screen and(max-width: 1024px) and(min-width: 769px) {
+  .white-card {
+    width: 220px;
+    height: 200px;
+
+    img {
+      width: 80px;
+      left: -40px;
+      top: -50px;
+    }
+
+    .phrase {
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .author {
+      font-size: 12px;
+    }
+  }
+
+  .information {
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .img-container {
+    width: 35px;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  .networks {
+    img {
+      width: 60px;
+    }
+  }
+  .logo {
+    width: 350px;
+  }
+
+  .copyright {
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) and(min-width: 481px) {
   //Disenhomobile
 }
 
-@media screen and(min-width: 768px) and(max-width: 481px) {
-  //Disenhomobile
-}
-
-@media screen and(min-width: 480px) and(max-width: 320px) {
+@media screen and(max-width: 480px) and(min-width: 320px) {
   //Disenhomobile
 }
 </style>

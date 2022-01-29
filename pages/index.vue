@@ -124,15 +124,23 @@ export default {
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 769px) {
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .cart-img {
+    width: 50px;
+  }
+
+  .cart-img-container {
+    .counter {
+      width: 25px;
+      height: 25px;
+    }
+  }}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
   //Disenho mobile
 }
 
-@media screen and (min-width: 768px) and (max-width: 481px) {
-  //Disenho mobile
-}
-
-@media screen and (min-width: 480px) and (max-width: 320px) {
+@media screen and (max-width: 480px) and (min-width: 320px) {
   //Disenho mobile
 }
 </style>

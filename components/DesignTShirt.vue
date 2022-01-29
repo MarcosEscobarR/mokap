@@ -198,15 +198,41 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-@media screen and(min-width: 1024px) and(max-width: 769px) {
+@media screen and(max-width: 1024px) and(min-width: 769px) {
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 120px 0;
+  }
+  .big-title {
+    font-size: 35px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+
+  .item {
+    padding: 2px 0;
+  }
+  .btn-container {
+    width: 300px;
+
+    .back {
+      font-size: 20px;
+    }
+  }
+  .quantity {
+    height: 60px;
+  }
+}
+
+@media screen and(max-width: 768px) and(min-width: 481px) {
   //Disenhomobile
 }
 
-@media screen and(min-width: 768px) and(max-width: 481px) {
-  //Disenhomobile
-}
-
-@media screen and(min-width: 480px) and(max-width: 320px) {
+@media screen and(max-width: 480px) and(min-width: 320px) {
   //Disenhomobile
 }
 </style>

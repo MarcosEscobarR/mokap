@@ -164,7 +164,8 @@ export default Vue.extend({
       font-size: 20px;
     }
   }
-}@media screen and(min-height: 800px) and (max-height: 1024px){
+}
+@media screen and(min-height: 800px) and (max-height: 1024px){
   .container {
     width: 90%;
   }
@@ -193,15 +194,39 @@ export default Vue.extend({
   }
 }
 
-@media screen and(min-width:1024px)and(max-width:769px){
+@media screen and(max-width:1024px)and(min-width:769px){
+  .container {
+    width: 90%;
+  }
+  .main {
+    padding: 120px 0;
+  }
+  .item {
+    padding: 10px 0;
+  }
+  .big-title {
+    font-size: 35px;
+  }
+
+  .checkbox-label {
+    font-size: 17px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+  .btn-container {
+    width: 300px;
+    .back {
+      font-size: 20px;
+    }
+  }}
+
+@media screen and(max-width:768px)and(min-width:481px){
   //Disenhomobile
 }
 
-@media screen and(min-width:768px)and(max-width:481px){
-  //Disenhomobile
-}
-
-@media screen and(min-width:480px)and(max-width:320px){
+@media screen and(max-width:480px)and(min-width:320px){
   //Disenhomobile
 }
 </style>

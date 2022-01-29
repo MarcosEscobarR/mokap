@@ -63,15 +63,27 @@ export default {}
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 769px) {
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .info-container {
+    .info-text {
+      font-size: 13px;
+      text-align: center;
+      align-self: center;
+    }
+  }
+
+  .logo {
+    align-self: center;
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
   //Disenho mobile
 }
 
-@media screen and (min-width: 768px) and (max-width: 481px) {
-  //Disenho mobile
-}
-
-@media screen and (min-width: 480px) and (max-width: 320px) {
+@media screen and (max-width: 480px) and (min-width: 320px) {
   //Disenho mobile
 }
 </style>

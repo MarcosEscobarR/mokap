@@ -90,15 +90,20 @@ export default {
   }
 }
 
-@media screen and(min-width:1024px)and(max-width:769px){
+@media screen and(max-width:1024px)and(min-width:769px){
+  .radio-toolbar {
+    width: 40px;
+  }
+  .radio-toolbar label {
+    width: 15px;
+    height: 15px;
+  }}
+
+@media screen and(max-width:768px)and(min-width:481px){
 //Disenhomobile
 }
 
-@media screen and(min-width:768px)and(max-width:481px){
-//Disenhomobile
-}
-
-@media screen and(min-width:480px)and(max-width:320px){
+@media screen and(max-width:480px)and(min-width:320px){
 //Disenhomobile
 }
 </style>
