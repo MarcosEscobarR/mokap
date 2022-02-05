@@ -25,10 +25,6 @@ export default {}
   height: 100px;
 }
 
-.logo {
-  width: 200px;
-}
-
 .info-container {
   display: flex;
   justify-content: space-between;

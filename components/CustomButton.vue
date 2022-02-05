@@ -26,12 +26,6 @@ export default {
     },
     value: null
   },
-  methods: {
-    handleClick($event) {
-      if (this.disabled) return{}
-      this.$emit('click', $event)
-    }
-  },
   computed: {
     btnModel: {
       get () {
@@ -41,6 +35,12 @@ export default {
         this.$emit('input', val)
       }
     }
+  },
+  methods: {
+    handleClick ($event) {
+      if (this.disabled) { return {} }
+      this.$emit('click', $event)
+    }
   }
 }
 </script>
@@ -49,12 +49,12 @@ export default {
 .btn {
   elevation: 0;
   border: 0;
-  width: 350px;
-  height: 70px;
+  width: 15rem;
+  height: 3.2rem;
   border-radius: 10px;
   color: white;
-  font-size: 25px;
-}
+  font-size: 1.1rem;
+  font-weight: 600;}
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
   .btn {

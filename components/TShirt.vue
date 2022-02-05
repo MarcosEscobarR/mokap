@@ -233,8 +233,48 @@ export default {
 }
 
 @media screen and(max-width:768px)and(min-width:481px){
-  //Disenhomobile
-}
+  .container {
+    justify-content: space-around;
+  }
+  .img-container {
+    img {
+      width: 360px;
+      height: 360px;
+    }
+  }
+
+  .price-container {
+    .price-title {
+      font-size: 22px;
+    }
+    .price {
+      font-size: 45px;
+    }
+  }
+
+  .center-design-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 180px;
+      height: 180px;
+      size: 450px;
+    }
+  }
+
+  .chest-design-container {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 60px;
+      height: 60px;
+      size: 120px;
+    }
+  }}
 
 @media screen and(max-width:480px)and(min-width:320px){
   //Disenhomobile

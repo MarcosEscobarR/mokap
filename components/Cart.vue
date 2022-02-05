@@ -60,8 +60,8 @@
                 <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
                 <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
                 <div class="form-divider">
-                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
-                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
                 </div>
                 <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]" />
               </v-form>
@@ -72,16 +72,18 @@
                     Atras
                   </p>
                   <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
+                  <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
                 </div>
                 <div>
                   <div class="d-flex justify-end mt-4">
-                    <p class="subt">
-                      TOTAL
+                    <p class="subt mr-10">
+                      TOTAL:
+                    </p>
+
+                    <p class="total">
+                      {{ orders.reduce((a, b) => a + b.quantity * 25000, 0).toLocaleString() }}
                     </p>
                   </div>
-                  <p class="total">
-                    {{ orders.reduce((a, b) => a + b.quantity * 25000, 0) }}
-                  </p>
                 </div>
               </div>
             </div>
@@ -115,6 +117,7 @@ export default Vue.extend({
     step: 1,
     valid: false,
     validators: Validators,
+    showDialog: false,
     user: {
       email: null,
       name: null,
@@ -139,12 +142,17 @@ export default Vue.extend({
         this.$store.commit('setLoading')
         const model: EmailSenderModel = { user: this.user, order: this.orders }
         await this.$axios.$post('email-sender', model)
-        this.$store.commit('resetCart')
         this.$store.commit('setLoading')
-        window.location.href = '#home'
+        this.showDialog = true
       } catch (e) {
         console.log(e)
       }
+    },
+    dialogClosed () {
+      this.$store.commit('resetCart')
+      this.step = 1
+
+      window.location.href = '#home'
     },
     addNewOrder () {
       this.$store.commit('createNewOrder', true)
@@ -182,6 +190,7 @@ export default Vue.extend({
 .total {
   display: flex;
   justify-content: end;
+  align-self: end;
   font-size: 25px;
   font-weight: bold;
   color: #8B8888;
@@ -233,7 +242,7 @@ export default Vue.extend({
 }
 
 .card {
-  width: 90%;
+  width: 80%;
   height: 80%;
   background-color: white;
   border-radius: 25px;

@@ -37,7 +37,7 @@
     </template>
     <template #item.remove="{item}">
       <v-btn icon @click="$store.commit('removeOrder', item)">
-        <v-icon size="50px">
+        <v-icon>
           mdi-trash-can-outline
         </v-icon>
       </v-btn>
@@ -78,6 +78,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

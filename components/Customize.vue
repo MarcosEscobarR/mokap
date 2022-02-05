@@ -114,7 +114,7 @@ export default Vue.extend({
 
 .btn-container {
   display: flex;
-  width: 60%;
+  width: 450px;
   justify-content: space-between;
   margin-left: auto;
 

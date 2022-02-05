@@ -37,8 +37,18 @@ export const mutations: MutationTree<State> = {
   },
 
   resetCart (state) {
-    state.orders = []
+    state.order = {
+      color: 'Blanco',
+      size: 'P',
+      quality: 'Media',
+      quantity: 1,
+      location: 'Centro',
+      TShirtBasic: false
+    } as OrderModel
+    state.orders = [] as OrderModel[]
     state.createOrder = false
+    state.user = {} as UserModel
+    state.navigationStep = 1
   },
   newOrder (state) {
     if (Object.values(state.order).includes(undefined)) { return }

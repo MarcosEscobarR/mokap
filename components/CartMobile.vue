@@ -71,6 +71,7 @@
                     Atras
                   </p>
                   <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
+                  <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
                 </div>
                 <div>
                   <div class="d-flex justify-end mt-4">
@@ -113,6 +114,7 @@ export default Vue.extend({
     step: 1,
     valid: false,
     validators: Validators,
+    showDialog: true,
     user: {
       email: null,
       name: null,
@@ -137,12 +139,16 @@ export default Vue.extend({
         this.$store.commit('setLoading')
         const model: EmailSenderModel = { user: this.user, order: this.orders }
         await this.$axios.$post('email-sender', model)
-        this.$store.commit('resetCart')
         this.$store.commit('setLoading')
-        window.location.href = '#home'
       } catch (e) {
         console.log(e)
       }
+    },
+
+    dialogClosed () {
+      this.$store.commit('resetCart')
+      this.step = 1
+      window.location.href = '#home'
     },
     addNewOrder () {
       this.$store.commit('createNewOrder', true)

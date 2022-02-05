@@ -8,7 +8,7 @@
       </div>
       <div class="white-container">
         <div class="cart-img-container">
-          <img class="cart-img" src="cart.png" alt="cart">
+          <img @click="goToCart" class="cart-img" src="cart.png" alt="cart">
           <div v-if="orders.length > 0" class="counter">
             <p>{{ orders.length }}</p>
           </div>
@@ -51,6 +51,11 @@ export default {
         return this.$store.getters.orders
       }
     }
+  },
+  methods: {
+    goToCart () {
+      window.location.href = '/#cart'
+    }
   }
 }
 </script>
@@ -64,7 +69,7 @@ export default {
 }
 .cart-img-container {
   position: relative;
-
+  cursor: pointer;
   .counter {
     position: absolute;
     width: 30px;
@@ -92,7 +97,7 @@ export default {
   height: 100vh;
   width: 48vw;
   background-color: #4E4E51;
-  box-shadow: 10px 0px 4px rgb(204, 207, 207);
+  box-shadow: 5px 0px 6px rgb(97 97 97 / 30%);
   position: relative;
   z-index: 200;
 }
@@ -141,6 +146,7 @@ export default {
   }
 
   .cart-img-container {
+    right: 20px;
     .counter {
       width: 25px;
       height: 25px;

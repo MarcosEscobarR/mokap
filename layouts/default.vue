@@ -34,9 +34,11 @@ export default {
 <style scoped lang="scss">
   .app-footer{}
   .mobile-footer {
-    display: flex;
+    display: none;
   }
-
+  .app-footer {
+    display: block;
+  }
   @media screen and(min-width:1025px)and(max-width:1200px){
   }
 
