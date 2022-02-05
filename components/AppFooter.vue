@@ -37,9 +37,9 @@
           </div>
 
           <div class="networks">
-            <img src="linkedin-logo.png" alt="lkd">
-            <img src="facebook-app-logo.png" alt="fb">
-            <img src="instagram%20(1).png" alt="ig">
+            <a href="https://www.linkedin.com/company/mokapy/about/" target="_blank"><img src="linkedin-logo.png" alt="lkd"></a>
+            <a href="https://m.facebook.com/mokap.py" target="_blank"><img src="facebook-app-logo.png" alt="fb"></a>
+            <a href="https://www.instagram.com/mokap.py/" target="_blank"><img src="instagram%20(1).png" alt="ig"></a>
           </div>
         </div>
       </div>
@@ -169,8 +169,10 @@ export default {}
   display: flex;
   justify-content: space-evenly;
 
-  img {
-    width: 100px;
+  a {
+    img {
+      width: 100px;
+    }
   }
 }
 
