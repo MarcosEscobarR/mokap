@@ -171,7 +171,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
-@media screen and(min-height: 800px) and (min-width: 1999px) {
+@media screen and(min-height: 800px) and (max-height: 1999px) {
   .container {
     width: 90%;
   }
