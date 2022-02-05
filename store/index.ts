@@ -10,7 +10,7 @@ export const state = () => ({
     color: 'Blanco',
     size: 'P',
     quality: 'Media',
-    quantity: 1|,
+    quantity: 1,
     location: 'Centro',
     ownTShirt: false,
     TShirtBasic: true
