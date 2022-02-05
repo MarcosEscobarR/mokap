@@ -57,7 +57,7 @@ export default {
   font-weight: 600;
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1700px) and (max-width: 1200px) {
   .btn {
     height: 50px;
     font-size: 20px;
