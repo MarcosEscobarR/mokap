@@ -10,7 +10,7 @@ export const state = () => ({
     color: 'Blanco',
     size: 'P',
     quality: 'Media',
-    quantity: 0,
+    quantity: 1|,
     location: 'Centro',
     ownTShirt: false,
     TShirtBasic: true
@@ -48,7 +48,7 @@ export const mutations: MutationTree<State> = {
       color: 'Blanco',
       size: 'P',
       quality: 'Media',
-      quantity: 0,
+      quantity: 1,
       location: 'Centro',
       TShirtBasic: false
     } as OrderModel
