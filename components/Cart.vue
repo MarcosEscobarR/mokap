@@ -171,6 +171,11 @@ export default Vue.extend({
 .form-group {
   width: 100%;
 }
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}
 .form-divider{
   display: block;
 }
@@ -319,7 +324,7 @@ export default Vue.extend({
   }
 }
 
-@media screen and(min-width: 1700px) and(max-width: 1200px) {
+@media screen and(min-width: 2000px) and(max-width: 1200px) {
   .totals {
     width: 100%;
     display: flex;

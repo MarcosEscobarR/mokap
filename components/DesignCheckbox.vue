@@ -115,7 +115,7 @@ export default {
   font-weight: bold;
 }
 
-@media screen and(min-width: 1700px) and(max-width: 1200px) {
+@media screen and(min-width: 2000px) and(max-width: 1200px) {
   .radio-toolbar {
     width: 400px;
     flex-wrap: wrap;

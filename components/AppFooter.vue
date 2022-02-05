@@ -1,7 +1,7 @@
 <template>
   <footer id="footer" class="footer">
     <div class="row">
-      <div class="col d-flex justify-center">
+      <div class=" d-flex justify-center">
         <div class="info-container">
           <div class="white-card">
             <img src="feedback.png" alt="feedback">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="col d-flex justify-center">
+      <div class=" d-flex justify-center">
         <div class="info-container">
           <img src="logo%20mokap.png" class="logo" alt="logo">
 
@@ -68,7 +68,10 @@ export default {}
   display: flex;
   flex-direction: column;
 }
-
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}
 .white-card {
   width: 600px;
   height: 350px;
@@ -176,7 +179,7 @@ export default {}
   }
 }
 
-@media screen and(min-width: 1700px) and(max-width: 1200px) {
+@media screen and(min-width: 2000px) and(max-width: 1200px) {
   .white-card {
     width: 320px;
     height: 250px;
