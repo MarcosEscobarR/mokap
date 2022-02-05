@@ -15,7 +15,7 @@
         </div>
         <home-image v-if="!createNewOrder" />
         <div v-else>
-          <customize v-if="step === 1" />
+          <custozmize v-if="step === 1" />
           <design-t-shirt v-if="step === 2" />
           <order-created-message v-if="step === 3" />
         </div>
