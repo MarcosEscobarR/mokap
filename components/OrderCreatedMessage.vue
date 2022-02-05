@@ -25,11 +25,11 @@ export default {
 .btn-outlined {
   elevation: 0;
   border: 3px solid #43BFA2;
-  width: 350px;
-  height: 70px;
+  width: 15rem;
+  height: 3.2rem;
   border-radius: 10px;
   color: #43BFA2;
-  font-size: 25px;
+  font-size: 1.1rem;
   display: flex;
   justify-content: center;
   align-items: center;

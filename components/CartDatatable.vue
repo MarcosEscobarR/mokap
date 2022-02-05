@@ -24,7 +24,7 @@
     <template #item.total="{item}">
       <div class="info-text">
         <p>
-          {{ item.quantity * 25000 }}
+          {{ item.quantity * total }}
         </p>
       </div>
     </template>
@@ -43,7 +43,6 @@
       </v-btn>
     </template>
   </v-data-table>
-
 </template>
 
 <script>
@@ -74,7 +73,14 @@ export default {
         value: 'remove'
       }
     ]
-  })
+  }),
+  computed: {
+    total: {
+      get () {
+        return this.$store.getters.total
+      }
+    }
+  }
 }
 </script>
 

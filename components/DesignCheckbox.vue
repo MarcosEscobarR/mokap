@@ -1,7 +1,7 @@
 <template>
   <div class="radio-toolbar">
     <input id="basic" name="design" type="radio" value="media" checked>
-    <label for="basic">Remera básica</label>
+    <label for="basic" @click="basicTShirt">Remera básica</label>
 
     <input id="current-design" name="design" type="radio" value="alta">
     <label for="current-design" @click="openDialog = !openDialog">Diseños disponibles</label>
@@ -28,7 +28,19 @@ export default {
     openDialog: false,
     imageUrl: ''
   }),
+  computed: {
+    order: {
+      get () {
+        return this.$store.getters.order
+      }
+    }
+  },
   methods: {
+    basicTShirt () {
+      if (!this.order.ownTShirt) {
+        this.$store.commit('setOrder', { TShirtBasic: true, image: null, quality: null })
+      }
+    },
     handleFile () {
       this.$store.commit('setLoading')
       const file = this.$refs.file.files[0]
@@ -46,7 +58,7 @@ export default {
         .catch(e => console.log(e))
 
       uploadTask.then((url) => {
-        this.$store.commit('setOrder', { image: url })
+        this.$store.commit('setOrder', { image: url, TShirtBasic: false })
         this.$store.commit('setLoading')
       })
     }

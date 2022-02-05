@@ -54,7 +54,8 @@ export default {
   border-radius: 10px;
   color: white;
   font-size: 1.1rem;
-  font-weight: 600;}
+  font-weight: 600;
+}
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
   .btn {

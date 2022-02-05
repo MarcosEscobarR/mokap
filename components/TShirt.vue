@@ -9,9 +9,9 @@
         <img v-else src="Negro%20-%20Hombre.png" alt="black-tshirt">
       </div>
     </div>
-    <div class="price-container" v-if="!order.TShirtBasic">
+    <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">25.000 Gs</span>
+      <span class="price">{{total.toLocaleString()}} Gs</span>
     </div>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
     order: {
       get () {
         return this.$store.getters.order
+      }
+    },
+    total: {
+      get() {
+        return this.$store.getters.total
       }
     }
   }

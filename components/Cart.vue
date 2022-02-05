@@ -44,7 +44,7 @@
               </p>
             </div>
             <p class="total">
-              {{ orders.reduce((a, b) => a + b.quantity * 25000, 0) }}
+              {{ total }}
             </p>
             <div class="btn-container">
               <custom-button title="Continuar" @click="step = 2" />
@@ -81,7 +81,7 @@
                     </p>
 
                     <p class="total">
-                      {{ orders.reduce((a, b) => a + b.quantity * 25000, 0).toLocaleString() }}
+                      {{ total }}
                     </p>
                   </div>
                 </div>
@@ -131,6 +131,11 @@ export default Vue.extend({
     orders: {
       get (): OrderModel[] {
         return this.$store.getters.orders
+      }
+    },
+    total: {
+      get (): number {
+        return this.$store.getters.total
       }
     }
   },

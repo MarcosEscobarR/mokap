@@ -1,6 +1,6 @@
 <template>
   <header class="appbar-container">
-    <img src="logo%20mokap.png" class="logo" alt="logo">
+    <img src="logo%20mokap.png" class="logo" alt="logo" @click="$store.commit('resetCart')">
     <div class="info-container">
       <div class="info-text">
         <p>Que Hacemos</p>
@@ -18,6 +18,9 @@ export default {}
 </script>
 
 <style scoped lang="scss">
+.logo {
+  cursor: pointer;
+}
 .appbar-container {
   display: flex;
   justify-content: space-between;

@@ -3,8 +3,9 @@ export interface OrderModel {
   size: 'P' | 'M' | 'G' | 'XG' | '2XG',
   quality: 'Media' | 'Alta',
   TShirtBasic: boolean,
-  image: string,
+  image: string | null,
   location: 'Centro' | 'Pecho',
   quantity: number,
   TShirtType: string,
+  ownTShirt: boolean
 }

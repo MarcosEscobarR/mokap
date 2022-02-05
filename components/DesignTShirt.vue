@@ -28,7 +28,7 @@
             type="number"
             class="quantity"
             value="1"
-            @change="$store.commit('setOrder', {quantity: $event.target.value})"
+            @input="$store.commit('setOrder', {quantity: $event.target.value})"
           >
         </div>
       </div>
