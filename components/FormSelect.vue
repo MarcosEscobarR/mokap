@@ -59,7 +59,7 @@ label {
     margin: 0;
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1024px){
+@media screen and(min-height: 800px) and (min-width: 1999px){
   label {
     font-size: 16px;
   }

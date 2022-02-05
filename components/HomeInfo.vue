@@ -68,7 +68,7 @@ export default {
     font-size: 19px;
   }
 }
-@media screen and (min-height: 800px) and (max-height: 1024px) {
+@media screen and (min-height: 800px) and (min-width: 1999px) {
   .big-title {
     font-size: 65px;
   }

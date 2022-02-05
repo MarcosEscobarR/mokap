@@ -86,7 +86,7 @@ export default {
 
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1024px) {
+@media screen and(min-height: 800px) and (min-width: 1999px) {
   .radio-toolbar {
     width: auto;
     justify-content: left;
