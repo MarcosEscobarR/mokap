@@ -86,7 +86,7 @@ export default {
   border: 6px solid #43BFA2;
 }
 
-@media screen and(min-width:1025px)and(max-width:1200px){
+@media screen and(min-width:1700px)and(max-width:1200px){
   .radio-toolbar {
     width: 150px;
   }

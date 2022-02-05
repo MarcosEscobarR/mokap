@@ -145,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
   opacity: 0;
 }
 
-@media screen and(min-width: 1025px) and(max-width: 1200px) {
+@media screen and(min-width: 1700px) and(max-width: 1200px) {
   .container {
     width: 90%;
   }
