@@ -36,13 +36,14 @@ export default {
 .big-title {
   color: white;
   font-size: 80px;
-  font-weight: bold;
+  line-height: 4rem;
+  font-weight: 800;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
-  color: white;
   font-size: 30px;
+  color: #e0e0e0;
   font-weight: 200;
 }
 
@@ -62,22 +63,15 @@ export default {
 
 @media screen and (min-width:1025px) and (max-width: 1200px) {
   .big-title {
-    font-size: 50px;
+    font-size: 3.35rem;
+    line-height: 4rem;
+    font-weight: 800;
   }
   .sub-title {
-    font-size: 19px;
+    font-size: 1rem;
   }
 }
 @media screen and (min-height: 800px) and (max-height: 1024px) {
-  .big-title {
-    font-size: 65px;
-  }
-  .sub-title {
-    font-size: 32px;
-  }
-}
-
-@media screen and (min-height: 1024px) and (max-height: 1200px) {
   .big-title {
     font-size: 65px;
   }
