@@ -61,7 +61,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  width: 70%;
+  width: 100%;
   height: 100%;
   padding: 0;
   display: flex;
@@ -72,6 +72,7 @@ export default {
 
 .main {
   height: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
