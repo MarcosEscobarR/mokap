@@ -72,12 +72,12 @@ export default {
   align-content: center;
   background-color: white;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
-  font-size: 35px;
+  font-size: 1.5rem;
   border: 2px solid #8B8888;
   color: #8B8888;
   border-radius: 6px;
-  width: 80px;
-  height: 80px;
+  width: 4rem;
+  height: 4rem;
 }
 
 .radio-toolbar label:hover {

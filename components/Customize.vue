@@ -86,18 +86,18 @@ export default Vue.extend({
 }
 .big-title {
   font-weight: bold;
-  font-size: 55px;
+  font-size: 2.5rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 1.75rem;
   color: #4E4E51;
 }
 .checkbox-label {
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -147,17 +147,7 @@ export default Vue.extend({
   .item {
     padding: 10px 0;
   }
-  .big-title {
-    font-size: 45px;
-  }
 
-  .checkbox-label {
-    font-size: 17px;
-  }
-
-  .sub-title {
-    font-size: 25px;
-  }
   .btn-container {
     width: 300px;
     .back {
@@ -165,7 +155,6 @@ export default Vue.extend({
     }
   }
 }
-
 
 @media screen and(max-width:1024px)and(min-width:769px){
   .container {

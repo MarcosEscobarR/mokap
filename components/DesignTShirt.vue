@@ -80,21 +80,20 @@ export default {
 
 .big-title {
   font-weight: bold;
-  font-size: 65px;
+  font-size: 2.5rem;
   color: #4E4E51;
-  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
+  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 1.75rem;
   color: #4E4E51;
 }
-
 .checkbox-label {
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #4E4E51;
-  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
+  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .item {

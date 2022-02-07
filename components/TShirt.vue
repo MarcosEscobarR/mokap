@@ -48,8 +48,8 @@ export default {
 .img-container {
   position: relative;
   img {
-    width: 900px;
-    height: 900px;
+    width: 560px;
+    height: 560px;
     overflow: hidden;
     object-fit: contain;
   }
@@ -61,8 +61,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   img {
-    width: 450px;
-    height: 450px;
+    width: 350px;
+    height: 350px;
     size: 450px;
   }
 }
@@ -73,8 +73,8 @@ export default {
   left: 65%;
   transform: translate(-50%, -50%);
   img {
-    width: 170px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
     size: 120px;
   }
 }
@@ -84,7 +84,7 @@ export default {
   .price-title {
     display: block;
     color: #e0e0e0;
-    font-size: 35px;
+    font-size: 2.5rem;
     font-family: 'Open Sans - Bold',"Roboto", sans-serif;
     text-align: center;
     margin: 0;
@@ -93,7 +93,7 @@ export default {
 
   .price {
     display: block;
-    font-size: 80px;
+    font-size: 3rem;
     color: white;
     font-family: 'Open Sans - Bold',"Roboto", sans-serif;
     font-weight: bold;

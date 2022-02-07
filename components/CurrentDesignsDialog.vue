@@ -114,7 +114,7 @@ export default {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  height: 800px;
+  height: 600px;
   overflow: auto;
 }
 

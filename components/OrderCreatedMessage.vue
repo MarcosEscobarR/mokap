@@ -37,7 +37,7 @@ export default {
 }
 
   .big-title {
-    font-size: 70px;
+    font-size: 4rem;
     font-weight: bold;
     text-align: center;
     color: #4E4E51;
@@ -52,6 +52,7 @@ export default {
 .container {
   height: 100vh;
   width: 100%;
+  padding: 0 100px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -49,7 +49,7 @@ export default {
 .radio-toolbar {
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: 10rem;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -63,19 +63,19 @@ export default {
   background-color: black;
   border: 2px solid black;
   border-radius: 6px;
-  width: 80px;
-  height: 80px;
+  width: 4rem;
+  height: 4rem;
 }
 
 .radio-toolbar .radio-white {
   cursor: pointer;
   display: inline-block;
   background-color: white;
-  font-size: 16px;
+  font-size: 1rem;
   border: 2px solid grey;
   border-radius: 8px;
-  width: 80px;
-  height: 80px;
+  width: 4rem;
+  height: 4rem;
 }
 
 .radio-toolbar label:hover {
