@@ -35,14 +35,14 @@ export default {
 
 .big-title {
   color: white;
-  font-size: 80px;
+  font-size: 3.35rem;
   line-height: 4rem;
   font-weight: 800;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
-  font-size: 30px;
+  font-size: 1rem;
   color: #e0e0e0;
   font-weight: 200;
 }
