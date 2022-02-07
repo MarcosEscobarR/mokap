@@ -137,7 +137,7 @@ export default Vue.extend({
   align-items: center;
 }
 
-@media screen and(min-width:1700px)and(max-width:1200px){
+@media screen and(min-width:1025px)and(max-width:1200px){
   .container {
     width: 90%;
   }
@@ -165,7 +165,7 @@ export default Vue.extend({
     }
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px){
+@media screen and(min-height: 800px) and (max-height: 1024px){
   .container {
     width: 90%;
   }

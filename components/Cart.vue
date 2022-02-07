@@ -5,7 +5,7 @@
         <p>Resumen de Pedido</p>
       </div>
       <div class="row" style="height: 100%">
-        <div class="col">
+        <div class="custom-col">
           <p class="subt">
             Entregamos pedidos en la Zona Marcada
           </p>
@@ -20,7 +20,7 @@
             </p>
           </div>
         </div>
-        <div class="col">
+        <div class="custom-col">
           <div v-if="orders.length === 0" class="empty-cart">
             <div class="empty-cart-items">
               <img src="sad%20face.png" alt="sad-face">
@@ -176,6 +176,9 @@ export default Vue.extend({
   display: flex;
   justify-content: space-evenly;
 }
+.custom-col {
+  width: 50%;
+}
 .form-divider{
   display: block;
 }
@@ -324,7 +327,7 @@ export default Vue.extend({
   }
 }
 
-@media screen and(min-width: 2000px) and(max-width: 1200px) {
+@media screen and(min-width:1025px) and(max-width: 1200px) {
   .totals {
     width: 100%;
     display: flex;
@@ -376,7 +379,7 @@ export default Vue.extend({
     }
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px) {
+@media screen and(min-height: 800px) and (max-height: 1024px) {
   .totals {
     width: 100%;
     display: flex;

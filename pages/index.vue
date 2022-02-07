@@ -15,7 +15,7 @@
         </div>
         <home-image v-if="!createNewOrder" />
         <div v-else>
-          <custozmize v-if="step === 1" />
+          <customize v-if="step === 1" />
           <design-t-shirt v-if="step === 2" />
           <order-created-message v-if="step === 3" />
         </div>
@@ -115,7 +115,7 @@ export default {
   top: 20px;
 }
 
-@media screen and (min-width: 2000px) and (max-width: 1200px) {
+@media screen and (min-width:1025px) and (max-width: 1200px) {
   .cart-img {
     width: 50px;
   }
@@ -127,7 +127,7 @@ export default {
     }
   }
 }
-@media screen and (min-height: 800px) and (max-height: 1999px) {
+@media screen and (min-height: 800px) and (max-height: 1024px) {
   .cart-img {
     width: 70px;
   }

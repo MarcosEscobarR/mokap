@@ -145,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
   opacity: 0;
 }
 
-@media screen and(min-width: 2000px) and(max-width: 1200px) {
+@media screen and(min-width:1025px) and(max-width: 1200px) {
   .container {
     width: 90%;
   }
@@ -171,7 +171,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px) {
+@media screen and(min-height: 800px) and (max-height: 1024px) {
   .container {
     width: 90%;
   }

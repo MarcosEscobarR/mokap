@@ -57,14 +57,14 @@ export default {
   font-weight: 600;
 }
 
-@media screen and (min-width: 2000px) and (max-width: 1200px) {
+@media screen and (min-width:1025px) and (max-width: 1200px) {
   .btn {
     height: 50px;
     font-size: 20px;
     width: 200px;
   }
 }
-@media screen and (min-height: 800px) and (max-height: 1999px) {
+@media screen and (min-height: 800px) and (max-height: 1024px) {
   .btn {
     height: 50px;
     font-size: 20px;

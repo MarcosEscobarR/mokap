@@ -154,12 +154,12 @@ export default {
   padding-top: 30px;
 }
 
-@media screen and(min-width:1700px)and(max-width:1200px){
+@media screen and(min-width:1025px)and(max-width:1200px){
   .grid {
     height: 600px;
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px){
+@media screen and(min-height: 800px) and (max-height: 1024px){
   .grid {
     height: 600px;
   }

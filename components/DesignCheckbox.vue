@@ -115,7 +115,7 @@ export default {
   font-weight: bold;
 }
 
-@media screen and(min-width: 2000px) and(max-width: 1200px) {
+@media screen and(min-width:1025px) and(max-width: 1200px) {
   .radio-toolbar {
     width: 400px;
     flex-wrap: wrap;
@@ -129,7 +129,7 @@ export default {
 
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px){
+@media screen and(min-height: 800px) and (max-height: 1024px){
   .radio-toolbar {
     width: auto;
     justify-content: left;

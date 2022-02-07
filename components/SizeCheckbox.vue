@@ -93,7 +93,7 @@ export default {
   font-weight: bolder;
   color: #43BFA2;
 }
-@media screen and(min-width:1700px)and(max-width:1200px){
+@media screen and(min-width:1025px)and(max-width:1200px){
   .radio-toolbar {
     width: auto;
   }
@@ -103,7 +103,7 @@ export default {
     height: 60px;
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1999px){
+@media screen and(min-height: 800px) and (max-height: 1024px){
   .radio-toolbar {
     width: auto;
   }

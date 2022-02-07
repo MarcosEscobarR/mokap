@@ -11,7 +11,7 @@
       </div>
       <v-spacer/>
       <div class="btn-container">
-        <custom-button title="Haz tu Pedido >" @click="$store.commit('createNewOrder')"/>
+        <custom-button title="Haz tu Pedido >" @click="$store.commit('createNewOrder', true)"/>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@ export default {
   height: min-content;
 }
 
-@media screen and (min-width: 2000px) and (max-width: 1200px) {
+@media screen and (min-width:1025px) and (max-width: 1200px) {
   .big-title {
     font-size: 50px;
   }
@@ -68,7 +68,16 @@ export default {
     font-size: 19px;
   }
 }
-@media screen and (min-height: 800px) and (max-height: 1999px) {
+@media screen and (min-height: 800px) and (max-height: 1024px) {
+  .big-title {
+    font-size: 65px;
+  }
+  .sub-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-height: 1024px) and (max-height: 1200px) {
   .big-title {
     font-size: 65px;
   }
