@@ -70,10 +70,13 @@ export default {
 .cart-img-container {
   position: relative;
   cursor: pointer;
+  img {
+    width: 60px;
+  }
   .counter {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
     background-color: #D66A6A;
     z-index: 300;
@@ -81,6 +84,7 @@ export default {
     top: 10px;
 
     p {
+      font-size: 12px;
       text-align: center;
       color: white;
       font-weight: bold;

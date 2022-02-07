@@ -82,28 +82,28 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 150px  0 50px 0;
+  padding: 50px 0;
 }
 .big-title {
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
   font-weight: bold;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: #4E4E51;
 }
 .checkbox-label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .item {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .navigator {

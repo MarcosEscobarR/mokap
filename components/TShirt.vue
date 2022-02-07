@@ -48,8 +48,8 @@ export default {
 .img-container {
   position: relative;
   img {
-    width: 560px;
-    height: 560px;
+    width: 520px;
+    height: 520px;
     overflow: hidden;
     object-fit: contain;
   }
@@ -61,8 +61,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   img {
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     size: 450px;
   }
 }

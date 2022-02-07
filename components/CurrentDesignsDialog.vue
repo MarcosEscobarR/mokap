@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialogModel" max-width="1360px">
+  <v-dialog v-model="dialogModel" max-width="1260px">
     <v-card class="pa-10">
       <div class="grid">
         <div
@@ -106,15 +106,15 @@ export default {
 .radio-toolbar {
   display: flex;
   justify-content: space-between;
-  width: 300px;
-  height: 350px;
+  width: 200px;
+  height: 250px;
   margin: 5px;
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
-  height: 600px;
+  height: 480px;
   overflow: auto;
 }
 
@@ -125,14 +125,14 @@ export default {
 }
 
 .radio-toolbar .img-container {
-  width: 300px;
-  height: 350px;
+  width: 200px;
+  height: 250px;
   cursor: pointer;
 
   img {
     object-fit: contain;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 
   p {
