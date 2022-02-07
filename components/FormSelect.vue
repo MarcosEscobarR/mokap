@@ -41,13 +41,13 @@ export default {
 <style scoped lang="scss">
 label {
   display: block;
-  font-size: 25px;
+  font-size: 13px;
   font-weight: 300;
   color: #8B8888;
 }
 
 .form {
-  margin: 20px 0;
+  margin: 0 5px ;
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){

@@ -69,7 +69,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .container {
-  width: 60%;
   height: 100%;
   padding: 0;
   display: flex;
@@ -79,6 +78,7 @@ export default Vue.extend({
 }
 .main {
   height: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

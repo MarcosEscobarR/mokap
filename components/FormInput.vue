@@ -40,7 +40,8 @@ label {
 }
 
 .form {
-  margin: 20px 0;
+  margin: 0 5px ;
+  width: 100%;
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){

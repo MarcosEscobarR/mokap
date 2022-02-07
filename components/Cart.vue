@@ -81,6 +81,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="btn-container">
                 <p class="back" @click="step = 1">
                   Atras
@@ -201,9 +202,9 @@ export default Vue.extend({
   display: flex;
   justify-content: end;
   margin-top: auto;
-  position: absolute;
-  bottom: 100px;
-  right: 0;
+  position: relative;
+  //bottom: 100px;
+  //right: 0;
 }
 
 .total {
@@ -262,7 +263,7 @@ export default Vue.extend({
 
 .card {
   width: 80%;
-  height: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;
@@ -279,6 +280,11 @@ export default Vue.extend({
     text-align: center;
     color: #4e4e51;
   }
+}
+
+.form-divider {
+  display: flex;
+  width: 100%;
 }
 
 .subt {
