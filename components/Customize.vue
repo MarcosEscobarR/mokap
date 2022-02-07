@@ -69,7 +69,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .container {
-  height: 100%;
+  height: 100vh;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -77,8 +77,7 @@ export default Vue.extend({
   align-items: center;
 }
 .main {
-  height: 400px;
-  width: 60%;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

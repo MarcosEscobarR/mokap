@@ -62,7 +62,7 @@ export default {
 <style scoped lang="scss">
 .container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -71,7 +71,6 @@ export default {
 }
 
 .main {
-  height: 100%;
   width: 450px;
   display: flex;
   flex-direction: column;
