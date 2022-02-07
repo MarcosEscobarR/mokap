@@ -59,7 +59,10 @@ export default {
       this.$store.commit('setLoading')
       const img = document.getElementById(this.indexSelected + '-img')
       const blob = await this.$axios.$get(img.src, { responseType: 'blob' })
-      const file = new File([blob], Date.now().toString(), { type: blob.type, lastModified: Date.now() })
+      const file = new File([blob], Date.now().toString(), {
+        type: blob.type,
+        lastModified: Date.now()
+      })
       if (!file.type.match('image.*')) {
         alert('no es una imagen')
       }
@@ -74,7 +77,10 @@ export default {
         .catch(e => console.log(e))
 
       uploadTask.then((url) => {
-        this.$store.commit('setOrder', { image: url, TShirtBasic: false })
+        this.$store.commit('setOrder', {
+          image: url,
+          TShirtBasic: false
+        })
         this.$store.commit('setLoading')
         this.dialogModel = false
       })
@@ -118,7 +124,7 @@ export default {
   width: 0;
 }
 
- .radio-toolbar .img-container {
+.radio-toolbar .img-container {
   width: 300px;
   height: 350px;
   cursor: pointer;
@@ -146,6 +152,7 @@ export default {
   background-color: #43BFA2;
   font-weight: bold;
 }
+
 .btn-container {
   width: 100%;
   display: flex;
@@ -154,18 +161,31 @@ export default {
   padding-top: 30px;
 }
 
-@media screen and(min-width:1025px)and(max-width:1200px){
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
   .grid {
-    height: 600px;
+    height: 500px;
   }
-}
-@media screen and(min-height: 800px) and (max-height: 1024px){
-  .grid {
-    height: 600px;
+
+  .radio-toolbar {
+    width: 200px;
+    height: 250px;
+  }
+  .radio-toolbar .img-container {
+    width: 200px;
+    height: 250px;
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    p {
+      font-size: 20px;
+    }
   }
 }
 
-@media screen and(max-width:1024px)and(min-width:769px){
+@media screen and(max-width: 1024px) and(min-width: 769px) {
   .grid {
     height: 500px;
   }
@@ -185,14 +205,14 @@ export default {
     p {
       font-size: 20px;
     }
-}
+  }
 }
 
-@media screen and(max-width:768px)and(min-width:481px){
+@media screen and(max-width: 768px) and(min-width: 481px) {
   //Disenhomobile
 }
 
-@media screen and(max-width:480px)and(min-width:320px){
+@media screen and(max-width: 480px) and(min-width: 320px) {
   //Disenhomobile
 }
 </style>

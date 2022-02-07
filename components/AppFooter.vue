@@ -26,13 +26,13 @@
               <div class="img-container">
                 <img src="location.png" alt="location">
               </div>
-              <p>Bélgica 4624, Asunción, Paraguay</p>
+              <a>Bélgica 4624, Asunción, Paraguay</a>
             </div>
             <div class="information">
               <div class="img-container">
                 <img src="whatsapp.png" alt="whatsapp">
               </div>
-              <p>0986 168880</p>
+              <a href="#">0986 168880</a>
             </div>
           </div>
 
@@ -73,8 +73,8 @@ export default {}
   justify-content: space-evenly;
 }
 .white-card {
-  width: 600px;
-  height: 350px;
+  width: 450px;
+  height: 250px;
   border-radius: 25px;
   background-color: white;
   display: flex;
@@ -85,19 +85,21 @@ export default {}
   position: relative;
 
   .phrase {
-    padding-bottom: 20px;
+    padding-bottom: 0rem;
 
     p {
-      font-size: 25px;
+      font-size: 1.1rem;
       color: #4E4E51;
+      text-align: center;
+      font-weight: 500;
     }
 
   }
 
   .author {
-    margin-left: auto;
-    font-weight: bold;
-    font-size: 25px;
+    margin-left: 12rem;
+    font-weight: 800;
+    font-size: 1rem;
     color: #4E4E51;
   }
 
@@ -134,7 +136,7 @@ export default {}
 
   p {
     color: white;
-    font-size: 30px;
+    font-size: 0.9rem;
     font-weight: 200;
   }
 }
@@ -153,29 +155,30 @@ export default {}
 .information {
   display: flex;
 
-  p {
-    font-size: 35px;
+  a {
+    text-decoration: none;
+    font-size: 1rem;
     color: white;
+    font-weight: bold;
   }
 }
 
 .img-container {
-  width: 70px;
-
+  width: fit-content;
+  margin-right: 0.5rem;
   img {
-    width: 40px;
+    width: 0.9rem;
   }
 }
 
 .networks {
   margin-top: 10px;
   display: flex;
-  justify-content: space-evenly;
-
-  a {
-    img {
-      width: 100px;
-    }
+  justify-content: space-around;
+  padding: 0 5rem;
+  width: 100%;
+  img {
+    width: 60px;
   }
 }
 
@@ -186,12 +189,14 @@ export default {}
 
     .phrase {
       p {
-        font-size: 16.6px;
+        font-size: 1rem;
       }
     }
 
     .author {
-      font-size: 16.6px;
+      font-size: 1rem;
+      margin-left: 0;
+      text-align: center;
     }
   }
 
@@ -210,6 +215,7 @@ export default {}
   }
 
   .networks {
+    padding: 0;
     img {
       width: 80px;
     }
@@ -243,6 +249,7 @@ export default {}
     }
 
     .author {
+      margin-left: 0;
       font-size: 12px;
     }
   }

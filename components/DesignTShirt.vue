@@ -171,32 +171,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1024px) {
-  .container {
-    width: 90%;
-  }
-  .main {
-    padding: 150px 0;
-  }
-  .big-title {
-    font-size: 45px;
-  }
-
-  .sub-title {
-    font-size: 25px;
-  }
-
-  .item {
-    padding: 10px 0;
-  }
-  .btn-container {
-    width: 300px;
-
-    .back {
-      font-size: 20px;
-    }
-  }
-}
 
 @media screen and(max-width: 1024px) and(min-width: 769px) {
   .container {

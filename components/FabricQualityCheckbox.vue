@@ -95,16 +95,6 @@ export default {
     height: 60px;
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1024px){
-  .radio-toolbar {
-    width: auto;
-  }
-  .radio-toolbar label {
-    font-size: 26px;
-    width: 150px;
-    height: 70px;
-  }
-}
 
 @media screen and(max-width:1024px)and(min-width:769px){
   .radio-toolbar {

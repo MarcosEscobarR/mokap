@@ -34,7 +34,7 @@ export default {
 <style scoped lang="scss">
 label {
   display: block;
-  font-size: 25px;
+  font-size: 1rem;
   font-weight: 300;
   color: #8B8888;
 }
@@ -44,12 +44,9 @@ label {
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){
-  label {
-    font-size: 16px;
-  }
 
   .form {
-    margin: 0;
+    margin: 0 5px ;
   }
 }
 @media screen and(min-height: 800px) and (max-height: 1024px){
@@ -58,13 +55,13 @@ label {
   }
 
   .form {
-    margin: 0;
+    margin: 0 5px ;
   }
 }
 
 @media screen and(max-width:1024px)and(min-width:769px){
   label {
-    font-size: 13px;
+    font-size: .9rem;
   }
 
   .form {

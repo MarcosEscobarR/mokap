@@ -11,7 +11,7 @@
     </div>
     <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">{{total.toLocaleString()}} Gs</span>
+      <span class="price">{{ total.toLocaleString() }} Gs</span>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
       }
     },
     total: {
-      get() {
+      get () {
         return this.$store.getters.total
       }
     }
@@ -143,50 +143,6 @@ export default {
     img {
       width: 150px;
       height: 150px;
-      size: 120px;
-    }
-  }
-}
-
-@media screen and(min-height: 800px) and (max-height: 1024px){
-  .container {
-    justify-content: space-around;
-  }
-  .img-container {
-    img {
-      width: 650px;
-      height: 650px;
-    }
-  }
-
-  .price-container {
-    .price-title {
-      font-size: 25px;
-    }
-    .price {
-      font-size: 57px;
-    }
-  }
-
-  .center-design-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    img {
-      width: 350px;
-      height: 350px;
-    }
-  }
-
-  .chest-design-container {
-    position: absolute;
-    top: 35%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    img {
-      width: 130px;
-      height: 130px;
       size: 120px;
     }
   }

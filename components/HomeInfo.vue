@@ -71,21 +71,14 @@ export default {
     font-size: 1rem;
   }
 }
-@media screen and (min-height: 800px) and (max-height: 1024px) {
-  .big-title {
-    font-size: 65px;
-  }
-  .sub-title {
-    font-size: 32px;
-  }
-}
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .big-title {
-    font-size: 45px;
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
   .sub-title {
-    font-size: 15px;
+    font-size: .8rem;
   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {

@@ -71,19 +71,6 @@ export default {
     width: 200px;
   }
 }
-@media screen and(min-height: 800px) and (max-height: 1024px){
-  .container {
-    padding: 0 30px ;
-  }
-  .big-title {
-    font-size: 40px;
-  }
-  .btn-outlined {
-    height: 50px;
-    font-size: 20px;
-    width: 200px;
-  }
-}
 
 @media screen and(max-width:1024px)and(min-width:769px){
   .container {

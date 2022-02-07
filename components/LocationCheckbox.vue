@@ -77,24 +77,11 @@ export default {
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .radio-toolbar {
-    width: 400px;
+    width: 330px;
   }
   .radio-toolbar label {
     width: 150px;
     height: 60px;
-    font-size: 20px;
-
-  }
-}
-@media screen and(min-height: 800px) and (max-height: 1024px) {
-  .radio-toolbar {
-    width: auto;
-    justify-content: left;
-  }
-  .radio-toolbar label {
-    margin-right: 10px;
-    width: 150px;
-    height: 70px;
     font-size: 20px;
 
   }

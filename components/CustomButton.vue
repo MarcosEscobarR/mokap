@@ -60,14 +60,7 @@ export default {
 @media screen and (min-width:1025px) and (max-width: 1200px) {
   .btn {
     height: 50px;
-    font-size: 20px;
-    width: 200px;
-  }
-}
-@media screen and (min-height: 800px) and (max-height: 1024px) {
-  .btn {
-    height: 50px;
-    font-size: 20px;
+    font-size: 1rem;
     width: 200px;
   }
 }

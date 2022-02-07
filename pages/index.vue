@@ -97,7 +97,7 @@ export default {
   height: 100vh;
   width: 48vw;
   background-color: #4E4E51;
-  box-shadow: 5px 0px 6px rgb(97 97 97 / 30%);
+  box-shadow: 5px 0px 6px rgba($color: #616161, $alpha: 0.3);
   position: relative;
   z-index: 200;
 }
@@ -118,10 +118,12 @@ export default {
 @media screen and (min-width:1025px) and (max-width: 1200px) {
   .cart-img {
     width: 50px;
+    left: 80%;
   }
 
   .cart-img-container {
     .counter {
+      left: 83%;
       width: 25px;
       height: 25px;
     }

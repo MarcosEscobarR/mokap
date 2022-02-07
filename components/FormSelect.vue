@@ -56,16 +56,7 @@ label {
   }
 
   .form {
-    margin: 0;
-  }
-}
-@media screen and(min-height: 800px) and (max-height: 1024px){
-  label {
-    font-size: 16px;
-  }
-
-  .form {
-    margin: 0;
+    font-size: 13px;
   }
 }
 

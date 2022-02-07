@@ -3,7 +3,7 @@
     <img src="logo%20mokap.png" class="logo" alt="logo" @click="$store.commit('resetCart')">
     <div class="info-container">
       <div class="info-text">
-        <p>Que Hacemos</p>
+        <a href="#">Que Hacemos</a>
       </div>
       <v-spacer/>
       <div class="info-text">
@@ -24,8 +24,8 @@ export default {}
 .appbar-container {
   display: flex;
   justify-content: space-between;
-  padding: 10px 60px;
-  height: 100px;
+  padding: 10px 60px 10px 118px;
+  height: 4.5rem;
 }
 
 .info-container {
@@ -34,38 +34,33 @@ export default {}
   align-content: center;
 
   .info-text {
-    font-size: 20px;
-    padding: 20px;
+    font-size: 0.85rem;
+    margin: auto;
+    padding: 0 0 0 1.4rem;
+    font-weight: 600;
+    display: flex;
 
     a {
-      color: white;
+      color: #e0e0e0;
       text-decoration: none;
     }
 
     p {
-      color: white;
+      color: #e0e0e0;
     }
   }
 }
 
 @media screen and (min-width:1025px) and (max-width: 1200px) {
-  .info-container {
-    .info-text {
-      font-size: 15px;
-    }
-  }
-
-  .logo {
-    align-self: center;
-    width: 100px;
-    height: 40px;
+  .appbar-container {
+    padding: 0 10px;
   }
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .info-container {
     .info-text {
-      font-size: 13px;
+      font-size: .8rem  ;
       text-align: center;
       align-self: center;
     }
@@ -73,8 +68,12 @@ export default {}
 
   .logo {
     align-self: center;
-    width: 100px;
+    width: 120px;
     height: 40px;
+  }
+
+  .appbar-container {
+    padding: 0 10px;
   }
 }
 
