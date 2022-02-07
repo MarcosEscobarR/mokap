@@ -72,7 +72,7 @@ export default {
 
 .main {
   height: 100%;
-  width: 70%;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
