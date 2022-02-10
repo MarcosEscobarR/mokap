@@ -254,6 +254,7 @@ export default Vue.extend({
 .cart-container {
   width: 100vw;
   height: 100vh;
+  min-height: 900px;
   background-color: #E0E0E0;
   display: flex;
   justify-content: center;
@@ -264,6 +265,7 @@ export default Vue.extend({
 .card {
   width: 80%;
   height: 90%;
+  min-height: 600px;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;

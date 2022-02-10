@@ -99,6 +99,7 @@ export default {
 
 .grey-container {
   height: 100vh;
+  min-height: 650px;
   width: 48vw;
   background-color: #4E4E51;
   box-shadow: 5px 0px 6px rgba($color: #616161, $alpha: 0.3);

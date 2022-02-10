@@ -64,6 +64,7 @@ export default {}
 <style scoped lang="scss">
 .footer {
   height: 65vh;
+  min-height: 500px;
   background-color: #4E4E51;
   display: flex;
   flex-direction: column;
