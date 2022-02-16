@@ -91,8 +91,9 @@ export default {
   justify-content: center;
   align-content: center;
   background-color: white;
-  font-family: 'Open Sans', "Roboto", sans-serif;
+  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
   font-size: 1.3rem;
+  line-height: 1.4rem;
   border: 2px solid #8B8888;
   color: #8B8888;
   border-radius: 6px;
@@ -122,7 +123,7 @@ export default {
     justify-content: left;
   }
   .radio-toolbar label {
-    margin: 10px;
+    margin: 10px 30px 10px 0;
     width: 150px;
     height: 60px;
     font-size: 20px;

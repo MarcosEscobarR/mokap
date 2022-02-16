@@ -11,7 +11,7 @@
       </div>
       <v-spacer/>
       <div class="btn-container">
-        <custom-button title="Haz tu Pedido >" @click="$store.commit('createNewOrder', true)"/>
+        <custom-button title="Haz tu Pedido" @click="$store.commit('createNewOrder', true)"/>
       </div>
     </div>
   </div>
@@ -36,13 +36,13 @@ export default {
 .big-title {
   color: white;
   font-size: 3.35rem;
-  line-height: 4rem;
+  line-height: 4.5rem;
   font-weight: 800;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #e0e0e0;
   font-weight: 200;
 }
@@ -57,7 +57,7 @@ export default {
 }
 
 .information {
-  width: 60%;
+  width: 400px;
   height: min-content;
 }
 

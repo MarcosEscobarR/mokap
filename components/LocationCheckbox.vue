@@ -52,7 +52,7 @@ export default {
   justify-content: center;
   align-content: center;
   background-color: white;
-  font-family: 'Open Sans',"Roboto", sans-serif;
+  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
   font-size: 1.5rem;
   border: 2px solid #8B8888;
   color: #8B8888;

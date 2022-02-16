@@ -37,7 +37,7 @@ export default {
 }
 
   .big-title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     color: #4E4E51;

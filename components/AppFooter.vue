@@ -19,9 +19,11 @@
       </div>
       <div class=" d-flex justify-center">
         <div class="info-container">
-          <img src="logo%20mokap.png" class="logo" alt="logo">
+          <div class="logo-container">
+            <img src="logo%20mokap.png" class="logo" alt="logo">
+          </div>
 
-          <div>
+          <div class="information-container">
             <div class="information">
               <div class="img-container">
                 <img src="location.png" alt="location">
@@ -37,9 +39,15 @@
           </div>
 
           <div class="networks">
-            <a href="https://www.linkedin.com/company/mokapy/about/" target="_blank"><img src="linkedin-logo.png" alt="lkd"></a>
-            <a href="https://m.facebook.com/mokap.py" target="_blank"><img src="facebook-app-logo.png" alt="fb"></a>
-            <a href="https://www.instagram.com/mokap.py/" target="_blank"><img src="instagram%20(1).png" alt="ig"></a>
+            <div class="network-img-container">
+              <a href="https://www.linkedin.com/company/mokapy/about/" target="_blank">
+                <img
+                  src="linkedin-logo.png"
+                  alt="lkd"
+                ></a>
+              <a href="https://m.facebook.com/mokap.py" target="_blank"><img src="facebook-app-logo.png" alt="fb"></a>
+              <a href="https://www.instagram.com/mokap.py/" target="_blank"><img src="instagram%20(1).png" alt="ig"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -62,6 +70,12 @@ export default {}
 </script>
 
 <style scoped lang="scss">
+.information-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .footer {
   height: 65vh;
   min-height: 500px;
@@ -69,10 +83,12 @@ export default {}
   display: flex;
   flex-direction: column;
 }
+
 .row {
   display: flex;
   justify-content: space-evenly;
 }
+
 .white-card {
   width: 450px;
   height: 250px;
@@ -105,10 +121,10 @@ export default {}
   }
 
   img {
-    top: -60px;
-    left: -55px;
+    top: -50px;
+    left: -45px;
     position: absolute;
-    width: 100px;
+    width: 80px;
     transform: rotate(-35deg);
   }
 }
@@ -142,15 +158,21 @@ export default {}
   }
 }
 
-.logo {
-  width: 700px;
-}
-
 .info-container {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-evenly;
+
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .logo {
+      width: 450px;
+    }
+  }
 }
 
 .information {
@@ -158,7 +180,7 @@ export default {}
 
   a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
     font-weight: bold;
   }
@@ -167,23 +189,31 @@ export default {}
 .img-container {
   width: fit-content;
   margin-right: 0.5rem;
+
   img {
-    width: 0.9rem;
+    width: 1.5rem;
   }
 }
 
 .networks {
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
-  padding: 0 5rem;
+  justify-content: center;
   width: 100%;
-  img {
-    width: 60px;
+
+  .network-img-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5rem;
+    width: 500px;
+
+    img {
+      width: 60px;
+    }
   }
 }
 
-@media screen and(min-width:1025px) and(max-width: 1200px) {
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
   .white-card {
     width: 320px;
     height: 250px;
@@ -217,8 +247,11 @@ export default {}
 
   .networks {
     padding: 0;
-    img {
-      width: 80px;
+
+    .network-img-container {
+      img {
+        width: 80px;
+      }
     }
   }
   .logo {
@@ -270,8 +303,10 @@ export default {}
   }
 
   .networks {
-    img {
-      width: 60px;
+    .network-img-container {
+      img {
+        width: 60px;
+      }
     }
   }
   .logo {

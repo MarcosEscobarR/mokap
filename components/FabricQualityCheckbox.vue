@@ -16,12 +16,11 @@
 </template>
 
 <script>
-import { Colors } from '@/helpers/constants'
 
 export default {
   props: {
     value: {
-      type: Colors
+      type: String
     }
   },
   computed: {

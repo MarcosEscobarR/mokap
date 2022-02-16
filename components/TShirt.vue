@@ -11,7 +11,7 @@
     </div>
     <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">{{ total.toLocaleString() }} Gs</span>
+      <span class="price">{{ price.toLocaleString() }} Gs</span>
     </div>
   </div>
 </template>
@@ -25,9 +25,9 @@ export default {
         return this.$store.getters.order
       }
     },
-    total: {
+    price: {
       get () {
-        return this.$store.getters.total
+        return this.$store.getters.price
       }
     }
   }
@@ -61,8 +61,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   img {
-    width: 320px;
-    height: 320px;
+    width: 230px;
+    height: 230px;
     size: 450px;
   }
 }

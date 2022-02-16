@@ -33,15 +33,16 @@
         <div class="dots-container">
           <navigator-dots class="mb-8" />
         </div>
-        <div class="btn-container">
-          <p class="back" @click="$store.commit('createNewOrder')">
-            Atras
-          </p>
-          <custom-button
-            title="Continuar >"
-            @click=" $store.commit('nextStep', 2)"
-          />
-        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <div class="btns"><p class="back" @click="$store.commit('createNewOrder')">
+        Atras
+      </p>
+        <custom-button
+          title="Continuar"
+          @click=" $store.commit('nextStep', 2)"
+        />
       </div>
     </div>
   </div>
@@ -77,15 +78,14 @@ export default Vue.extend({
   align-items: center;
 }
 .main {
-  width: 400px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 0;
 }
 .big-title {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -113,19 +113,26 @@ export default Vue.extend({
 
 .btn-container {
   display: flex;
-  width: 450px;
-  justify-content: space-between;
-  margin-left: auto;
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  bottom: 20px;
+  justify-content: center;
 
-  .custom-btn-container {
-    width: 200px;
-  }
-  .back {
-    font-size: 25px;
-    color: #8B8888;
-    align-self: end;
-    cursor: pointer ;
-    padding: 0 10px;
+  .btns {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    .custom-btn-container {
+      width: 200px;
+    }
+    .back {
+      font-size: 25px;
+      color: #8B8888;
+      align-self: end;
+      cursor: pointer ;
+      padding: 0 10px;
+    }
   }
 }
 
@@ -140,15 +147,12 @@ export default Vue.extend({
   .container {
     width: 90%;
   }
-  .main {
-    padding: 150px 0;
-  }
+
   .item {
     padding: 10px 0;
   }
 
   .btn-container {
-    width: 300px;
     .back {
       font-size: 20px;
     }
@@ -159,9 +163,7 @@ export default Vue.extend({
   .container {
     width: 90%;
   }
-  .main {
-    padding: 120px 0;
-  }
+
   .item {
     padding: 10px 0;
   }
@@ -177,7 +179,6 @@ export default Vue.extend({
     font-size: 25px;
   }
   .btn-container {
-    width: 300px;
     .back {
       font-size: 20px;
     }

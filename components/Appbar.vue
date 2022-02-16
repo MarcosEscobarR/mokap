@@ -34,7 +34,7 @@ export default {}
   align-content: center;
 
   .info-text {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin: auto;
     padding: 0 0 0 1.4rem;
     font-weight: 600;

@@ -36,12 +36,14 @@
         <div class="dots-container">
           <navigator-dots class="mb-8" />
         </div>
-        <div class="btn-container">
-          <p class="back" @click="$store.commit('nextStep', 1)">
-            Atras
-          </p>
-          <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
-        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <div class="btns">
+        <p class="back" @click="$store.commit('nextStep', 1)">
+          Atras
+        </p>
+        <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
       </div>
     </div>
   </div>
@@ -75,12 +77,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 0;
 }
 
 .big-title {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -108,16 +109,28 @@ export default {
 
 .btn-container {
   display: flex;
-  width: 450px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
   margin-left: auto;
+  position: absolute;
+  background-color: white;
+  bottom: 20px;
+  .btns {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
 
-  .back {
-    font-size: 25px;
-    color: #8B8888;
-    align-self: end;
-    padding: 0 10px;
-    cursor: pointer;
+    .custom-btn-container {
+      width: 200px;
+    }
+
+    .back {
+      font-size: 25px;
+      color: #8B8888;
+      align-self: end;
+      cursor: pointer;
+      padding: 0 10px;
+    }
   }
 }
 
@@ -141,15 +154,12 @@ export default {
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  opacity: 0;
+  //opacity: 0;
 }
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .container {
     width: 90%;
-  }
-  .main {
-    padding: 150px 0;
   }
   .big-title {
     font-size: 45px;
@@ -163,8 +173,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 10px 0;
   }
   .btn-container {
-    width: 300px;
-
     .back {
       font-size: 20px;
     }
@@ -174,9 +182,6 @@ input[type=number]::-webkit-outer-spin-button {
 @media screen and(max-width: 1024px) and(min-width: 769px) {
   .container {
     width: 90%;
-  }
-  .main {
-    padding: 120px 0;
   }
   .big-title {
     font-size: 35px;
@@ -190,7 +195,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 2px 0;
   }
   .btn-container {
-    width: 300px;
 
     .back {
       font-size: 20px;
