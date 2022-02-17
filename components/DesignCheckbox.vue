@@ -94,8 +94,8 @@ export default {
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
   font-size: 1.3rem;
   line-height: 1.4rem;
-  border: 2px solid #8B8888;
-  color: #8B8888;
+  border: 2px solid #E0E0E0;
+  color: #E0E0E0;
   border-radius: 6px;
   width: 9rem;
   height: 4rem;

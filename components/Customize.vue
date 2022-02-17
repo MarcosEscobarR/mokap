@@ -29,16 +29,18 @@
           <fabric-quality-checkbox v-model="order.quality" />
         </div>
       </div>
+    </div>
+
+    <div class="btn-container">
       <div class="navigator">
         <div class="dots-container">
-          <navigator-dots class="mb-8" />
+          <navigator-dots class="mb-4"/>
         </div>
       </div>
-    </div>
-    <div class="btn-container">
-      <div class="btns"><p class="back" @click="$store.commit('createNewOrder')">
-        Atras
-      </p>
+      <div class="btns">
+        <p class="back" @click="$store.commit('createNewOrder')">
+          Atras
+        </p>
         <custom-button
           title="Continuar"
           @click=" $store.commit('nextStep', 2)"
@@ -79,9 +81,12 @@ export default Vue.extend({
 }
 .main {
   width: 450px;
+  height: 550px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 25px;
 }
 .big-title {
   font-weight: bold;
@@ -102,36 +107,38 @@ export default Vue.extend({
 }
 
 .item {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .navigator {
-  height: max-content;
+  width: 100%;
   display: flex;
-  flex-direction: column;
 }
 
 .btn-container {
-  display: flex;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   background-color: white;
   bottom: 20px;
   justify-content: center;
+  align-items: center;
 
   .btns {
     width: 450px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
+
     .custom-btn-container {
       width: 200px;
     }
     .back {
-      font-size: 25px;
+      font-size: 1.1rem;
       color: #8B8888;
       align-self: end;
       cursor: pointer ;
-      padding: 0 10px;
+      padding: 10px 10px 0;
     }
   }
 }
@@ -168,17 +175,25 @@ export default Vue.extend({
     padding: 10px 0;
   }
   .big-title {
-    font-size: 35px;
+    font-size: 2rem;
   }
 
   .checkbox-label {
-    font-size: 17px;
+    font-size: 1.2rem;
   }
 
+  .main {
+    width: 350px;
+  }
   .sub-title {
     font-size: 25px;
   }
+
   .btn-container {
+    bottom: 50px;
+    .btns {
+      width: 350px;
+    }
     .back {
       font-size: 20px;
     }

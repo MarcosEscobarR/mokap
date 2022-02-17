@@ -9,7 +9,7 @@
           <p class="subt">
             Entregamos pedidos en la Zona Marcada
           </p>
-          <div class="map"/>
+          <div class="map" />
           <p class="subt">
             Detalles del envío
           </p>
@@ -39,10 +39,10 @@
             </p>
 
             <div class="cart-datatable-container">
-              <cart-datatable :orders="orders"/>
+              <cart-datatable :orders="orders" />
             </div>
 
-            <div class="d-flex justify-end mt-4">
+            <div class="d-flex justify-end ">
               <p class="subt">
                 TOTAL
               </p>
@@ -51,7 +51,7 @@
               {{ total.toLocaleString() }}
             </p>
             <div class="btn-container">
-              <custom-button title="Continuar" @click="step = 2"/>
+              <custom-button title="Continuar" @click="step = 2" />
             </div>
           </div>
 
@@ -61,11 +61,11 @@
             </p>
             <div v-if="step === 2" class="form-g">
               <v-form v-model="valid">
-                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]"/>
-                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]"/>
+                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
+                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
                 <div class="form-divider">
-                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
-                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
                 </div>
                 <form-select
                   v-model="user.payment"
@@ -87,14 +87,14 @@
                     {{ total.toLocaleString() }}
                   </p>
                 </div>
-              </div>
 
-              <div class="btn-container">
-                <p class="back" @click="step = 1">
-                  Atras
-                </p>
-                <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail"/>
-                <order-sent-dialog v-model="showDialog" @change="dialogClosed"/>
+                <div class="btn-container">
+                  <p class="back" @click="step = 1">
+                    Atras
+                  </p>
+                  <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
+                  <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
+                </div>
               </div>
             </div>
           </div>
@@ -185,10 +185,11 @@ export default Vue.extend({
 <style scoped lang="scss">
 .form-g {
   width: 100%;
+  height: 335px;
 }
 
 .cart-datatable-container {
-  height: 330px;
+  height: 355px;
   overflow: auto;
 }
 
@@ -216,7 +217,7 @@ export default Vue.extend({
   justify-content: end;
   margin-top: auto;
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   //bottom: 20px;
   right: 0;
 
@@ -297,7 +298,7 @@ export default Vue.extend({
 
 .big-title {
   width: 100%;
-
+  padding-bottom: 20px;
   p {
     font-size: 2rem;
     font-weight: 800;

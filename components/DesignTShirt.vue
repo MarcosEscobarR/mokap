@@ -32,13 +32,13 @@
           >
         </div>
       </div>
-      <div class="navigator">
-        <div class="dots-container">
-          <navigator-dots class="mb-8" />
-        </div>
-      </div>
     </div>
     <div class="btn-container">
+      <div class="navigator">
+        <div class="dots-container">
+          <navigator-dots class="mb-4" />
+        </div>
+      </div>
       <div class="btns">
         <p class="back" @click="$store.commit('nextStep', 1)">
           Atras
@@ -74,6 +74,8 @@ export default {
 
 .main {
   width: 450px;
+  height: 550px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -102,34 +104,35 @@ export default {
 }
 
 .navigator {
-  height: max-content;
   display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .btn-container {
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-direction: column;
   margin-left: auto;
   position: absolute;
   background-color: white;
   bottom: 20px;
+  align-items: center;
   .btns {
     width: 450px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
 
     .custom-btn-container {
       width: 200px;
     }
 
     .back {
-      font-size: 25px;
+      font-size: 1.1rem;
       color: #8B8888;
       align-self: end;
       cursor: pointer;
-      padding: 0 10px;
+      padding: 10px 10px 0;
     }
   }
 }
@@ -142,7 +145,7 @@ export default {
 }
 
 .quantity {
-  border: 2px solid #4E4E51;
+  border: 2px solid #E0E0E0;
   width: 100px;
   height: 60px;
   padding: 10px 0 10px 10px;
@@ -190,12 +193,17 @@ input[type=number]::-webkit-outer-spin-button {
   .sub-title {
     font-size: 25px;
   }
-
+  .main {
+    width: 350px;
+  }
   .item {
     padding: 2px 0;
   }
   .btn-container {
-
+    bottom: 50px;
+  .btns {
+    width: 350px;
+  }
     .back {
       font-size: 20px;
     }

@@ -24,17 +24,19 @@
           </div>
 
           <div class="information-container">
-            <div class="information">
-              <div class="img-container">
-                <img src="location.png" alt="location">
+            <div>
+              <div class="information">
+                <div class="img-container">
+                  <img src="location.png" alt="location">
+                </div>
+                <a>Bélgica 4624, Asunción, Paraguay</a>
               </div>
-              <a>Bélgica 4624, Asunción, Paraguay</a>
-            </div>
-            <div class="information">
-              <div class="img-container">
-                <img src="whatsapp.png" alt="whatsapp">
+              <div class="information">
+                <div class="img-container">
+                  <img src="whatsapp.png" alt="whatsapp">
+                </div>
+                <a href="#">0986 168880</a>
               </div>
-              <a href="#">0986 168880</a>
             </div>
           </div>
 
@@ -75,6 +77,7 @@ export default {}
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 .footer {
   height: 65vh;
@@ -180,9 +183,9 @@ export default {}
 
   a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: white;
-    font-weight: bold;
+    font-family: 'Open Sans - Bold', "Roboto", sans-serif;
   }
 }
 
@@ -191,7 +194,7 @@ export default {}
   margin-right: 0.5rem;
 
   img {
-    width: 1.5rem;
+    width: 2rem;
   }
 }
 
@@ -266,14 +269,16 @@ export default {}
 }
 
 @media screen and(max-width: 1024px) and(min-width: 769px) {
+  .footer {
+    height: 400px;
+  }
   .white-card {
     width: 220px;
     height: 200px;
+    margin-left: 40px;
 
     img {
-      width: 80px;
-      left: -40px;
-      top: -50px;
+      display: none;
     }
 
     .phrase {
@@ -288,17 +293,19 @@ export default {}
     }
   }
 
-  .information {
-    p {
-      font-size: 18px;
+  .information-container {
+    .information {
+      a {
+        font-size: 1.2rem;
+      }
     }
-  }
 
-  .img-container {
-    width: 35px;
+    .img-container {
+      width: 35px;
 
-    img {
-      width: 20px;
+      img {
+        width: 20px;
+      }
     }
   }
 
@@ -309,8 +316,12 @@ export default {}
       }
     }
   }
-  .logo {
-    width: 350px;
+  .info-container {
+    .logo-container {
+      .logo {
+        width: 350px;
+      }
+    }
   }
 
   .copyright {

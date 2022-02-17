@@ -63,8 +63,8 @@ export default {
   background-color: white;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
   font-size: 1.5rem;
-  border: 2px solid #8B8888;
-  color: #8B8888;
+  border: 2px solid #E0E0E0;
+  color: #E0E0E0;
   border-radius: 6px;
   width: 220px;
   height: 4rem;
