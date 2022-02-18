@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialogModel" max-width="1260px">
+  <v-dialog v-model="dialogModel" max-width="1200px">
     <v-card class="pa-10">
       <div class="grid">
         <div
@@ -145,11 +145,11 @@ export default {
 }
 
 .radio-toolbar .img-container:hover {
-  border: 1px solid #43BFA2;
+  border: 1px solid #8B8888;
 }
 
 .radio-toolbar input[type="radio"]:checked + .img-container {
-  background-color: #43BFA2;
+  background-color: #E0E0E0;
   font-weight: bold;
 }
 

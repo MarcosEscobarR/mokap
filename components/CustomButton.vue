@@ -73,7 +73,12 @@ export default {
   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-//Disenho mobile
+  .btn {
+    height: 60px;
+    width: 250px;
+    font-size: 1.8rem;
+    font-weight: normal;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {

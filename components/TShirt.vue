@@ -11,7 +11,7 @@
     </div>
     <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">{{ total.toLocaleString() }} Gs</span>
+      <span class="price">{{ price.toLocaleString() }} Gs</span>
     </div>
   </div>
 </template>
@@ -25,9 +25,9 @@ export default {
         return this.$store.getters.order
       }
     },
-    total: {
+    price: {
       get () {
-        return this.$store.getters.total
+        return this.$store.getters.price
       }
     }
   }
@@ -40,16 +40,17 @@ export default {
   width: 100%;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
 .img-container {
   position: relative;
+  height: 550px;
   img {
-    width: 520px;
-    height: 520px;
+    width: 500px;
+    height: 500px;
     overflow: hidden;
     object-fit: contain;
   }
@@ -61,15 +62,15 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   img {
-    width: 320px;
-    height: 320px;
+    width: 230px;
+    height: 230px;
     size: 450px;
   }
 }
 
 .chest-design-container {
   position: absolute;
-  top: 35%;
+  top: 31%;
   left: 65%;
   transform: translate(-50%, -50%);
   img {
@@ -80,11 +81,12 @@ export default {
 }
 .price-container {
   width: 100%;
-  margin-bottom: 50px;
+  position: absolute;
+  bottom: 20px;
   .price-title {
     display: block;
     color: #e0e0e0;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-family: 'Open Sans - Bold',"Roboto", sans-serif;
     text-align: center;
     margin: 0;
@@ -93,7 +95,7 @@ export default {
 
   .price {
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: white;
     font-family: 'Open Sans - Bold',"Roboto", sans-serif;
     font-weight: bold;
@@ -160,6 +162,7 @@ export default {
   }
 
   .price-container {
+    bottom: 50px;
     .price-title {
       font-size: 22px;
     }
@@ -170,7 +173,7 @@ export default {
 
   .center-design-container {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     img {
@@ -182,7 +185,7 @@ export default {
 
   .chest-design-container {
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 65%;
     transform: translate(-50%, -50%);
     img {

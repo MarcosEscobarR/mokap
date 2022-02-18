@@ -49,7 +49,7 @@ export default {
   margin: 10px;
   display: flex;
   justify-content: space-between;
-  width: 50px;
+  width: 40px;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -63,8 +63,8 @@ export default {
   background-color: white;
   border: 1px solid #8B8888;
   border-radius: 100%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {

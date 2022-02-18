@@ -18,7 +18,16 @@ export const state = () => ({
   navigationStep: 1,
   createOrder: false,
   loading: false,
-  total: 0
+  total: 0,
+  price: PriceCalculator([{
+    color: 'Blanco',
+    size: 'P',
+    quality: 'Media',
+    quantity: 1,
+    location: 'Centro',
+    ownTShirt: false,
+    TShirtBasic: true
+  }] as OrderModel[])
 })
 
 type State = ReturnType<typeof state>
@@ -34,13 +43,13 @@ export const mutations: MutationTree<State> = {
       quality: 'Media',
       quantity: 1,
       location: 'Centro',
-      TShirtBasic: false,
+      TShirtBasic: true,
       ownTShirt: false,
       image: null
     } as OrderModel
 
     state.navigationStep = 1
-    state.total = 0
+    state.price = PriceCalculator([state.order])
   },
 
   resetCart (state) {
@@ -50,7 +59,9 @@ export const mutations: MutationTree<State> = {
       quality: 'Media',
       quantity: 1,
       location: 'Centro',
-      TShirtBasic: false
+      TShirtBasic: true,
+      ownTShirt: false,
+      image: null
     } as OrderModel
     state.orders = [] as OrderModel[]
     state.createOrder = false
@@ -59,13 +70,15 @@ export const mutations: MutationTree<State> = {
   },
   newOrder (state) {
     if (Object.values(state.order).includes(undefined)) { return }
+    if (state.order.ownTShirt && !state.order.image) { return }
+
     state.orders.push({ ...state.order, TShirtType: state.order.image ? 'Remera Con Diseño' : 'Remera Basica' })
     state.total = PriceCalculator(state.orders)
   },
   setOrder (state, order: OrderModel) {
-    console.log(state.order)
     state.order = { ...state.order, ...order }
-    state.total = PriceCalculator([state.order])
+    console.log(state.order)
+    state.price = PriceCalculator([state.order])
   },
   nextStep (state, step) {
     state.navigationStep = step
@@ -89,5 +102,6 @@ export const getters: GetterTree<State, State> = {
   createNewOrder: state => state.createOrder,
   user: state => state.user,
   loading: state => state.loading,
-  total: state => state.total
+  total: state => state.total,
+  price: state => state.price
 }

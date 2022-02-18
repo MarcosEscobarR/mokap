@@ -29,19 +29,22 @@
           <fabric-quality-checkbox v-model="order.quality" />
         </div>
       </div>
+    </div>
+
+    <div class="btn-container">
       <div class="navigator">
         <div class="dots-container">
-          <navigator-dots class="mb-8" />
+          <navigator-dots class="mb-4"/>
         </div>
-        <div class="btn-container">
-          <p class="back" @click="$store.commit('createNewOrder')">
-            Atras
-          </p>
-          <custom-button
-            title="Continuar >"
-            @click=" $store.commit('nextStep', 2)"
-          />
-        </div>
+      </div>
+      <div class="btns">
+        <p class="back" @click="$store.commit('createNewOrder')">
+          Atras
+        </p>
+        <custom-button
+          title="Continuar"
+          @click=" $store.commit('nextStep', 2)"
+        />
       </div>
     </div>
   </div>
@@ -77,15 +80,17 @@ export default Vue.extend({
   align-items: center;
 }
 .main {
-  width: 400px;
+  width: 450px;
+  height: 550px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 0;
+  padding-bottom: 25px;
 }
 .big-title {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -102,30 +107,39 @@ export default Vue.extend({
 }
 
 .item {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .navigator {
-  height: max-content;
+  width: 100%;
   display: flex;
-  flex-direction: column;
 }
 
 .btn-container {
+  width: 100%;
   display: flex;
-  width: 450px;
-  justify-content: space-between;
-  margin-left: auto;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  bottom: 20px;
+  justify-content: center;
+  align-items: center;
 
-  .custom-btn-container {
-    width: 200px;
-  }
-  .back {
-    font-size: 25px;
-    color: #8B8888;
-    align-self: end;
-    cursor: pointer ;
-    padding: 0 10px;
+  .btns {
+    width: 450px;
+    display: flex;
+    justify-content: end;
+
+    .custom-btn-container {
+      width: 200px;
+    }
+    .back {
+      font-size: 1.1rem;
+      color: #8B8888;
+      align-self: end;
+      cursor: pointer ;
+      padding: 10px 10px 0;
+    }
   }
 }
 
@@ -140,15 +154,12 @@ export default Vue.extend({
   .container {
     width: 90%;
   }
-  .main {
-    padding: 150px 0;
-  }
+
   .item {
     padding: 10px 0;
   }
 
   .btn-container {
-    width: 300px;
     .back {
       font-size: 20px;
     }
@@ -159,25 +170,30 @@ export default Vue.extend({
   .container {
     width: 90%;
   }
-  .main {
-    padding: 120px 0;
-  }
+
   .item {
     padding: 10px 0;
   }
   .big-title {
-    font-size: 35px;
+    font-size: 2rem;
   }
 
   .checkbox-label {
-    font-size: 17px;
+    font-size: 1.2rem;
   }
 
+  .main {
+    width: 350px;
+  }
   .sub-title {
     font-size: 25px;
   }
+
   .btn-container {
-    width: 300px;
+    bottom: 50px;
+    .btns {
+      width: 350px;
+    }
     .back {
       font-size: 20px;
     }

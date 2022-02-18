@@ -1,38 +1,40 @@
 <template>
   <footer id="footer" class="footer">
-    <div class="logo-container">
-      <img src="logo%20mokap.png" class="logo" alt="logo">
-    </div>
-    <div class="info-container">
+    <div class="main">
+      <div class="logo-container">
+        <img src="logo%20mokap.png" class="logo" alt="logo">
+      </div>
+      <div class="info-container">
+        <div>
+          <div class="information">
+            <div class="img-container">
+              <img src="location.png" alt="location">
+            </div>
+            <p>Bélgica 4624, Asunción, Paraguay</p>
+          </div>
+          <div class="information">
+            <div class="img-container">
+              <img src="whatsapp.png" alt="whatsapp">
+            </div>
+            <p>0986 168880</p>
+          </div>
+        </div>
+      </div>
+
       <div>
-        <div class="information">
-          <div class="img-container">
-            <img src="location.png" alt="location">
+        <div class="networks">
+          <div class="network-img">
+            <img src="linkedin-logo.png" alt="lkd">
+            <img src="facebook-app-logo.png" alt="fb">
+            <img src="instagram%20(1).png" alt="ig">
           </div>
-          <p>Bélgica 4624, Asunción, Paraguay</p>
         </div>
-        <div class="information">
-          <div class="img-container">
-            <img src="whatsapp.png" alt="whatsapp">
+
+        <div class="copyright-container">
+          <hr>
+          <div class="copyright">
+            <p>Copyright 2022, All Rights Reserved</p>
           </div>
-          <p>0986 168880</p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="networks">
-        <div class="network-img">
-          <img src="linkedin-logo.png" alt="lkd">
-          <img src="facebook-app-logo.png" alt="fb">
-          <img src="instagram%20(1).png" alt="ig">
-        </div>
-      </div>
-
-      <div class="copyright-container">
-        <hr>
-        <div class="copyright">
-          <p>Copyright 2022, All Rights Reserved</p>
         </div>
       </div>
     </div>
@@ -45,8 +47,15 @@ export default {}
 
 <style scoped lang="scss">
 .footer {
+  padding-top: 100px;
   height: 100vh;
   background-color: #4E4E51;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,7 +110,7 @@ export default {}
 
   hr {
     color: white;
-    width: 80%;
+    width: 100%;
     margin: auto;
   }
 }
@@ -110,12 +119,13 @@ export default {}
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: 10px 0;
+  padding: 10px 30px;
 
   p {
     color: white;
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
   }
 }
 
@@ -134,6 +144,7 @@ export default {}
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 100px;
 }
 
 .information {
@@ -144,8 +155,10 @@ export default {}
   align-items: center;
 
   p {
-    font-size: 25px;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
     color: white;
+    text-align: center;
   }
 }
 
@@ -161,11 +174,12 @@ export default {}
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   .network-img {
-    width: 280px;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     img {
       width: 60px;
     }

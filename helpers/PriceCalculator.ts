@@ -1,6 +1,7 @@
 import { OrderModel } from '~/models/OrderModel'
 
 export function PriceCalculator (orders: OrderModel[]): number {
+  console.log(orders)
   let price = 0
 
   orders.forEach((order) => {

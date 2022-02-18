@@ -9,9 +9,9 @@
           Remeras de la mejor calidad 100% algodón, estampadas con tecnologia DTG - lo ultimo en impresión textil.
         </p>
       </div>
-      <v-spacer/>
+      <v-spacer />
       <div class="btn-container">
-        <custom-button title="Haz tu Pedido >" @click="$store.commit('createNewOrder', true)"/>
+        <custom-button title="Haz tu Pedido" @click="$store.commit('createNewOrder', true)" />
       </div>
     </div>
   </div>
@@ -36,13 +36,13 @@ export default {
 .big-title {
   color: white;
   font-size: 3.35rem;
-  line-height: 4rem;
+  line-height: 4.5rem;
   font-weight: 800;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #e0e0e0;
   font-weight: 200;
 }
@@ -57,7 +57,7 @@ export default {
 }
 
 .information {
-  width: 60%;
+  width: 400px;
   height: min-content;
 }
 
@@ -70,6 +70,10 @@ export default {
   .sub-title {
     font-size: 1rem;
   }
+
+  .information {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
@@ -81,13 +85,29 @@ export default {
     font-size: .8rem;
   }}
 
+.information {
+  width: 300px;
+}
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
+  .information {
+    width: 100%;
+    display: flex;justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   .big-title {
-    font-size: 45px;
+    font-size:3.5rem;
     text-align: center;
+    width: 400px;
   }
   .sub-title {
     display: none;
+  }
+  .btn-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
   }
 }
 

@@ -19,27 +19,37 @@
       </div>
       <div class=" d-flex justify-center">
         <div class="info-container">
-          <img src="logo%20mokap.png" class="logo" alt="logo">
+          <div class="logo-container">
+            <img src="logo%20mokap.png" class="logo" alt="logo">
+          </div>
 
-          <div>
-            <div class="information">
-              <div class="img-container">
-                <img src="location.png" alt="location">
+          <div class="information-container">
+            <div>
+              <div class="information">
+                <div class="img-container">
+                  <img src="location.png" alt="location">
+                </div>
+                <a>Bélgica 4624, Asunción, Paraguay</a>
               </div>
-              <a>Bélgica 4624, Asunción, Paraguay</a>
-            </div>
-            <div class="information">
-              <div class="img-container">
-                <img src="whatsapp.png" alt="whatsapp">
+              <div class="information">
+                <div class="img-container">
+                  <img src="whatsapp.png" alt="whatsapp">
+                </div>
+                <a href="#">0986 168880</a>
               </div>
-              <a href="#">0986 168880</a>
             </div>
           </div>
 
           <div class="networks">
-            <a href="https://www.linkedin.com/company/mokapy/about/" target="_blank"><img src="linkedin-logo.png" alt="lkd"></a>
-            <a href="https://m.facebook.com/mokap.py" target="_blank"><img src="facebook-app-logo.png" alt="fb"></a>
-            <a href="https://www.instagram.com/mokap.py/" target="_blank"><img src="instagram%20(1).png" alt="ig"></a>
+            <div class="network-img-container">
+              <a href="https://www.linkedin.com/company/mokapy/about/" target="_blank">
+                <img
+                  src="linkedin-logo.png"
+                  alt="lkd"
+                ></a>
+              <a href="https://m.facebook.com/mokap.py" target="_blank"><img src="facebook-app-logo.png" alt="fb"></a>
+              <a href="https://www.instagram.com/mokap.py/" target="_blank"><img src="instagram%20(1).png" alt="ig"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -62,16 +72,26 @@ export default {}
 </script>
 
 <style scoped lang="scss">
+.information-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .footer {
   height: 65vh;
+  min-height: 500px;
   background-color: #4E4E51;
   display: flex;
   flex-direction: column;
 }
+
 .row {
   display: flex;
   justify-content: space-evenly;
 }
+
 .white-card {
   width: 450px;
   height: 250px;
@@ -104,10 +124,10 @@ export default {}
   }
 
   img {
-    top: -60px;
-    left: -55px;
+    top: -50px;
+    left: -45px;
     position: absolute;
-    width: 100px;
+    width: 80px;
     transform: rotate(-35deg);
   }
 }
@@ -141,15 +161,21 @@ export default {}
   }
 }
 
-.logo {
-  width: 700px;
-}
-
 .info-container {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-evenly;
+
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .logo {
+      width: 450px;
+    }
+  }
 }
 
 .information {
@@ -157,32 +183,40 @@ export default {}
 
   a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: white;
-    font-weight: bold;
+    font-family: 'Open Sans - Bold', "Roboto", sans-serif;
   }
 }
 
 .img-container {
   width: fit-content;
   margin-right: 0.5rem;
+
   img {
-    width: 0.9rem;
+    width: 2rem;
   }
 }
 
 .networks {
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
-  padding: 0 5rem;
+  justify-content: center;
   width: 100%;
-  img {
-    width: 60px;
+
+  .network-img-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5rem;
+    width: 500px;
+
+    img {
+      width: 60px;
+    }
   }
 }
 
-@media screen and(min-width:1025px) and(max-width: 1200px) {
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
   .white-card {
     width: 320px;
     height: 250px;
@@ -216,8 +250,11 @@ export default {}
 
   .networks {
     padding: 0;
-    img {
-      width: 80px;
+
+    .network-img-container {
+      img {
+        width: 80px;
+      }
     }
   }
   .logo {
@@ -232,14 +269,16 @@ export default {}
 }
 
 @media screen and(max-width: 1024px) and(min-width: 769px) {
+  .footer {
+    height: 400px;
+  }
   .white-card {
     width: 220px;
     height: 200px;
+    margin-left: 40px;
 
     img {
-      width: 80px;
-      left: -40px;
-      top: -50px;
+      display: none;
     }
 
     .phrase {
@@ -254,27 +293,35 @@ export default {}
     }
   }
 
-  .information {
-    p {
-      font-size: 18px;
+  .information-container {
+    .information {
+      a {
+        font-size: 1.2rem;
+      }
     }
-  }
 
-  .img-container {
-    width: 35px;
+    .img-container {
+      width: 35px;
 
-    img {
-      width: 20px;
+      img {
+        width: 20px;
+      }
     }
   }
 
   .networks {
-    img {
-      width: 60px;
+    .network-img-container {
+      img {
+        width: 60px;
+      }
     }
   }
-  .logo {
-    width: 350px;
+  .info-container {
+    .logo-container {
+      .logo {
+        width: 350px;
+      }
+    }
   }
 
   .copyright {

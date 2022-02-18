@@ -32,16 +32,18 @@
           >
         </div>
       </div>
+    </div>
+    <div class="btn-container">
       <div class="navigator">
         <div class="dots-container">
-          <navigator-dots class="mb-8" />
+          <navigator-dots class="mb-4" />
         </div>
-        <div class="btn-container">
-          <p class="back" @click="$store.commit('nextStep', 1)">
-            Atras
-          </p>
-          <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
-        </div>
+      </div>
+      <div class="btns">
+        <p class="back" @click="$store.commit('nextStep', 1)">
+          Atras
+        </p>
+        <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
       </div>
     </div>
   </div>
@@ -72,15 +74,16 @@ export default {
 
 .main {
   width: 450px;
+  height: 550px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 0;
 }
 
 .big-title {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
 }
@@ -101,23 +104,36 @@ export default {
 }
 
 .navigator {
-  height: max-content;
   display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .btn-container {
   display: flex;
-  width: 450px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
   margin-left: auto;
+  position: absolute;
+  background-color: white;
+  bottom: 20px;
+  align-items: center;
+  .btns {
+    width: 450px;
+    display: flex;
+    justify-content: end;
 
-  .back {
-    font-size: 25px;
-    color: #8B8888;
-    align-self: end;
-    padding: 0 10px;
-    cursor: pointer;
+    .custom-btn-container {
+      width: 200px;
+    }
+
+    .back {
+      font-size: 1.1rem;
+      color: #8B8888;
+      align-self: end;
+      cursor: pointer;
+      padding: 10px 10px 0;
+    }
   }
 }
 
@@ -129,7 +145,7 @@ export default {
 }
 
 .quantity {
-  border: 2px solid #4E4E51;
+  border: 2px solid #E0E0E0;
   width: 100px;
   height: 60px;
   padding: 10px 0 10px 10px;
@@ -141,15 +157,12 @@ export default {
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  opacity: 0;
+  //opacity: 0;
 }
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .container {
     width: 90%;
-  }
-  .main {
-    padding: 150px 0;
   }
   .big-title {
     font-size: 45px;
@@ -163,8 +176,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 10px 0;
   }
   .btn-container {
-    width: 300px;
-
     .back {
       font-size: 20px;
     }
@@ -175,9 +186,6 @@ input[type=number]::-webkit-outer-spin-button {
   .container {
     width: 90%;
   }
-  .main {
-    padding: 120px 0;
-  }
   .big-title {
     font-size: 35px;
   }
@@ -185,13 +193,17 @@ input[type=number]::-webkit-outer-spin-button {
   .sub-title {
     font-size: 25px;
   }
-
+  .main {
+    width: 350px;
+  }
   .item {
     padding: 2px 0;
   }
   .btn-container {
-    width: 300px;
-
+    bottom: 50px;
+  .btns {
+    width: 350px;
+  }
     .back {
       font-size: 20px;
     }

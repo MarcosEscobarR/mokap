@@ -1,5 +1,8 @@
 <template>
   <v-app>
+    <div class="mobile-appbar">
+      <app-bar-mobile />
+    </div>
     <v-main>
       <v-overlay :value="loading" style="z-index: 500">
         <v-progress-circular
@@ -10,10 +13,10 @@
       <Nuxt />
     </v-main>
     <div class="app-footer">
-      <app-footer/>
+      <app-footer />
     </div>
     <div class="mobile-footer">
-      <mobile-footer/>
+      <mobile-footer />
     </div>
   </v-app>
 </template>
@@ -39,6 +42,9 @@ export default {
   .app-footer {
     display: block;
   }
+  .mobile-appbar {
+    display: none;
+  }
   @media screen and(min-width:1025px)and(max-width:1200px){
   }
 
@@ -52,6 +58,10 @@ export default {
     }
     .app-footer {
       display: none;
+    }
+
+    .mobile-appbar {
+      display: block;
     }
   }
 

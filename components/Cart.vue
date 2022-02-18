@@ -38,15 +38,17 @@
               Carrito de compras
             </p>
 
-            <cart-datatable :orders="orders" />
+            <div class="cart-datatable-container">
+              <cart-datatable :orders="orders" />
+            </div>
 
-            <div class="d-flex justify-end mt-4">
+            <div class="d-flex justify-end ">
               <p class="subt">
                 TOTAL
               </p>
             </div>
             <p class="total">
-              {{ total }}
+              {{ total.toLocaleString() }}
             </p>
             <div class="btn-container">
               <custom-button title="Continuar" @click="step = 2" />
@@ -65,29 +67,34 @@
                   <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
                   <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
                 </div>
-                <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]" />
+                <form-select
+                  v-model="user.payment"
+                  label="Forma de Pago"
+                  :items="payment"
+                  :rules="[validators.required]"
+                />
               </v-form>
 
-              <div class="totals">
+              <div>
                 <div>
-                  <div class="d-flex justify-end mt-4">
-                    <p class="subt mr-10">
-                      TOTAL:
-                    </p>
-
-                    <p class="total">
-                      {{ total }}
+                  <div class="d-flex justify-end">
+                    <p class="subt">
+                      TOTAL
                     </p>
                   </div>
-                </div>
-              </div>
 
-              <div class="btn-container">
-                <p class="back" @click="step = 1">
-                  Atras
-                </p>
-                <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
-                <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
+                  <p class="total">
+                    {{ total.toLocaleString() }}
+                  </p>
+                </div>
+
+                <div class="btn-container">
+                  <p class="back" @click="step = 1">
+                    Atras
+                  </p>
+                  <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
+                  <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
+                </div>
               </div>
             </div>
           </div>
@@ -146,9 +153,14 @@ export default Vue.extend({
     async sendEmail () {
       this.step = 2
       try {
-        if (Object.values(this.user).includes(null)) { return }
+        if (Object.values(this.user).includes(null)) {
+          return
+        }
         this.$store.commit('setLoading')
-        const model: EmailSenderModel = { user: this.user, order: this.orders }
+        const model: EmailSenderModel = {
+          user: this.user,
+          order: this.orders
+        }
         await this.$axios.$post('email-sender', model)
         this.$store.commit('setLoading')
         this.showDialog = true
@@ -173,38 +185,49 @@ export default Vue.extend({
 <style scoped lang="scss">
 .form-g {
   width: 100%;
+  height: 335px;
+}
+
+.cart-datatable-container {
+  height: 355px;
+  overflow: auto;
 }
 
 .row {
   display: flex;
   justify-content: space-evenly;
 }
+
 .custom-col {
   width: 50%;
 }
-.form-divider{
+
+.form-divider {
   display: block;
 }
+
 .totals {
   display: flex;
   justify-content: end;
   width: 100%;
-}
-.back {
-  font-size: 1.1rem;
-  color: #d5d5d5;
-  align-self: end;
-  cursor: pointer;
-  margin-right: 20px;
 }
 
 .btn-container {
   display: flex;
   justify-content: end;
   margin-top: auto;
-  position: relative;
-  //bottom: 100px;
-  //right: 0;
+  position: absolute;
+  bottom: -10px;
+  //bottom: 20px;
+  right: 0;
+
+  .back {
+    font-size: 1.1rem;
+    color: #d5d5d5;
+    align-self: end;
+    cursor: pointer;
+    margin-right: 20px;
+  }
 }
 
 .total {
@@ -226,8 +249,9 @@ export default Vue.extend({
 
 .cart-items {
   //width: 500px;
-  height: 100%;
   position: relative;
+  padding: 0 10px;
+  height: 500px;
 
   .headers {
     margin-right: auto;
@@ -254,6 +278,7 @@ export default Vue.extend({
 .cart-container {
   width: 100vw;
   height: 100vh;
+  min-height: 900px;
   background-color: #E0E0E0;
   display: flex;
   justify-content: center;
@@ -263,7 +288,7 @@ export default Vue.extend({
 
 .card {
   width: 80%;
-  height: 90%;
+  height: 650px;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;
@@ -273,7 +298,7 @@ export default Vue.extend({
 
 .big-title {
   width: 100%;
-
+  padding-bottom: 20px;
   p {
     font-size: 2rem;
     font-weight: 800;
@@ -312,6 +337,7 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   padding-top: 100px;
+
   .empty-cart-items {
     height: max-content;
     display: flex;
@@ -320,14 +346,14 @@ export default Vue.extend({
     align-items: center;
     align-content: center;
 
-    .sad-face-box{
+    .sad-face-box {
       margin: auto;
       margin-bottom: 0.6rem;
       width: fit-content;
 
       img {
-          width: 180px;
-        }
+        width: 180px;
+      }
     }
 
     p {
@@ -346,18 +372,13 @@ export default Vue.extend({
   }
 }
 
-@media screen and(min-width:1025px) and(max-width: 1200px) {
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
 
   .form-divider {
     display: flex;
   }
   .map {
     height: 200px;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
   }
 
   .empty-cart {
@@ -387,11 +408,6 @@ export default Vue.extend({
   }
   .card {
     width: 90%;
-  }
-  .btn-container {
-    position: relative;
-    bottom: 0;
-    margin-bottom: 20px;
   }
   .back {
     font-size: 16px;
@@ -452,7 +468,6 @@ export default Vue.extend({
   .btn-container {
     position: relative;
     bottom: 0;
-    margin-bottom: 20px;
   }
   .back {
     font-size: 16px;
