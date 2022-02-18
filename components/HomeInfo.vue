@@ -90,12 +90,24 @@ export default {
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
+  .information {
+    width: 100%;
+    display: flex;justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   .big-title {
-    font-size: 45px;
+    font-size:3.5rem;
     text-align: center;
+    width: 400px;
   }
   .sub-title {
     display: none;
+  }
+  .btn-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
   }
 }
 
