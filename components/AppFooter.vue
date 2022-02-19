@@ -90,6 +90,7 @@ export default {}
 .row {
   display: flex;
   justify-content: space-evenly;
+  height: 100%;
 }
 
 .white-card {
