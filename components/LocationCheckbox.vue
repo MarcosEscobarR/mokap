@@ -1,29 +1,39 @@
 <template>
   <div class="radio-toolbar">
     <input
+      v-if="!order.TShirtBasic"
       id="center"
       name="location"
       type="radio"
       value="Centro"
-      checked
+      :checked="!order.TShirtBasic"
       @change="handleInput"
     >
     <label for="center">Centro</label>
 
     <input
+      v-if="!order.TShirtBasic"
       id="side"
       name="location"
       type="radio"
       value="Pecho"
+      :checked="!order.TShirtBasic"
       @change="handleInput"
     >
-    <label for="side">Pecho</label>
+    <label for="side">Bolsillo</label>
   </div>
 </template>
 
 <script>
 export default {
   name: 'LocationCheckbox',
+  computed: {
+    order: {
+      get () {
+        return this.$store.getters.order
+      }
+    }
+  },
   methods: {
     handleInput (e) {
       this.$store.commit('setOrder', { location: e.target.value })
@@ -63,6 +73,7 @@ export default {
 
 .radio-toolbar label:hover {
   border: 6px solid #43BFA2;
+  color: #616161;
 }
 
 .radio-toolbar input[type="radio"]:focus + label {

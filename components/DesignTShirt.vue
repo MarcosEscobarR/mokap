@@ -154,11 +154,10 @@ export default {
   font-size: 20px;
   font-weight: bold;
 }
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  //opacity: 0;
-}
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+  }
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .container {

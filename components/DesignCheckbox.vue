@@ -1,10 +1,10 @@
 <template>
   <div class="radio-toolbar">
     <input id="basic" name="design" type="radio" value="media" checked>
-    <label for="basic" @click="basicTShirt">Remera básica</label>
+    <label style="padding: 10px" for="basic" @click="basicTShirt">Remera básica</label>
 
-    <input id="current-design" name="design" type="radio" value="alta">
-    <label for="current-design" @click="openDialog = !openDialog">Diseños disponibles</label>
+    <input id="current-design" name="design" type="radio" value="alta" :checked="order.design === 'custom'">
+    <label for="current-design" @click="handleCustomDesignClick">Diseños disponibles</label>
 
     <input
       id="own-design"
@@ -15,6 +15,7 @@
       accept="image/*"
       @change="handleFile"
     >
+    <input id="own-design" name="design" type="radio" value="alta" :checked="order.design === 'propio'">
     <label for="own-design">Cargar tu Diseño</label>
 
     <current-designs-dialog v-model="openDialog" />
@@ -41,6 +42,10 @@ export default {
         this.$store.commit('setOrder', { TShirtBasic: true, image: null, quality: null })
       }
     },
+    handleCustomDesignClick () {
+      this.openDialog = !this.openDialog
+      this.$store.commit('setOrder', { design: 'custom' })
+    },
     handleFile () {
       this.$store.commit('setLoading')
       const file = this.$refs.file.files[0]
@@ -59,6 +64,7 @@ export default {
 
       uploadTask.then((url) => {
         this.$store.commit('setOrder', { image: url, TShirtBasic: false })
+        this.$store.commit('setOrder', { design: 'propio' })
         this.$store.commit('setLoading')
       })
     }
@@ -104,6 +110,7 @@ export default {
 
 .radio-toolbar label:hover {
   border: 6px solid #43BFA2;
+  color: #616161;
 }
 
 .radio-toolbar input[type="radio"]:focus + label {

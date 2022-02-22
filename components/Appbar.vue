@@ -45,6 +45,10 @@ export default {}
       text-decoration: none;
     }
 
+    a:hover {
+      color: #8B8888;
+    }
+
     p {
       color: #e0e0e0;
     }

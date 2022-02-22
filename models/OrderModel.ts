@@ -7,5 +7,6 @@ export interface OrderModel {
   location: 'Centro' | 'Pecho' | null,
   quantity: number,
   TShirtType: string,
-  ownTShirt: boolean
+  ownTShirt: boolean,
+  design: 'custom' | 'propio'
 }

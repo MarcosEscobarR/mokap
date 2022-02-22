@@ -72,6 +72,8 @@ export default {
 
 .radio-toolbar label:hover {
   border: 6px solid #43BFA2;
+  color: #616161;
+
 }
 
 .radio-toolbar input[type="radio"]:focus + label {

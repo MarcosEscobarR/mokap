@@ -58,9 +58,7 @@
     <div class="copyright-container">
       <hr>
       <div class="copyright">
-        <div class="img-container">
-          <img src="copyright.png" alt="copyright">
-        </div>
+        <img src="copyright.png" alt="copyright">
         <p>Copyright 2022, All Rights Reserved</p>
       </div>
     </div>
@@ -154,6 +152,12 @@ export default {}
   width: 100%;
   justify-content: center;
   padding: 10px 0;
+
+  img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
 
   p {
     color: white;
