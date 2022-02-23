@@ -8,5 +8,6 @@ export interface OrderModel {
   quantity: number,
   TShirtType: string,
   ownTShirt: boolean,
-  design: 'custom' | 'propio'
+  design: 'custom' | 'propio',
+  total: number
 }

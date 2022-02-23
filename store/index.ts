@@ -71,13 +71,13 @@ export const mutations: MutationTree<State> = {
   newOrder (state) {
     if (Object.values(state.order).includes(undefined)) { return }
     if (state.order.ownTShirt && !state.order.image) { return }
-
+    state.order = { ...state.order, total: state.price }
+    console.log(state.order)
     state.orders.push({ ...state.order, TShirtType: state.order.image ? 'Remera Con Diseño' : 'Remera Basica' })
     state.total = PriceCalculator(state.orders)
   },
   setOrder (state, order: OrderModel) {
     state.order = { ...state.order, ...order }
-    console.log(state.order)
     state.price = PriceCalculator([state.order])
   },
   nextStep (state, step) {
