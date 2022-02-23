@@ -79,7 +79,8 @@ export default {
       uploadTask.then((url) => {
         this.$store.commit('setOrder', {
           image: url,
-          TShirtBasic: false
+          TShirtBasic: false,
+          design: 'custom'
         })
         this.$store.commit('setLoading')
         this.dialogModel = false

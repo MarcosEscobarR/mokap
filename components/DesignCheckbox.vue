@@ -44,7 +44,6 @@ export default {
     },
     handleCustomDesignClick () {
       this.openDialog = !this.openDialog
-      this.$store.commit('setOrder', { design: 'custom' })
     },
     handleFile () {
       this.$store.commit('setLoading')
@@ -63,8 +62,7 @@ export default {
         .catch(e => console.log(e))
 
       uploadTask.then((url) => {
-        this.$store.commit('setOrder', { image: url, TShirtBasic: false })
-        this.$store.commit('setOrder', { design: 'propio' })
+        this.$store.commit('setOrder', { image: url, TShirtBasic: false, design: 'propio' })
         this.$store.commit('setLoading')
       })
     }
