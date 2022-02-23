@@ -157,7 +157,14 @@ export default {
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
+    height: 50px;
+    padding: 2px;
   }
+
+input[type=number]
+{
+  -moz-appearance: textfield;
+}
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .container {
