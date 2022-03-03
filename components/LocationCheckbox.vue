@@ -17,7 +17,7 @@
       name="location"
       type="radio"
       value="Pecho"
-      :checked="!order.TShirtBasic"
+      :checked="!order.TShirtBasic && order.location === 'Pecho'"
       @change="handleInput"
     >
     <label for="side">Bolsillo</label>

@@ -3,9 +3,10 @@
     <img src="logo%20mokap.png" class="logo" alt="logo" @click="$store.commit('resetCart')">
     <div class="info-container">
       <div class="info-text">
-        <a href="#">Que Hacemos</a>
+        <a @click="handleAboutClick">Que Hacemos</a>
+        <about-dialog v-model="openDialog" />
       </div>
-      <v-spacer/>
+      <v-spacer />
       <div class="info-text">
         <a href="#footer">Contacto</a>
       </div>
@@ -14,7 +15,17 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    openDialog: false
+  }),
+  methods: {
+    handleAboutClick () {
+      console.log('here')
+      this.openDialog = true
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

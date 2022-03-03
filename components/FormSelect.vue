@@ -5,6 +5,7 @@
       :rules="rules"
       :items="items"
       color="#43BFA2"
+      v-model="model"
       dense
       outlined
     />
@@ -41,7 +42,7 @@ export default {
 <style scoped lang="scss">
 label {
   display: block;
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 300;
   color: #8B8888;
 }

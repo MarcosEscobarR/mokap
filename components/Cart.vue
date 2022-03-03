@@ -48,54 +48,59 @@
               </p>
             </div>
             <p class="total">
-              {{ total.toLocaleString() }}
+              {{ total.toLocaleString('es-es') }}
             </p>
             <div class="btn-container">
               <custom-button title="Continuar" @click="step = 2" />
             </div>
           </div>
 
-          <div v-if="step === 2" class="cart-items">
-            <p class="subt">
-              Datos del Cliente
-            </p>
-            <div v-if="step === 2" class="form-g">
-              <v-form v-model="valid">
-                <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
-                <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
-                <div class="form-divider">
-                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
-                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
-                </div>
-                <form-select
-                  v-model="user.payment"
-                  label="Forma de Pago"
-                  :items="payment"
-                  :rules="[validators.required]"
-                />
-              </v-form>
+          <div v-if="step === 2">
+            <div class="cart-items">
+              <p class="subt">
+                Datos del Cliente
+              </p>
+              <div v-if="step === 2" class="form-g">
+                <v-form v-model="valid">
+                  <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
+                  <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
+                  <div class="form-divider">
+                    <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+                    <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
+                  </div>
+                  <form-select
+                    v-model="user.payment"
+                    label="Forma de Pago"
+                    :items="payment"
+                    :rules="[validators.required]"
+                  />
+                  <div class="form-divider">
+                    <form-select v-model="user.shippingMethod" label="Metodo de Envio" :items="shippingMethod" />
+                    <form-input v-model="user.address" :disabled="user.shippingMethod === 'Retiro del Local'" label="Direccion" />
+                  </div>
+                </v-form>
 
-              <div>
                 <div>
-                  <div class="d-flex justify-end">
-                    <p class="subt">
-                      TOTAL
+                  <div>
+                    <div class="d-flex justify-end">
+                      <p class="subt">
+                        TOTAL
+                      </p>
+                    </div>
+
+                    <p class="total">
+                      {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
-
-                  <p class="total">
-                    {{ total.toLocaleString() }}
-                  </p>
-                </div>
-
-                <div class="btn-container">
-                  <p class="back" @click="step = 1">
-                    Atras
-                  </p>
-                  <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
-                  <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
                 </div>
               </div>
+            </div>
+            <div class="btn-container">
+              <p class="back" @click="step = 1">
+                Atras
+              </p>
+              <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
+              <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
             </div>
           </div>
         </div>
@@ -133,11 +138,17 @@ export default Vue.extend({
       name: null,
       ruc: null,
       payment: 'Efectivo',
-      phone: null
+      phone: null,
+      address: null,
+      shippingMethod: 'Delivery'
     } as UserModel,
-    payment: ['Efectivo', 'Transferencia']
+    payment: ['Efectivo', 'Transferencia'],
+    shippingMethod: ['Delivery', 'Retiro del Local']
   }),
   computed: {
+    disableAddress (): boolean {
+      return this.user.shippingMethod === 'Retiro del Local'
+    },
     orders: {
       get (): OrderModel[] {
         return this.$store.getters.orders
@@ -185,11 +196,11 @@ export default Vue.extend({
 <style scoped lang="scss">
 .form-g {
   width: 100%;
-  height: 335px;
+  height: auto;
 }
 
 .cart-datatable-container {
-  height: 355px;
+  height: 450px;
   overflow: auto;
 }
 
@@ -200,10 +211,13 @@ export default Vue.extend({
 
 .custom-col {
   width: 50%;
+  position: relative;
 }
 
 .form-divider {
   display: block;
+  padding: 0 -5px;
+  width: calc(100% + 10px);
 }
 
 .totals {
@@ -217,7 +231,7 @@ export default Vue.extend({
   justify-content: end;
   margin-top: auto;
   position: absolute;
-  bottom: -10px;
+  //bottom: 0;
   //bottom: 20px;
   right: 0;
 
@@ -251,7 +265,7 @@ export default Vue.extend({
   //width: 500px;
   position: relative;
   padding: 0 10px;
-  height: 500px;
+  height: auto;
 
   .headers {
     margin-right: auto;
@@ -288,7 +302,8 @@ export default Vue.extend({
 
 .card {
   width: 80%;
-  height: 650px;
+  height: 800px;
+  max-height: 100vh;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;

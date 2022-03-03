@@ -1,7 +1,15 @@
 <template>
   <div class="form">
     <label>{{ label }}</label>
-    <v-text-field v-model="model" color="#43BFA2" outlined dense :rules="rules"/>
+    <v-text-field
+      v-model="model"
+      :disabled="disabled"
+      color="#43BFA2"
+      outlined
+      dense
+      :rules="rules"
+      :messages="null"
+    />
   </div>
 </template>
 
@@ -9,6 +17,10 @@
 export default {
   name: 'FormInput',
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     label: {
       type: String,
       required: true
@@ -19,6 +31,12 @@ export default {
     rules: []
   },
   computed: {
+    // disabled: {
+    //   get () {
+    //     console.log(this.$store.getters.disable)
+    //     return this.$store.getters.disable
+    //   }
+    // },
     model: {
       get () {
         return this.value
@@ -31,7 +49,11 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.v-text-field__details {
+  display: none;
+}
+
 label {
   display: block;
   font-size: 1rem;

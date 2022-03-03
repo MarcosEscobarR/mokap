@@ -3,5 +3,7 @@ export interface UserModel {
   email: string | null,
   phone: string | null,
   ruc: string | null,
-  payment: 'Efectivo' | 'Transferencia'
+  payment: 'Efectivo' | 'Transferencia',
+  address: string | null,
+  shippingMethod: 'Delivery' | 'Retiro del Local'
 }

@@ -5,6 +5,7 @@ import { PriceCalculator } from '~/helpers/PriceCalculator'
 
 export const state = () => ({
   orders: [] as OrderModel[],
+  sharedDisable: false,
   user: {} as UserModel,
   order: {
     color: 'Blanco',
@@ -103,5 +104,6 @@ export const getters: GetterTree<State, State> = {
   user: state => state.user,
   loading: state => state.loading,
   total: state => state.total,
-  price: state => state.price
+  price: state => state.price,
+  disable: state => state.sharedDisable
 }

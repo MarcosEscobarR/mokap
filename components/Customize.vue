@@ -5,7 +5,7 @@
         <p class="big-title">
           Customize su Remera
         </p>
-        <v-checkbox color="#43BFA2" @change="$store.commit('setOrder', {ownTShirt: $event})">
+        <v-checkbox color="#43BFA2" class="pl-2" @change="$store.commit('setOrder', {ownTShirt: $event})">
           <template #label>
             <span class="checkbox-label">Tengo mi propia remera</span>
           </template>

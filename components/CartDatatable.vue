@@ -9,6 +9,16 @@
         Cantidad
       </p>
     </template>
+    <template #header.color>
+      <p class="color">
+        Color
+      </p>
+    </template>
+    <template #header.size>
+      <p class="size">
+        Tamaño
+      </p>
+    </template>
     <template #header.total>
       <p class="subt">
         Total
@@ -21,10 +31,27 @@
         </p>
       </div>
     </template>
+
+    <template #item.color="{item}">
+      <div class="info-text">
+        <p>
+          {{ item.color }}
+        </p>
+      </div>
+    </template>
+
+    <template #item.size="{item}">
+      <div class="info-text">
+        <p>
+          {{ item.size }}
+        </p>
+      </div>
+    </template>
+
     <template #item.total="{item}">
       <div class="info-text">
         <p>
-          {{ (item.quantity * item.total).toLocaleString() }}
+          {{ (item.quantity * item.total).toLocaleString('es-es') }}
         </p>
       </div>
     </template>
@@ -60,6 +87,16 @@ export default {
       {
         text: 'Cantidad',
         value: 'quantity',
+        cellClass: 'header-text'
+      },
+      {
+        text: 'Color',
+        value: 'color',
+        cellClass: 'header-text'
+      },
+      {
+        text: 'Tamaño',
+        value: 'size',
         cellClass: 'header-text'
       },
       {

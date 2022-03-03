@@ -11,7 +11,7 @@
     </div>
     <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">{{ price.toLocaleString() }} Gs</span>
+      <span class="price">{{ price.toLocaleString('es-es') }} Gs</span>
     </div>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
 
 .center-design-container {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   img {
