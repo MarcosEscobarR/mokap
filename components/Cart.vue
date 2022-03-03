@@ -303,7 +303,7 @@ export default Vue.extend({
 .card {
   width: 80%;
   height: 800px;
-  max-height: 100vh;
+  max-height: 100%;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;
