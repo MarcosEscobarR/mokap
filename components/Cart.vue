@@ -92,6 +92,10 @@
                       {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
+
+                  <p class="total">
+                    {{ total.toLocaleString() }}
+                  </p>
                 </div>
               </div>
             </div>
