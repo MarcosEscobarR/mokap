@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="imagen%20principal.png" class="big-img" alt="home-img" ref="container">
+    <img ref="container" src="imagen%20principal.png" class="big-img" alt="home-img">
   </div>
 </template>
 
@@ -17,9 +17,9 @@ export default {
     }
   },
   watch: {
-    createNewOrder () {
+    createNewOrder (val) {
       const timeline = gsap.timeline()
-      timeline.to(this.$refs.container, 1, { x: 1000 })
+      if (val) { timeline.to(this.$refs.container, 1, { x: 1000 }) }
       setTimeout(() => {
         timeline.to(this.$refs.container, 1, { x: 0 })
       }, 1000)

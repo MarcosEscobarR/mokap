@@ -69,7 +69,7 @@ export default {
     createNewOrder () {
       setTimeout(() => {
         const timeline = gsap.timeline()
-        timeline.from(this.$refs.container, 1, { x: 1000 })
+        timeline.from(this.$refs.container, 0.5, { x: 1000 })
       }, 1000)
     },
     order: {

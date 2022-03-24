@@ -58,10 +58,10 @@ export default {
   watch: {
     createNewOrder () {
       const timeline = gsap.timeline()
-      timeline.to(this.$refs.container, 1, { x: 1000 })
+      timeline.to(this.$refs.container, 0.5, { x: 1000 })
       setTimeout(() => {
         this.show = !this.show
-        timeline.to(this.$refs.container, 1, { x: 0 })
+        timeline.to(this.$refs.container, 0.5, { x: 0 })
       }, 1000)
     }
   },

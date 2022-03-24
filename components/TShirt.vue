@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="container">
-    <div >
+    <div>
       <div class="img-container">
         <div v-if="order.image" :class="order.location === 'Centro' ? 'center-design-container' : 'chest-design-container'">
           <img :src="order.image" alt="design">
@@ -39,10 +39,10 @@ export default {
   },
   watch: {
     createNewOrder () {
+      const timeline = gsap.timeline()
+
       setTimeout(() => {
-        const timeline = gsap.timeline()
-        timeline.from(this.$refs.container, 1, { x: -1000 })
-        console.log("aaaaa")
+        timeline.from(this.$refs.container, 0.5, { x: -1000 })
       }, 1000)
     }
   }
