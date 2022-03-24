@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div>
+  <div ref="container" class="container">
+    <div >
       <div class="img-container">
         <div v-if="order.image" :class="order.location === 'Centro' ? 'center-design-container' : 'chest-design-container'">
           <img :src="order.image" alt="design">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 export default {
   name: 'TShirt',
   computed: {
@@ -25,10 +26,24 @@ export default {
         return this.$store.getters.order
       }
     },
+    createNewOrder: {
+      get () {
+        return this.$store.getters.createNewOrder
+      }
+    },
     price: {
       get () {
         return this.$store.getters.price
       }
+    }
+  },
+  watch: {
+    createNewOrder () {
+      setTimeout(() => {
+        const timeline = gsap.timeline()
+        timeline.from(this.$refs.container, 1, { x: -1000 })
+        console.log("aaaaa")
+      }, 1000)
     }
   }
 }

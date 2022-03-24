@@ -1,12 +1,30 @@
 <template>
   <div>
-    <img src="imagen%20principal.png" class="big-img" alt="home-img">
+    <img src="imagen%20principal.png" class="big-img" alt="home-img" ref="container">
   </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 export default {
-  name: 'HomeImage'
+  name: 'HomeImage',
+  computed: {
+    createNewOrder: {
+      get () {
+        return this.$store.getters.createNewOrder
+      }
+    }
+  },
+  watch: {
+    createNewOrder () {
+      const timeline = gsap.timeline()
+      timeline.to(this.$refs.container, 1, { x: 1000 })
+      setTimeout(() => {
+        timeline.to(this.$refs.container, 1, { x: 0 })
+      }, 1000)
+    }
+  }
 
 }
 </script>

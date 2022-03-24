@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div ref="container" class="container">
     <div class="main">
       <div>
         <p class="big-title">
@@ -34,7 +34,7 @@
     <div class="btn-container">
       <div class="navigator">
         <div class="dots-container">
-          <navigator-dots class="mb-4"/>
+          <navigator-dots class="mb-4" />
         </div>
       </div>
       <div class="btns">
@@ -50,16 +50,28 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { OrderModel } from '~/models/OrderModel'
-export default Vue.extend({
+<script >
+import { gsap } from 'gsap'
+export default {
   name: 'Customize',
   data: () => ({
-    order: {} as OrderModel,
+    order: {},
     nextStep: 0
   }),
+  computed: {
+    createNewOrder: {
+      get () {
+        return this.$store.getters.createNewOrder
+      }
+    }
+  },
   watch: {
+    createNewOrder () {
+      setTimeout(() => {
+        const timeline = gsap.timeline()
+        timeline.from(this.$refs.container, 1, { x: 1000 })
+      }, 1000)
+    },
     order: {
       handler (val) {
         this.$store.commit('setOrder', val)
@@ -67,7 +79,7 @@ export default Vue.extend({
       deep: true
     }
   }
-})
+}
 </script>
 
 <style scoped lang="scss">

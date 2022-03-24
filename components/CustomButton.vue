@@ -56,7 +56,9 @@ export default {
   font-size: 1.1rem;
   font-weight: 600;
 }
-
+.btn:hover {
+  opacity: 0.6;
+}
 @media screen and (min-width:1025px) and (max-width: 1200px) {
   .btn {
     height: 50px;

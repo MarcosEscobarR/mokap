@@ -21,7 +21,6 @@ export default {
   }),
   methods: {
     handleAboutClick () {
-      console.log('here')
       this.openDialog = true
     }
   }

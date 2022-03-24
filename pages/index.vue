@@ -3,18 +3,18 @@
     <div class="main-container">
       <div class="grey-container">
         <appbar />
-        <home-info v-if="!createNewOrder" />
-        <t-shirt v-else />
+        <home-info v-show="!show" />
+        <t-shirt v-show="show" />
       </div>
       <div class="white-container">
         <div class="cart-img-container">
-          <img @click="goToCart" class="cart-img" src="cart.png" alt="cart">
+          <img class="cart-img" src="cart.png" alt="cart" @click="goToCart">
           <div v-if="orders.length > 0" class="counter">
             <p>{{ orders.length }}</p>
           </div>
         </div>
-        <home-image v-if="!createNewOrder" />
-        <div v-else>
+        <home-image v-show="!show" ref="container" />
+        <div v-show="show">
           <customize v-if="step === 1" />
           <design-t-shirt v-if="step === 2" />
           <order-created-message v-if="step === 3" />
@@ -31,10 +31,13 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import OrderCreatedMessage from '../components/OrderCreatedMessage'
-
 export default {
   components: { OrderCreatedMessage },
+  data: () => ({
+    show: false
+  }),
   computed: {
     step: {
       get () {
@@ -50,6 +53,16 @@ export default {
       get () {
         return this.$store.getters.orders
       }
+    }
+  },
+  watch: {
+    createNewOrder () {
+      const timeline = gsap.timeline()
+      timeline.to(this.$refs.container, 1, { x: 1000 })
+      setTimeout(() => {
+        this.show = !this.show
+        timeline.to(this.$refs.container, 1, { x: 0 })
+      }, 1000)
     }
   },
   methods: {

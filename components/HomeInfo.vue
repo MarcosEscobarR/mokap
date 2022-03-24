@@ -1,5 +1,5 @@
 <template>
-  <div class="info-container">
+  <div ref="container" class="info-container">
     <div class="information">
       <div class="big-title">
         <p>HECHO POR HUMANOS, DISEÑADO POR ARTISTAS</p>
@@ -11,19 +11,34 @@
       </div>
       <v-spacer />
       <div class="btn-container">
-        <custom-button title="Haz tu Pedido" @click="$store.commit('createNewOrder', true)" />
+        <custom-button title="Haz tu Pedido" @click="handleClick" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 export default {
-  name: 'HomeInfo'
+  name: 'HomeInfo',
+  methods: {
+    handleClick () {
+      const { container } = this.$refs
+      const timeline = gsap.timeline()
+      timeline.to(container, 1, { x: -1000 })
+      this.$store.commit('createNewOrder', true)
+
+      setTimeout(() => {
+        timeline.to(container, 0, { x: 0 })
+      }, 1000)
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
+
 .btn-container {
   display: flex;
   justify-content: start;
@@ -57,7 +72,7 @@ export default {
 }
 
 .information {
-  width: 400px;
+  width: 450px;
   height: min-content;
 }
 
@@ -70,10 +85,6 @@ export default {
   .sub-title {
     font-size: 1rem;
   }
-
-  .information {
-    width: 300px;
-  }
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
@@ -84,10 +95,6 @@ export default {
   .sub-title {
     font-size: .8rem;
   }}
-
-.information {
-  width: 300px;
-}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .information {

@@ -65,7 +65,7 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'development'
-        ? 'https://morning-earth-78099.herokuapp.com/api'
+        ? 'http://localhost:5000/api'
         : 'https://morning-earth-78099.herokuapp.com/api' // put in here your api production URL
   },
 

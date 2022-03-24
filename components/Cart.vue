@@ -75,8 +75,18 @@
                     :rules="[validators.required]"
                   />
                   <div class="form-divider">
-                    <form-select v-model="user.shippingMethod" label="Metodo de Envio" :items="shippingMethod" />
-                    <form-input v-model="user.address" :disabled="user.shippingMethod === 'Retiro del Local'" label="Direccion" />
+                    <form-select
+                      v-model="user.shippingMethod"
+                      label="Metodo de Envio"
+                      :items="shippingMethod"
+                      :rules="[validators.required]"
+                    />
+                    <form-input
+                      v-model="user.address"
+                      :disabled="user.shippingMethod === 'Retiro del Local'"
+                      label="Direccion"
+                      :rules="[validators.required]"
+                    />
                   </div>
                 </v-form>
 
@@ -92,10 +102,6 @@
                       {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
-
-                  <p class="total">
-                    {{ total.toLocaleString() }}
-                  </p>
                 </div>
               </div>
             </div>

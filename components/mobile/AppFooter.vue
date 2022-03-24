@@ -7,10 +7,10 @@
         <img src="location.png" alt="Ubicación" />
         <address>Bélgica 4625, Asunción, Paraguay</address>
       </div>
-      <div class="footer__section">
+      <a href="https://wa.me/+595986186880"  class="footer__section">
         <img src="whatsapp.png" alt="Ubicación" />
         <span>0986 186 880</span>
-      </div>
+      </a>
     </div>
 
     <div class="footer__bottom">

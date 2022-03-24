@@ -35,7 +35,7 @@
                 <div class="img-container">
                   <img src="whatsapp.png" alt="whatsapp">
                 </div>
-                <a href="#">0986 168880</a>
+                <a href="https://wa.me/+595986186880" target="_blank">0986 168880</a>
               </div>
             </div>
           </div>
