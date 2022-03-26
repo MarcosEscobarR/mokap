@@ -65,8 +65,8 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'development'
-        ? 'http://localhost:5000/api'
-        : 'https://morning-earth-78099.herokuapp.com/api' // put in here your api production URL
+        ? 'https://mokap-api.herokuapp.com/api'
+        : 'https://mokap-api.herokuapp.com/api' // put in here your api production URL
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

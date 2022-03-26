@@ -108,10 +108,15 @@ export default {
   }}
 
 @media screen and(max-width:768px)and(min-width:481px){
-//Disenhomobile
+.radio-toolbar-label {
+  width: 20px;
+  height: 4rem;
+}
 }
 
 @media screen and(max-width:480px)and(min-width:320px){
-//Disenhomobile
-}
+  .radio-toolbar-label {
+    width: 20px;
+    height: 4rem;
+  }}
 </style>

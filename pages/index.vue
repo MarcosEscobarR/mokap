@@ -36,9 +36,14 @@ import OrderCreatedMessage from '../components/OrderCreatedMessage'
 export default {
   components: { OrderCreatedMessage },
   data: () => ({
-    show: false
+    show: false,
+    isMobile: false
   }),
+
   computed: {
+    breakpoints () {
+      return this.$vuetify.breakpoint.name
+    },
     step: {
       get () {
         return this.$store.getters.step
@@ -56,6 +61,11 @@ export default {
     }
   },
   watch: {
+    breakpoints (val) {
+      if (val === 'xs') {
+        this.$router.push({ path: '/mobile' })
+      }
+    },
     createNewOrder () {
       const timeline = gsap.timeline()
       timeline.to(this.$refs.container, 0.5, { x: 1000 })
