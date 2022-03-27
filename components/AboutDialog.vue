@@ -42,9 +42,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
->>> .v-dialog {
-  overflow: hidden;
-}
 .info-container {
   margin-top: 20px;
 
