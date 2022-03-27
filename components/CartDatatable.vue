@@ -51,7 +51,7 @@
     <template #item.total="{item}">
       <div class="info-text">
         <p>
-          {{ (item.quantity * item.total).toLocaleString('es-es') }}
+          {{ ( item.total).toLocaleString('es-es') }}
         </p>
       </div>
     </template>

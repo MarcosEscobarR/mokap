@@ -26,7 +26,7 @@ export default {
     handleClick () {
       const { container } = this.$refs
       const timeline = gsap.timeline()
-      timeline.to(container, 0.5, { x: -1000 })
+      timeline.to(container, 0.3, { x: -1000 })
       this.$store.commit('createNewOrder', true)
 
       setTimeout(() => {

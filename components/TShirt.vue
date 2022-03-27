@@ -42,7 +42,7 @@ export default {
       const timeline = gsap.timeline()
 
       setTimeout(() => {
-        timeline.from(this.$refs.container, 0.5, { x: -1000 })
+        timeline.from(this.$refs.container, 0.3, { x: -1000 })
       }, 1000)
     }
   }
