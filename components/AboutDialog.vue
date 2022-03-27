@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="model" width="800px" >
-    <v-card class="pa-10">
+  <v-dialog v-model="model" width="800px">
+    <v-card class="pa-10 overflow-auto">
       <div class="title-container">
         <p>Impresión DGT</p>
       </div>
