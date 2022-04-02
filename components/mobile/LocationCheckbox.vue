@@ -1,41 +1,42 @@
 <template>
   <div class="radio-toolbar">
     <input
-      id="radioMedium"
-      name="quality"
+      v-if="!order.TShirtBasic"
+      id="center"
+      name="location"
       type="radio"
-      value="Media"
-      checked
-      @click="handleClick"
+      value="Centro"
+      :checked="!order.TShirtBasic"
+      @change="handleInput"
     >
-    <label for="radioMedium">Media</label>
+    <label for="center">Centro</label>
 
-    <input id="radioHigh" name="quality" type="radio" value="Alta" @click="handleClick">
-    <label for="radioHigh">Alta</label>
+    <input
+      v-if="!order.TShirtBasic"
+      id="side"
+      name="location"
+      type="radio"
+      value="Pecho"
+      :checked="!order.TShirtBasic && order.location === 'Pecho'"
+      @change="handleInput"
+    >
+    <label for="side">Bolsillo</label>
   </div>
 </template>
 
 <script>
-
 export default {
-  props: {
-    value: {
-      type: String
-    }
-  },
+  name: 'LocationCheckbox',
   computed: {
-    quality: {
+    order: {
       get () {
-        return this.value
-      },
-      set (val) {
-        this.$emit('input', val)
+        return this.$store.getters.order
       }
     }
   },
   methods: {
-    handleClick (e) {
-      this.quality = e.target.value
+    handleInput (e) {
+      this.$store.commit('setOrder', { location: e.target.value })
     }
   }
 }
@@ -45,7 +46,7 @@ export default {
 .radio-toolbar {
   display: flex;
   justify-content: space-between;
-  width: 450px;
+  width: auto;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -61,19 +62,18 @@ export default {
   justify-content: center;
   align-content: center;
   background-color: white;
-  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  font-size: 1.2rem;
   border: 2px solid #E0E0E0;
   color: #E0E0E0;
   border-radius: 6px;
-  width: 220px;
+  width: 160px;
   height: 4rem;
 }
 
 .radio-toolbar label:hover {
   border: 6px solid #43BFA2;
   color: #616161;
-
 }
 
 .radio-toolbar input[type="radio"]:focus + label {
@@ -86,39 +86,34 @@ export default {
   font-weight: bold;
 }
 
-@media screen and(min-width: 1025px) and(max-width: 1200px) {
+@media screen and(min-width:1025px) and(max-width: 1200px) {
   .radio-toolbar {
-    width: auto;
+    width: 330px;
   }
   .radio-toolbar label {
-    font-size: 26px;
     width: 150px;
     height: 60px;
+    font-size: 20px;
+
   }
 }
 
 @media screen and(max-width: 1024px) and(min-width: 769px) {
   .radio-toolbar {
-    width: auto;
+    width: 350px;
   }
   .radio-toolbar label {
-    font-size: 26px;
     width: 150px;
     height: 60px;
-  }
-}
+    font-size: 20px;
+
+  }}
 
 @media screen and(max-width: 768px) and(min-width: 481px) {
-  .radio-toolbar-label {
-    width: 20px;
-    height: 4rem;
-  }
+  //Disenhomobile
 }
 
-@media screen and(min-width: 320px) and(max-width: 480px) {
-  .radio-toolbar-label {
-    width: 120px;
-    height: 4rem;
-  }
+@media screen and(max-width: 480px) and(min-width: 320px) {
+  //Disenhomobile
 }
 </style>

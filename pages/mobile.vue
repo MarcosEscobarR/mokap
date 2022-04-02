@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!--    <mobile-hero-section />-->
-    <customize-mobile />
+    <mobile-hero-section v-if="step === 0" />
+    <customize-mobile v-if="step === 1" />
     <mobile-cart-section />
   </div>
 </template>
@@ -15,6 +15,9 @@ export default {
   computed: {
     breakpoints () {
       return this.$vuetify.breakpoint.name
+    },
+    step () {
+      return this.$store.getters.step
     }
   },
   watch: {

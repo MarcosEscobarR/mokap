@@ -51,7 +51,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  height: calc(100% - 100px);
+  height: calc(100% - 4.5rem);
   width: 100%;
   padding: 0;
   display: flex;
@@ -97,7 +97,7 @@ export default {
 .price-container {
   width: 100%;
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   .price-title {
     display: block;
     color: #e0e0e0;
@@ -177,7 +177,7 @@ export default {
   }
 
   .price-container {
-    bottom: 50px;
+    bottom: 25px;
     .price-title {
       font-size: 22px;
     }

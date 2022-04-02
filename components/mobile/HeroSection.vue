@@ -2,12 +2,22 @@
   <div class="hero">
     <div class="hero__content">
       <h1>Hecho por humanos, diseñado por artistas</h1>
-      <custom-button title="Haz tu pedido" />
+      <custom-button title="Haz tu pedido" @click="handleClick" />
     </div>
     <div class="hero__overlay" />
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    handleClick () {
+      this.$store.commit('createNewOrder', true)
+      this.$store.commit('nextStep', 1)
+    }
+  }
+}
+</script>
 <style scoped lang="scss">
 .hero {
   position: relative;

@@ -133,7 +133,7 @@ export default {
   flex-direction: column;
   position: absolute;
   background-color: white;
-  bottom: 20px;
+  bottom: 30px;
   justify-content: center;
   align-items: center;
 

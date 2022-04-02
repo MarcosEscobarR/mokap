@@ -5,113 +5,171 @@
         Customize su remera
       </p>
       <div class="t-shirt-container">
-        <img src="Blanco%20-%20Hombre.png" alt="blanco">
+        <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
         <p class="price-title">
           Precio
         </p>
         <p class="price">
-          {{ total.toLocaleString() }} Gs.
+          {{ price.toLocaleString() }} Gs.
         </p>
       </div>
 
-      <v-checkbox label="Tengo mi propia remera"></v-checkbox>
-      <div class="checkboxes">
-        <p>Color</p>
-        <color-checkbox/>
+      <div class="customize-container">
+        <v-checkbox label="Tengo mi propia remera"/>
+        <div class="checkboxes">
+          <p>Color</p>
+          <color-checkbox v-model="orderModel.color"/>
+        </div>
+        <div class="checkboxes">
+          <p>Tamaño</p>
+          <size-checkbox v-model="orderModel.size"/>
+        </div>
+        <div class="checkboxes">
+          <p>Calidad de tela</p>
+          <mobile-fabric-quality-checkbox v-model="orderModel.quality"/>
+        </div>
+        <div class="checkboxes">
+          <p>Diseño</p>
+          <mobile-design-checkbox v-model="orderModel.design"/>
+        </div>
+        <div class="checkboxes">
+          <p>Ubicación</p>
+          <mobile-location-checkbox v-model="orderModel.location"/>
+        </div>
+        <div class="quantity-input">
+          <p>Cantidad</p>
+          <input
+            class="quantity"
+            type="number"
+            value="1"
+          >
+        </div>
+        <div class="btn-container">
+          <custom-button title="AGREGA SU PEDIDO" color="#D66A6A"/>
+        </div>
       </div>
-      <div class="checkboxes">
-        <p>Calidad de tela</p>
-        <fabric-quality-checkbox/>
-      </div>
-      <div class="checkboxes">
-        <p>Diseño</p>
-        <design-checkbox/>
-      </div>
-      <div class="checkboxes">
-        <p>Ubicación</p>
-        <location-checkbox/>
-      </div>
-      <div class="quantity-input">
-        <p>Cantidad</p>
-        <input
-          type="number"
-          value="1"
-        >
-      </div>
-      <custom-button title="AGREGA SU PEDIDO" color="#D66A6A"/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data: () => ({
+    orderModel: {}
+  }),
   computed: {
-    total: {
+    price: {
       get () {
-        return this.$store.getters.total
+        return this.$store.getters.price
       }
+    },
+    order: {
+      get () {
+        return this.$store.getters.order
+      }
+    }
+  },
+  watch: {
+    orderModel: {
+      handler (val) {
+        this.$store.commit('setOrder', val)
+      },
+      deep: true
     }
   }
 }
+
 </script>
 
 <style scoped lang="scss">
-  .main {
-    margin-top: 100px;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.customize-container {
+  padding: 10px;
+}
+.main {
+  margin-top: 100px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.big-title {
+  text-align: center;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
+  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
+  font-weight: bold;
+  color: #4E4E51;
+  padding: 10px;
+}
+
+.t-shirt-container {
+  height: 430px;
+  border-radius: 10px;
+  background-color: #4E4E51;
+  width: 100%;
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+
+  .img {
+    height: 300px;
+    object-fit: contain;
   }
 
-  .big-title {
+  .price {
     text-align: center;
-    font-size: 2.3rem;
-    line-height: 2.7rem;
-    font-family: 'Open Sans - Bold', "Roboto", sans-serif;
-    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .price-title {
+    margin-bottom: 0;
+    margin-top: 15px;
+    color: white;
+    font-size: .9rem;
+    text-align: center;
+  }
+}
+.quantity {
+  border: 2px solid #E0E0E0;
+  width: 80px;
+  height: 40px;
+  padding: 10px 0 10px 10px;
+  border-radius: 6px;
+  color: #8B8888;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+  height: 50px;
+  padding: 2px;
+}
+
+input[type=number]
+{
+  -moz-appearance: textfield;
+}
+.checkboxes {
+  margin-bottom: 15px;
+
+  p {
     color: #4E4E51;
-    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
   }
-
-  .t-shirt-container {
-    height: 430px;
-    border-radius: 10px;
-    background-color: #4E4E51;
-    width: 100%;
-    display: flex;
-    padding: 15px;
-    flex-direction: column;
-
-    .img {
-      height: 300px;
-      object-fit: contain;
-    }
-
-    .price {
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
-      margin: 0;
-    }
-
-    .price-title {
-      margin-bottom: 0;
-      margin-top: 15px;
-      color: white;
-      font-size: .9rem;
-      text-align: center;
-    }
-  }
-  .checkboxes {
-    margin-bottom: 15px;
-    p {
-      color: #4E4E51;
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 0;
-    }
-  }
+}
 
 </style>

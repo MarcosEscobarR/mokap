@@ -214,6 +214,24 @@ export default {
 }
 
 @media screen and(max-width: 480px) and(min-width: 320px) {
-  //Disenhomobile
-}
+  .grid {
+    height: 500px;
+  }
+  .radio-toolbar {
+    width: 200px;
+    height: 250px;
+  }
+  .radio-toolbar .img-container {
+    width: 200px;
+    height: 250px;
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }}
 </style>

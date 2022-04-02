@@ -45,7 +45,7 @@ export default {
 .radio-toolbar {
   display: flex;
   justify-content: space-between;
-  width: 450px;
+  width: 100%;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -62,11 +62,11 @@ export default {
   align-content: center;
   background-color: white;
   font-family: 'Open Sans - Bold', "Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: 2px solid #E0E0E0;
   color: #E0E0E0;
   border-radius: 6px;
-  width: 220px;
+  width: 160px;
   height: 4rem;
 }
 
@@ -86,39 +86,4 @@ export default {
   font-weight: bold;
 }
 
-@media screen and(min-width: 1025px) and(max-width: 1200px) {
-  .radio-toolbar {
-    width: auto;
-  }
-  .radio-toolbar label {
-    font-size: 26px;
-    width: 150px;
-    height: 60px;
-  }
-}
-
-@media screen and(max-width: 1024px) and(min-width: 769px) {
-  .radio-toolbar {
-    width: auto;
-  }
-  .radio-toolbar label {
-    font-size: 26px;
-    width: 150px;
-    height: 60px;
-  }
-}
-
-@media screen and(max-width: 768px) and(min-width: 481px) {
-  .radio-toolbar-label {
-    width: 20px;
-    height: 4rem;
-  }
-}
-
-@media screen and(min-width: 320px) and(max-width: 480px) {
-  .radio-toolbar-label {
-    width: 120px;
-    height: 4rem;
-  }
-}
 </style>
