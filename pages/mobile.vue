@@ -22,7 +22,7 @@ export default {
   },
   watch: {
     breakpoints (val) {
-      if (val !== 'xs') {
+      if (val !== 'xs' || val !== 'sm') {
         this.$router.push({ path: '/' })
       }
     }

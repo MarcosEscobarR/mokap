@@ -4,7 +4,7 @@
       <div class="card__content">
         <h2>Resumen del pedido</h2>
 
-        <div class="cart-overview">
+        <div v-if="orders.length === 0" class="cart-overview">
           <div class="cart-overview__content">
             <img src="/sad face.png" alt="Carrito vacío">
             <span class="cart-overview__title">Tu carrito está vacío</span>
@@ -12,6 +12,18 @@
           </div>
         </div>
 
+        <div v-else class="pb-4">
+          <cart-datatable :orders="orders" />
+          <div class="price-container">
+            <p class="total-title">
+              TOTAL
+            </p>
+            <p class="total">
+              {{ total.toLocaleString('es-es') }}
+            </p>
+          </div>
+          <custom-button title="Continuar" @click="addOrder" />
+        </div>
         <div class="delivery-details">
           <h3>Entregamos pedidos en la zona marcada</h3>
           <img src="map.png" alt="Area de cobertura">
@@ -27,7 +39,43 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    orders () {
+      return this.$store.getters.orders
+    },
+    total () {
+      return this.$store.getters.total
+    }
+  },
+  methods: {
+    addOrder () {
+      this.$store.commit('nextStep')
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
+.price-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+}
+.total-title {
+  margin: 0;
+  font-size: 1.5rem;
+  display: block;
+  font-weight: bold;
+  color: #4E4E51;
+}
+.total {
+  color: #4E4E51;
+  font-weight: bold;
+}
 .cart {
   background-color: #f2f2f2;
   min-height: 100vh;

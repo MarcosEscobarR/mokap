@@ -80,12 +80,6 @@ export default {
   height: 4rem;
 }
 
-.radio-toolbar label:hover {
-  border: 6px solid #43BFA2;
-  color: #616161;
-
-}
-
 .radio-toolbar input[type="radio"]:focus + label {
   border: 6px dashed #444;
 }
@@ -95,32 +89,5 @@ export default {
   font-weight: bolder;
   color: #43BFA2;
 }
-@media screen and(min-width:1025px)and(max-width:1200px){
-  .radio-toolbar {
-    width: auto;
-  }
-  .radio-toolbar label {
-    font-size: 26px;
-    width: 60px;
-    height: 60px;
-  }
-}
 
-@media screen and(max-width:1024px)and(min-width:769px){
-  .radio-toolbar {
-    width: auto;
-  }
-  .radio-toolbar label {
-    font-size: 26px;
-    width: 60px;
-    height: 60px;
-  }}
-
-@media screen and(max-width:768px)and(min-width:481px){
-//Disenhomobile
-}
-
-@media screen and(max-width:480px)and(min-width:320px){
-//Disenhomobile
-}
 </style>

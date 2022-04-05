@@ -15,26 +15,26 @@
       </div>
 
       <div class="customize-container">
-        <v-checkbox label="Tengo mi propia remera"/>
+        <v-checkbox label="Tengo mi propia remera" />
         <div class="checkboxes">
           <p>Color</p>
-          <color-checkbox v-model="orderModel.color"/>
+          <color-checkbox v-model="orderModel.color" />
         </div>
         <div class="checkboxes">
           <p>Tamaño</p>
-          <size-checkbox v-model="orderModel.size"/>
+          <size-checkbox v-model="orderModel.size" />
         </div>
         <div class="checkboxes">
           <p>Calidad de tela</p>
-          <mobile-fabric-quality-checkbox v-model="orderModel.quality"/>
+          <mobile-fabric-quality-checkbox v-model="orderModel.quality" />
         </div>
         <div class="checkboxes">
           <p>Diseño</p>
-          <mobile-design-checkbox v-model="orderModel.design"/>
+          <mobile-design-checkbox v-model="orderModel.design" />
         </div>
         <div class="checkboxes">
           <p>Ubicación</p>
-          <mobile-location-checkbox v-model="orderModel.location"/>
+          <mobile-location-checkbox v-model="orderModel.location" />
         </div>
         <div class="quantity-input">
           <p>Cantidad</p>
@@ -45,7 +45,7 @@
           >
         </div>
         <div class="btn-container">
-          <custom-button title="AGREGA SU PEDIDO" color="#D66A6A"/>
+          <custom-button title="AGREGA SU PEDIDO" color="#D66A6A" @click="addToCart" />
         </div>
       </div>
     </div>
@@ -75,6 +75,12 @@ export default {
         this.$store.commit('setOrder', val)
       },
       deep: true
+    }
+  },
+  methods: {
+    addToCart () {
+      this.$store.commit('newOrder')
+      this.$store.commit('reset')
     }
   }
 }
