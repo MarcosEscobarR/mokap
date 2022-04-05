@@ -2,7 +2,7 @@
   <div>
     <mobile-hero-section v-if="step === 0" />
     <customize-mobile v-if="step === 1" />
-    <mobile-cart-section />
+    <mobile-cart-section  />
   </div>
 </template>
 
