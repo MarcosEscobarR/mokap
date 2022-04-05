@@ -5,7 +5,7 @@
         <p>Resumen de Pedido</p>
       </div>
       <div style="height: 100%">
-        <div >
+        <div>
           <div v-if="orders.length === 0" class="empty-cart">
             <div class="empty-cart-items">
               <img src="sad%20face.png" alt="sad-face">
@@ -15,7 +15,7 @@
               </a>
             </div>
           </div>
-          <div >
+          <div>
             <p class="subt">
               Entregamos pedidos en la Zona Marcada
             </p>
@@ -59,8 +59,8 @@
                 <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
                 <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
                 <div class="form-divider">
-                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
-                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+                  <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+                  <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
                 </div>
                 <form-select v-model="user.payment" label="Forma de Pago" :items="payment" :rules="[validators.required]" />
               </v-form>
@@ -301,15 +301,14 @@ export default Vue.extend({
       color: #4E4E51;
     }
 
-    .link {
-      color: #8B8888;
-      font-size: 22px;
-      text-decoration: underline;
-      text-align: center;
-    }
   }
 }
-
+.link {
+  color: #8B8888;
+  font-size: 22px;
+  text-decoration: underline;
+  text-align: center;
+}
 @media screen and(max-width: 768px) and(min-width: 481px) {
 }
 

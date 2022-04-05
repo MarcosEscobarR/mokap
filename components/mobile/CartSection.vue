@@ -209,6 +209,7 @@ export default {
 
     .cart-overview__action {
       text-decoration: underline;
+      color: #8B8888;
     }
   }
 }

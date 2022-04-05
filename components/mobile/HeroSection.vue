@@ -13,7 +13,7 @@ export default {
   methods: {
     handleClick () {
       this.$store.commit('createNewOrder', true)
-      this.$store.commit('nextStep', 1)
+      this.$store.commit('nextStep', 2)
     }
   }
 }

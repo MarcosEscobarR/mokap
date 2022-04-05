@@ -1,20 +1,22 @@
 <template>
   <div style="position: relative">
-    <div class="main">
-      <p class="big-title">
-        Customize su remera
-      </p>
-      <div class="t-shirt-container">
-        <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
-        <p class="price-title">
-          Precio
+    <div id="navigator-container" class="main">
+      <div class="">
+        <p class="big-title">
+          Customize su remera
         </p>
-        <p class="price">
-          {{ price.toLocaleString() }} Gs.
-        </p>
+        <div class="t-shirt-container">
+          <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
+          <p class="price-title">
+            Precio
+          </p>
+          <p class="price">
+            {{ price.toLocaleString() }} Gs.
+          </p>
+        </div>
       </div>
 
-      <div class="customize-container">
+      <div v-if="showCheckboxes" class="customize-container">
         <v-checkbox label="Tengo mi propia remera" />
         <div class="checkboxes">
           <p>Color</p>
@@ -48,6 +50,10 @@
           <custom-button title="AGREGA SU PEDIDO" color="#D66A6A" @click="addToCart" />
         </div>
       </div>
+      <div v-else class="btn-navigator-container">
+        <custom-button class="ma-5" title="IR AL CARRITO" outlined />
+        <custom-button title="OTRA ORDEN"  />
+      </div>
     </div>
   </div>
 </template>
@@ -55,7 +61,8 @@
 <script>
 export default {
   data: () => ({
-    orderModel: {}
+    orderModel: {},
+    showCheckboxes: true
   }),
   computed: {
     price: {
@@ -80,7 +87,8 @@ export default {
   methods: {
     addToCart () {
       this.$store.commit('newOrder')
-      this.$store.commit('reset')
+      this.showCheckboxes = false
+      window.location.href = '#home'
     }
   }
 }
@@ -97,13 +105,20 @@ export default {
 .customize-container {
   padding: 10px;
 }
+.btn-navigator-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 .main {
   margin-top: 100px;
   padding: 10px 15px;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
+  min-height: calc(100vh - 100px);
 }
 
 .big-title {
