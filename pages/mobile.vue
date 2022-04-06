@@ -19,13 +19,6 @@ export default {
     step () {
       return this.$store.getters.step
     }
-  },
-  watch: {
-    breakpoints (val) {
-      if (val !== 'xs' || val !== 'sm') {
-        this.$router.push({ path: '/' })
-      }
-    }
   }
 }
 </script>
