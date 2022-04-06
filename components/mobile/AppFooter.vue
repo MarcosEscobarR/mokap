@@ -33,7 +33,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
   height: max-content;
   font-size: 1.25rem;
 

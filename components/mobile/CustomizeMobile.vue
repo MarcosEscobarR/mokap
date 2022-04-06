@@ -145,7 +145,7 @@ export default {
   justify-content: space-around;
   flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 60px);
 }
 
 .big-title {
@@ -159,7 +159,7 @@ export default {
 }
 
 .t-shirt-container {
-  height: 430px;
+  height: 400px;
   border-radius: 10px;
   background-color: #4E4E51;
   width: 100%;

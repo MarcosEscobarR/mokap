@@ -23,7 +23,7 @@ export default {
 <style scoped lang="scss">
   .appbar {
     width: 100%;
-    height: 80px;
+    height: 60px;
     position: fixed;
     z-index: 500;
     background-color: #4E4E51;
@@ -38,7 +38,7 @@ export default {
 
     img {
       object-fit: contain;
-      width: 250px;
+      width: 190px;
       align-self: end;
     }
   }
