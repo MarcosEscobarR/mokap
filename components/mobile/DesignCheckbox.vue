@@ -96,12 +96,12 @@ export default {
   align-content: center;
   background-color: white;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.4rem;
   border: 2px solid #E0E0E0;
   color: #E0E0E0;
   border-radius: 6px;
-  width: 7rem;
+  width: 105px;
   height: 4rem;
   text-align: center;
 }
