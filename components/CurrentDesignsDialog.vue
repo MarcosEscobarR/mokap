@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialogModel" max-width="1200px">
-    <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-4">
+    <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-3">
       <div class="grid">
         <div
           v-for="(item, index) in itemNames"
@@ -117,6 +117,7 @@ export default {
   flex-wrap: wrap;
   height: 480px;
   overflow: auto;
+  justify-content: center;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -222,15 +223,15 @@ export default {
     height: 500px;
   }
   .radio-toolbar {
-    width: 150px;
+    width: 120px;
     height: 200px;
   }
   .radio-toolbar .img-container {
-    width: 150px;
+    width: 120px;
     height: 200px;
 
     img {
-      width: 150px;
+      width: 120px;
       height: 150px;
     }
 

@@ -13,8 +13,8 @@
         </div>
 
         <div v-if=" !finished" class="pb-4">
-          <div v-if="orders.length > 0 ">
-            <cart-datatable :orders="orders"/>
+          <div v-if="orders.length > 0 " class="pb-4">
+            <cart-datatable :orders="orders" />
             <div class="price-container">
               <p class="total-title">
                 TOTAL
@@ -23,7 +23,7 @@
                 {{ total.toLocaleString('es-es') }}
               </p>
             </div>
-            <custom-button title="Continuar" @click="finished = true"/>
+            <custom-button title="Continuar" @click="finished = true" />
           </div>
           <div class="delivery-details">
             <h3>Entregamos pedidos en la zona marcada</h3>
@@ -41,11 +41,11 @@
             Datos del cliente
           </p>
           <v-form v-model="valid">
-            <form-input v-model="user.name" label="Nombre" :rules="[validators.required]"/>
-            <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]"/>
+            <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
+            <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
             <div class="form-divider">
-              <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]"/>
-              <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]"/>
+              <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
+              <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
             </div>
             <form-select
               v-model="user.payment"
@@ -68,11 +68,17 @@
               />
             </div>
           </v-form>
-          <p class="total-title">Entregamos los pedidos en la zona marcada </p>
-          <div style="height: 400px"></div>
-          <p class="total-title">Detalles del pedido</p>
-          <p class="details-info">El envio puede tardar hasta 24 horas dependiendo de la carga de pedidos. Una vez confirmada la orden,
-            atencion al cliente se contactara contigo por WhatsApp para ultimar detalles</p>
+          <p class="total-title">
+            Entregamos los pedidos en la zona marcada
+          </p>
+          <div style="height: 400px" />
+          <p class="total-title">
+            Detalles del pedido
+          </p>
+          <p class="details-info">
+            El envio puede tardar hasta 24 horas dependiendo de la carga de pedidos. Una vez confirmada la orden,
+            atencion al cliente se contactara contigo por WhatsApp para ultimar detalles
+          </p>
           <div class="price-container">
             <p class="total-title">
               TOTAL
@@ -81,7 +87,7 @@
               {{ total.toLocaleString('es-es') }}
             </p>
           </div>
-          <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail"/>
+          <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail" />
         </div>
       </div>
     </div>

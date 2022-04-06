@@ -4,9 +4,11 @@
       <img src="logo%20mokap.png" alt="logo">
     </div>
     <div class="icons-container">
-      <v-icon x-large class="mx-2" color="white">
-        mdi-cart
-      </v-icon>
+      <v-badge class="ma-4" color="#D66A6A" :content="orders.length" :value="orders.length" overlap>
+        <v-icon x-large class="mx-2" color="white">
+          mdi-cart
+        </v-icon>
+      </v-badge>
       <v-icon x-large color="white">
         mdi-menu
       </v-icon>
@@ -16,7 +18,14 @@
 
 <script>
 export default {
-  name: 'AppBarMobile'
+  name: 'AppBarMobile',
+  computed: {
+    orders: {
+      get () {
+        return this.$store.getters.orders
+      }
+    }
+  }
 }
 </script>
 

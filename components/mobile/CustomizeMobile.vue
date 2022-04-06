@@ -56,7 +56,7 @@
         </div>
       </div>
       <div v-else class="btn-navigator-container">
-        <custom-button class="ma-5" title="IR AL CARRITO" outlined />
+        <custom-button-outlined class="ma-5" title="IR AL CARRITO" outlined />
         <custom-button title="OTRA ORDEN" />
       </div>
     </div>
@@ -139,7 +139,7 @@ export default {
   align-items: center;
 }
 .main {
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 10px 15px;
   display: flex;
   justify-content: space-around;
