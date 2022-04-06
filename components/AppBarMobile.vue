@@ -23,7 +23,7 @@ export default {
 <style scoped lang="scss">
   .appbar {
     width: 100%;
-    height: 100px;
+    height: 80px;
     position: fixed;
     z-index: 500;
     background-color: #4E4E51;

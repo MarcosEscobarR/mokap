@@ -16,7 +16,7 @@
             <div class="img-container">
               <img src="whatsapp.png" alt="whatsapp">
             </div>
-            <p>0986 168880</p>
+            <a>0986 168880</a>
           </div>
         </div>
       </div>

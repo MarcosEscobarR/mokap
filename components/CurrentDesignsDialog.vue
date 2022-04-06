@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialogModel" max-width="1200px">
-    <v-card class="pa-10">
+    <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-4">
       <div class="grid">
         <div
           v-for="(item, index) in itemNames"
@@ -214,20 +214,24 @@ export default {
 }
 
 @media screen and(max-width: 480px) and(min-width: 320px) {
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
   .grid {
     height: 500px;
   }
   .radio-toolbar {
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 200px;
   }
   .radio-toolbar .img-container {
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 200px;
 
     img {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
     }
 
     p {

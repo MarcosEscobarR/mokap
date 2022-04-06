@@ -6,7 +6,12 @@
           Customize su remera
         </p>
         <div class="t-shirt-container">
-          <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
+          <div class="img-container">
+            <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
+            <div v-if="order.image" :class="order.location === 'Centro' ? 'center-design-container' : 'chest-design-container'">
+              <img :src="order.image" alt="design">
+            </div>
+          </div>
           <p class="price-title">
             Precio
           </p>
@@ -52,7 +57,7 @@
       </div>
       <div v-else class="btn-navigator-container">
         <custom-button class="ma-5" title="IR AL CARRITO" outlined />
-        <custom-button title="OTRA ORDEN"  />
+        <custom-button title="OTRA ORDEN" />
       </div>
     </div>
   </div>
@@ -96,6 +101,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.center-design-container {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.chest-design-container {
+  position: absolute;
+  top: 36%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
 .btn-container {
   width: 100%;
   display: flex;
@@ -118,7 +145,7 @@ export default {
   justify-content: space-around;
   flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 80px);
 }
 
 .big-title {
@@ -140,11 +167,16 @@ export default {
   padding: 15px;
   flex-direction: column;
 
-  .img {
+  .img-container {
+    position: relative;
     height: 300px;
-    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    img {
+      height: 300px;
+      object-fit: contain;
+    }
   }
-
   .price {
     text-align: center;
     color: white;
@@ -170,6 +202,15 @@ export default {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 20px;
+
+}
+.quantity-input {
+  p {
+    color: #4E4E51;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

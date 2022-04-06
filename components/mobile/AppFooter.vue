@@ -9,7 +9,7 @@
       </div>
       <a href="https://wa.me/+595986186880"  class="footer__section">
         <img src="whatsapp.png" alt="Ubicación" />
-        <span>0986 186 880</span>
+        <a style="color: white" href="https://wa.me/+595986186880" target="_blank">0986 168 880</a>
       </a>
     </div>
 
@@ -33,7 +33,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   height: max-content;
   font-size: 1.25rem;
 
