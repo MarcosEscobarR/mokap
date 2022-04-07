@@ -5,7 +5,7 @@
     </div>
     <div class="icons-container">
       <v-badge class="ma-4" color="#D66A6A" :content="orders.length" :value="orders.length" overlap>
-        <v-icon x-large class="mx-2" color="white">
+        <v-icon x-large class="mx-2" color="white" @click="$store.commit('reset')">
           mdi-cart
         </v-icon>
       </v-badge>

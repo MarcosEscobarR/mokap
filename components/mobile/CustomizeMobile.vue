@@ -22,7 +22,7 @@
       </div>
 
       <div v-if="showCheckboxes" class="customize-container">
-        <v-checkbox label="Tengo mi propia remera" />
+        <v-checkbox v-model="orderModel.ownTShirt" label="Tengo mi propia remera" />
         <div class="checkboxes">
           <p>Color</p>
           <color-checkbox v-model="orderModel.color" />
@@ -49,6 +49,7 @@
             class="quantity"
             type="number"
             value="1"
+            @input="$store.commit('setOrder', {quantity: $event.target.value})"
           >
         </div>
         <div class="btn-container">
@@ -57,7 +58,7 @@
       </div>
       <div v-else class="btn-navigator-container">
         <custom-button-outlined class="ma-5" title="IR AL CARRITO" outlined />
-        <custom-button title="OTRA ORDEN" />
+        <custom-button title="OTRA ORDEN" @click="$store.commit('reset')"/>
       </div>
     </div>
   </div>
@@ -84,6 +85,7 @@ export default {
   watch: {
     orderModel: {
       handler (val) {
+        console.log(val)
         this.$store.commit('setOrder', val)
       },
       deep: true

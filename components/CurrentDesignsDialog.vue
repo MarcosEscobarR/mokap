@@ -3,7 +3,7 @@
     <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-3">
       <div class="grid">
         <div
-          v-for="(item, index) in itemNames"
+          v-for="(item, index) in Object.keys(imageUrls)"
           :key="index"
           class="radio-toolbar"
         >
@@ -11,9 +11,9 @@
           <label class="img-container" :for="index">
             <img
               :id="index + '-img'"
-              :src="item"
+              :src="imageUrls[item]"
               alt="design"
-              @click="indexSelected = index"
+              @click="handleImageCheck(index, item)"
             >
             <p>{{ getFileName(item) }}</p>
           </label>
@@ -42,7 +42,9 @@ export default {
   },
   data: () => ({
     itemNames: DesignPaths,
-    indexSelected: -1
+    indexSelected: -1,
+    imageUrls: {},
+    urlSelected: ''
   }),
   computed: {
     dialogModel: {
@@ -54,47 +56,39 @@ export default {
       }
     }
   },
-  methods: {
-    async selectImage () {
-      this.$store.commit('setLoading')
-      const img = document.getElementById(this.indexSelected + '-img')
-      const blob = await this.$axios.$get(img.src, { responseType: 'blob' })
-      const file = new File([blob], Date.now().toString(), {
-        type: blob.type,
-        lastModified: Date.now()
-      })
-      if (!file.type.match('image.*')) {
-        alert('no es una imagen')
-      }
-
-      const metadata = {
-        contentType: file.type
-      }
-      const storage = this.$fire.storage
-      const imageRef = storage.ref(`images/${file.name}`)
-      const uploadTask = imageRef.put(file, metadata)
-        .then(snapshot => (snapshot.ref.getDownloadURL().then(url => (url))))
-        .catch(e => console.log(e))
-
-      uploadTask.then((url) => {
-        this.$store.commit('setOrder', {
-          image: url,
-          TShirtBasic: false,
-          design: 'custom'
+  mounted () {
+    const storage = this.$fire.storage
+    const imageRef = storage.ref('designs')
+    imageRef.listAll().then((p) => {
+      p.items.forEach((c) => {
+        c.getDownloadURL().then((url) => {
+          this.imageUrls[c.name] = url
         })
-        this.$store.commit('setLoading')
-        this.dialogModel = false
       })
+    })
+  },
+  methods: {
+    handleImageCheck (index, key) {
+      this.indexSelected = index
+      this.urlSelected = this.imageUrls[key]
+    },
+    selectImage () {
+      this.$store.commit('setOrder', {
+        image: this.urlSelected,
+        TShirtBasic: false,
+        design: 'custom'
+      })
+      this.$store.commit('setLoading')
+      this.dialogModel = false
     },
 
     getFileName (val) {
-      const stringSplitter = val.split('/')
-      const fileName = stringSplitter.pop().slice(0, -4)
+      const stringSplitter = val.split('.')
+      const fileName = stringSplitter[0]
 
       try {
         return fileName.replaceAll('_', ' ')
       } catch (e) {
-        console.log(e)
         return fileName
       }
     }
