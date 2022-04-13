@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialogModel" max-width="1200px">
-    <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-3">
+    <v-card class="pa-lg-10 pa-sm-8 pa-lg-5 pa-xl-10 pa-3" >
       <div class="grid">
         <div
           v-for="(item, index) in Object.keys(imageUrls)"
@@ -44,7 +44,8 @@ export default {
     itemNames: DesignPaths,
     indexSelected: -1,
     imageUrls: {},
-    urlSelected: ''
+    urlSelected: '',
+    loading: false
   }),
   computed: {
     dialogModel: {
@@ -57,12 +58,14 @@ export default {
     }
   },
   mounted () {
+    this.loading = true
     const storage = this.$fire.storage
     const imageRef = storage.ref('designs')
     imageRef.listAll().then((p) => {
       p.items.forEach((c) => {
         c.getDownloadURL().then((url) => {
           this.imageUrls[c.name] = url
+          this.loading = false
         })
       })
     })
@@ -73,6 +76,7 @@ export default {
       this.urlSelected = this.imageUrls[key]
     },
     selectImage () {
+      this.$store.commit('setLoading')
       this.$store.commit('setOrder', {
         image: this.urlSelected,
         TShirtBasic: false,
