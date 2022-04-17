@@ -2,6 +2,7 @@
   <div class="form">
     <label>{{ label }}</label>
     <v-text-field
+      :type="type"
       v-model="model"
       :disabled="disabled"
       color="#43BFA2"
@@ -17,6 +18,10 @@
 export default {
   name: 'FormInput',
   props: {
+    type: {
+      type: String,
+      default:'text'
+    },
     disabled: {
       type: Boolean,
       default: false

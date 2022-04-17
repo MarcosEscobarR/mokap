@@ -42,7 +42,7 @@
           </p>
           <v-form v-model="valid">
             <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
-            <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
+            <form-input type="email" v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
             <div class="form-divider">
               <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
               <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
@@ -121,7 +121,7 @@ export default {
     dialogClosed () {
       this.$store.commit('resetCart')
       this.step = 1
-      this.finished = true;
+      this.finished = false
       window.location.href = '#home'
     },
     async sendEmail () {
