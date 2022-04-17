@@ -255,7 +255,33 @@ export default {
     }
   }}
 
-@media screen and(max-width:480px)and(min-width:320px){
-  //Disenhomobile
-}
+@media screen and (max-height: 700px){
+  .img-container {
+    img {
+      height: 400px;
+      width: 400px;
+    }
+  }
+  .center-design-container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .chest-design-container {
+    position: absolute;
+    top: 25%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 70px;
+      height: 70px;
+      size: 120px;
+    }
+}}
 </style>

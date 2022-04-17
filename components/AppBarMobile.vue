@@ -1,7 +1,7 @@
 <template>
   <div class="appbar">
     <div class="img-container">
-      <img src="logo%20mokap.png" alt="logo">
+      <img src="logo%20mokap.png" alt="logo" @click="$store.commit('resetCart')">
     </div>
     <div class="icons-container">
       <v-badge class="ma-4" color="#D66A6A" :content="orders.length" :value="orders.length" overlap>

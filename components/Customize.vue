@@ -94,6 +94,7 @@ export default {
 .main {
   width: 450px;
   height: 550px;
+  max-height: 600px;
   overflow: auto;
   display: flex;
   flex-direction: column;

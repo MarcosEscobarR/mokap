@@ -64,7 +64,7 @@
                 v-model="user.address"
                 :disabled="user.shippingMethod === 'Retiro del Local'"
                 label="Direccion"
-                :rules="[validators.required]"
+                :rules="user.shippingMethod === 'Retiro del Local' ? false : [validators.required]"
               />
             </div>
           </v-form>
@@ -88,6 +88,8 @@
             </p>
           </div>
           <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail" />
+          <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
+
         </div>
       </div>
     </div>
@@ -104,7 +106,8 @@ export default {
     validators: Validators,
     valid: false,
     payment: ['Efectivo', 'Transferencia'],
-    shippingMethod: ['Delivery', 'Retiro del Local']
+    shippingMethod: ['Delivery', 'Retiro del Local'],
+    showDialog: false
   }),
   computed: {
     orders () {
@@ -115,9 +118,16 @@ export default {
     }
   },
   methods: {
+    dialogClosed () {
+      this.$store.commit('resetCart')
+      this.step = 1
+      this.finished = true;
+      window.location.href = '#home'
+    },
     async sendEmail () {
-      this.step = 2
+      this.step = 0
       try {
+        console.log(this.user)
         if (Object.values(this.user).includes(null)) {
           return
         }

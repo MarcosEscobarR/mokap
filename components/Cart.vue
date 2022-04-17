@@ -85,7 +85,7 @@
                       v-model="user.address"
                       :disabled="user.shippingMethod === 'Retiro del Local'"
                       label="Direccion"
-                      :rules="[validators.required]"
+                      :rules=" user.shippingMethod === 'Retiro del Local' ? [] :[validators.required]"
                     />
                   </div>
                 </v-form>
@@ -172,17 +172,17 @@ export default Vue.extend({
   },
   methods: {
     async sendEmail () {
+      console.log("here")
       this.step = 2
       try {
-        if (Object.values(this.user).includes(null)) {
-          return
-        }
+        console.log(this.user)
         this.$store.commit('setLoading')
         const model: EmailSenderModel = {
           user: this.user,
           order: this.orders
         }
         await this.$axios.$post('email-sender', model)
+        console.log("here")
         this.$store.commit('setLoading')
         this.showDialog = true
       } catch (e) {

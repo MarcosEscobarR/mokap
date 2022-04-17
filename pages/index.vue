@@ -42,6 +42,7 @@ export default {
 
   computed: {
     breakpoints () {
+      console.log(this.$vuetify.breakpoint)
       return this.$vuetify.breakpoint.name
     },
     step: {
