@@ -1,4 +1,5 @@
 <template>
+  <!-- <button class="btn" :style="disabled ? {cursor: 'default'} : {backgroundColor: color}" @click="handleClick"> -->
   <button class="btn" :style="disabled ? {backgroundColor: '#a6a4a4', cursor: 'default'} : {backgroundColor: color}" @click="handleClick">
     {{ title }}
   </button>
@@ -46,7 +47,6 @@ export default {
 
 <style scoped lang="scss">
 .btn {
-  elevation: 0;
   border: 0;
   width: 15rem;
   height: 3.2rem;
@@ -54,9 +54,14 @@ export default {
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
+  box-shadow: 0 0 0;
+  transition: 0.2s;
+  text-transform: uppercase;
+  box-shadow: 0 0 5px rgba(153, 153, 153, 0.1);
 }
 .btn:hover {
-  opacity: 0.6;
+  box-shadow: 0 0 6px rgba(112, 112, 112, 0.5);
+  opacity: 0.9;
 }
 @media screen and (min-width:1025px) and (max-width: 1200px) {
   .btn {

@@ -1,9 +1,9 @@
 <template>
   <header class="appbar-container">
-    <img src="logo%20mokap.png" class="logo" alt="logo" @click="$store.commit('resetCart')">
+    <img src="logo%20mokap.png" class="logo" alt="logo" @click="$store.commit('createNewOrder')">
     <div class="info-container">
       <div class="info-text">
-        <a @click="handleAboutClick">Que Hacemos</a>
+        <a @click="handleAboutClick">Qué hacemos?</a>
         <about-dialog v-model="openDialog" />
       </div>
       <v-spacer />
@@ -46,17 +46,18 @@ export default {
   .info-text {
     font-size: 0.9rem;
     margin: auto;
-    padding: 0 0 0 1.4rem;
+    padding: 0 0 0 2rem;
     font-weight: 600;
     display: flex;
 
     a {
       color: #e0e0e0;
       text-decoration: none;
+      transition: 0.2s;
     }
 
     a:hover {
-      color: #8B8888;
+      color: #adadad;
     }
 
     p {
@@ -65,9 +66,18 @@ export default {
   }
 }
 
-@media screen and (min-width:1025px) and (max-width: 1200px) {
+
+
+
+@media screen and (min-width:1025px) and (max-width: 1500px) {
   .appbar-container {
-    padding: 0 10px;
+    padding: 0 30px;
+  }
+
+    .logo {
+    align-self: center;
+    width: 120px;
+    height: 40px;
   }
 }
 

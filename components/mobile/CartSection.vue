@@ -16,20 +16,20 @@
           <div v-if="orders.length > 0 " class="pb-4">
             <cart-datatable :orders="orders" />
             <div class="price-container">
-              <p class="total-title">
+              <p class="total-price">
                 TOTAL
               </p>
               <p class="total">
-                {{ total.toLocaleString('es-es') }}
+                Gs. {{ total.toLocaleString('es-es') }}
               </p>
             </div>
             <custom-button title="Continuar" @click="finished = true" />
           </div>
           <div class="delivery-details">
-            <h3>Entregamos pedidos en la zona marcada</h3>
-            <img src="map.png" alt="Area de cobertura">
-            <h3>Detalles del envío</h3>
-            <p>
+            <h3>Zona de entrega</h3>
+            <img class= "img-map" src="map.png" alt="Area de cobertura">
+            <h3>Detalles del delivery</h3>
+            <p class="details-info">
               El envío puede tardar hasta 24 hrs. dependiendo de la carga de
               pedidos. Una vez confirmada la orden, atención al cliente contactará
               contigo por WhatsApp para ultimar detalles.
@@ -37,54 +37,51 @@
           </div>
         </div>
         <div v-if="finished">
-          <p class="title">
-            Datos del cliente
-          </p>
+          <h3>Datos del cliente</h3>
           <v-form v-model="valid">
             <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
-            <form-input type="email" v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
+            <form-input type="email" v-model="user.email" label="Email" :rules="[validators.email]" />
             <div class="form-divider">
               <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
-              <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
+              <form-input v-model="user.ruc" label="RUC/CI" :rules="[]" />
             </div>
             <form-select
               v-model="user.payment"
-              label="Forma de Pago"
+              label="Forma de pago"
               :items="payment"
               :rules="[validators.required]"
             />
             <div class="form-divider">
               <form-select
                 v-model="user.shippingMethod"
-                label="Metodo de Envio"
+                label="Metodo de envío"
                 :items="shippingMethod"
                 :rules="[validators.required]"
               />
               <form-input
                 v-model="user.address"
-                :disabled="user.shippingMethod === 'Retiro del Local'"
-                label="Direccion"
-                :rules="user.shippingMethod === 'Retiro del Local' ? false : [validators.required]"
+                :disabled="user.shippingMethod === 'Retiro del local'"
+                label="Dirección"
+                :rules="user.shippingMethod === 'Retiro del local' ? false : [validators.required]"
               />
             </div>
           </v-form>
-          <p class="total-title">
-            Entregamos los pedidos en la zona marcada
-          </p>
-          <div style="height: 400px" />
-          <p class="total-title">
-            Detalles del pedido
-          </p>
-          <p class="details-info">
-            El envio puede tardar hasta 24 horas dependiendo de la carga de pedidos. Una vez confirmada la orden,
-            atencion al cliente se contactara contigo por WhatsApp para ultimar detalles
-          </p>
+          <div class="delivery-details">
+            <h3>Zona de entrega</h3>
+            <img class= "img-map" src="map.png" alt="Area de cobertura">
+            <h3>Detalles del delivery</h3>
+            <p class="details-info">
+              El envío puede tardar hasta 24 hrs. dependiendo de la carga de
+              pedidos. Una vez confirmada la orden, atención al cliente contactará
+              contigo por WhatsApp para ultimar detalles.
+            </p>
+          </div>
           <div class="price-container">
-            <p class="total-title">
+            <p class="total-price">
               TOTAL
             </p>
             <p class="total">
-              {{ total.toLocaleString('es-es') }}
+              Gs. {{ total.toLocaleString('es-es') }}
             </p>
           </div>
           <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail" />
@@ -100,13 +97,14 @@
 import { Validators } from '@/shared/validators'
 
 export default {
+ 
   data: () => ({
     finished: false,
     user: {},
     validators: Validators,
     valid: false,
     payment: ['Efectivo', 'Transferencia'],
-    shippingMethod: ['Delivery', 'Retiro del Local'],
+    shippingMethod: ['Delivery', 'Retiro del local'],
     showDialog: false
   }),
   computed: {
@@ -152,29 +150,37 @@ export default {
 
 <style lang="scss" scoped>
 .details-info {
-  color: #8B8888;
-  line-height: 1.9rem;
-  font-size: 1.3rem;
+  color: #666666;
+  line-height: 1.7rem;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
 .price-container {
   width: 100%;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
 .total-title {
-  margin: 0;
   font-size: 1.5rem;
   display: block;
   font-weight: bold;
   color: #4E4E51;
 }
 
+.total-price{
+  font-weight: 500;
+  color: #4E4E51;
+  margin-bottom: 0;
+}
+
 .total {
   color: #4E4E51;
   font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .cart {
@@ -202,6 +208,7 @@ export default {
     font-size: 2rem;
   }
 }
+
 
 .cart-overview {
   min-height: 400px;
@@ -231,6 +238,8 @@ export default {
 }
 
 .delivery-details {
+
+  margin-top: 1.5rem;
   h3 {
     margin-bottom: 0.5rem;
   }

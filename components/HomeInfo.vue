@@ -6,12 +6,12 @@
       </div>
       <div class="sub-title">
         <p>
-          Remeras de la mejor calidad 100% algodón, estampadas con tecnologia DTG - lo ultimo en impresión textil.
+          Remeras de la mejor calidad 100% algodón, estampadas con tecnologia DTG - lo último en impresión textil.
         </p>
       </div>
       <v-spacer />
       <div class="btn-container">
-        <custom-button title="Haz tu Pedido" @click="handleClick" />
+        <custom-button title="Haz tu pedido" @click="handleClick" />
       </div>
     </div>
   </div>
@@ -26,15 +26,17 @@ export default {
     handleClick () {
       const { container } = this.$refs
       const timeline = gsap.timeline()
-      timeline.to(container, 0.3, { x: -1000 })
+      timeline.to(container, 0.3, { opacity:0, x: -80 })
       this.$store.commit('createNewOrder', true)
 
       setTimeout(() => {
-        timeline.to(container, 0, { x: 0 })
+        timeline.to(container, 0, { opacity:1, x: 0 })
       }, 1000)
+      
     }
   }
 }
+
 </script>
 
 <style scoped lang="scss">
@@ -50,16 +52,17 @@ export default {
 
 .big-title {
   color: white;
-  font-size: 3.35rem;
-  line-height: 4.5rem;
+  font-size: 6rem;
+  line-height: 6.7rem;
   font-weight: 800;
-  font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  font-family: 'Poppins', 'Open Sans - Bold',"Roboto", sans-serif;
 }
 
 .sub-title {
   font-size: 1.2rem;
-  color: #e0e0e0;
-  font-weight: 200;
+  color: #cccccc;
+  font-weight: 400;
+  margin-bottom: 3rem;
 }
 
 .info-container {
@@ -76,14 +79,26 @@ export default {
   height: min-content;
 }
 
-@media screen and (min-width:1025px) and (max-width: 1200px) {
+// @media screen and (min-width:1200px) and (max-width: 1800px) {
+//   .big-title {
+//     font-size: 3.35rem;
+//     line-height: 4rem;
+//     font-weight: 800;
+//   }
+//   .sub-title {
+//     font-size: 1rem;
+//   }
+// }
+
+@media screen and (min-width:1025px) and (max-width: 1800px) {
   .big-title {
     font-size: 3.35rem;
     line-height: 4rem;
     font-weight: 800;
   }
   .sub-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    max-width: 80%;
   }
 }
 

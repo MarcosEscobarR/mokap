@@ -16,7 +16,7 @@
       @change="handleFile"
     >
     <input id="own-design" name="design" type="radio" value="alta" :checked="order.design === 'propio'">
-    <label for="own-design">Cargar tu Diseño</label>
+    <label for="own-design">Cargar tu diseño</label>
 
     <current-designs-dialog v-model="openDialog" />
   </div>
@@ -96,19 +96,21 @@ export default {
   align-content: center;
   background-color: white;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.4rem;
   border: 2px solid #E0E0E0;
-  color: #E0E0E0;
+  color: #acacac;
   border-radius: 6px;
   width: 9rem;
   height: 4rem;
   text-align: center;
+  transition:0.2s;
 }
 
 .radio-toolbar label:hover {
-  border: 6px solid #43BFA2;
-  color: #616161;
+  // border: 6px solid #43BFA2;
+  color: white;
+  background-color: #e0e0e0;
 }
 
 .radio-toolbar input[type="radio"]:focus + label {
@@ -119,19 +121,22 @@ export default {
   border: 6px solid #43BFA2;
   color: #43BFA2;
   font-weight: bold;
+  background-color: white;
+  font-size: 1.3rem;
 }
 
 @media screen and(min-width:1025px) and(max-width: 1200px) {
   .radio-toolbar {
-    width: 400px;
+    width: 420px;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-between;
   }
   .radio-toolbar label {
-    margin: 10px 30px 10px 0;
-    width: 150px;
+    // margin: 10px 10px 10px 0;
+    margin-top:5px;
+    width: 125px;
     height: 60px;
-    font-size: 20px;
+    font-size: 18px;
 
   }
 }

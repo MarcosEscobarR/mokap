@@ -49,7 +49,7 @@ export default {
   margin: 10px;
   display: flex;
   justify-content: space-between;
-  width: 40px;
+  width: 30px;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -61,14 +61,14 @@ export default {
 .radio-toolbar label {
   cursor: pointer;
   background-color: white;
-  border: 1px solid #8B8888;
+  border: 1px solid #acacac;
   border-radius: 100%;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
-  background-color: #8B8888;
+  background-color: #acacac;
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){
@@ -76,8 +76,8 @@ export default {
     width: 40px;
   }
   .radio-toolbar label {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
   }
 }
 
@@ -86,8 +86,8 @@ export default {
     width: 40px;
   }
   .radio-toolbar label {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
   }}
 
 @media screen and(max-width:768px)and(min-width:481px){

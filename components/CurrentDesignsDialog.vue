@@ -106,7 +106,7 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 200px;
-  height: 250px;
+  height: 230px;
   margin: 5px;
 }
 
@@ -125,31 +125,37 @@ export default {
 }
 
 .radio-toolbar .img-container {
-  width: 200px;
-  height: 250px;
+  width: 190px;
+  height: 220px;
   cursor: pointer;
-
+  padding-top: 0.5rem;
+ 
   img {
     object-fit: contain;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
   }
 
   p {
     text-align: center;
-    font-size: 20px;
-    color: #8B8888;
-    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4e4e51;
+    font-weight: 400px;
+    margin-bottom: 0;
 
   }
 }
 
 .radio-toolbar .img-container:hover {
-  border: 1px solid #8B8888;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
 }
 
 .radio-toolbar input[type="radio"]:checked + .img-container {
   background-color: #E0E0E0;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
   font-weight: bold;
 }
 

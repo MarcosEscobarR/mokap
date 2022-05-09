@@ -72,12 +72,20 @@ export default {
   align-content: center;
   background-color: white;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: 2px solid #E0E0E0;
-  color: #E0E0E0;
+  color: #acacac;
   border-radius: 6px;
   width: 4rem;
   height: 4rem;
+  transition: 0.2s;
+}
+
+.radio-toolbar label:hover {
+  // border: 6px solid #43BFA2;
+  background-color: #E0E0E0;
+  color: white;
+
 }
 
 .radio-toolbar input[type="radio"]:focus + label {
@@ -88,6 +96,19 @@ export default {
   border: 6px solid #43BFA2;
   font-weight: bolder;
   color: #43BFA2;
+  font-size: 1.4rem;
+  background-color: white;
+}
+
+@media screen and(min-width: 1025px) and(max-width: 1200px) {
+  .radio-toolbar {
+    width: 420px;
+  }
+  .radio-toolbar label {
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 </style>

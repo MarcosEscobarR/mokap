@@ -6,7 +6,7 @@
       </p>
 
       <div class="btn-container">
-        <a class="btn-outlined" href="#cart">Ir a Carrito</a>
+        <a class="btn-outlined" href="#cart">Ir al carrito</a>
         <custom-button title="Otra Orden" @click="$store.commit('reset')"/>
       </div>
     </div>
@@ -29,11 +29,17 @@ export default {
   height: 3.2rem;
   border-radius: 10px;
   color: #43BFA2;
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.btn-outlined:hover{
+  background-color: #ebfcf8;
 }
 
   .big-title {

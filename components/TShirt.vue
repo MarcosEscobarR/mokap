@@ -11,7 +11,7 @@
     </div>
     <div class="price-container">
       <span class="price-title">Precio</span>
-      <span class="price">{{ price.toLocaleString('es-es') }} Gs</span>
+      <span class="price">Gs. {{ price.toLocaleString('es-es') }} </span>
     </div>
   </div>
 </template>
@@ -39,10 +39,12 @@ export default {
   },
   watch: {
     createNewOrder () {
+
+    
       const timeline = gsap.timeline()
 
       setTimeout(() => {
-        timeline.from(this.$refs.container, 0.3, { x: -1000 })
+        timeline.from(this.$refs.container, 0.3, { opacity:0, x: -80 })
       }, 1000)
     }
   }
@@ -51,23 +53,28 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  height: calc(100% - 4.5rem);
+  // height: calc(100% - 15.5rem);
+  height: 100%;
   width: 100%;
-  padding: 0;
+  padding-bottom: 8rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
 }
 
 .img-container {
   position: relative;
-  height: 550px;
+  width: 70%;
+  max-width: 600px;
+  margin: 0 auto;
+  min-width: 430px;
   img {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 700px;
     overflow: hidden;
     object-fit: contain;
+    margin: 0 auto;
   }
 }
 
@@ -87,17 +94,18 @@ export default {
   position: absolute;
   top: 31%;
   left: 65%;
-  transform: translate(-50%, -50%);
+  transform: translate(-60%, -20%);
   img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     size: 120px;
   }
 }
 .price-container {
   width: 100%;
+  // margin-top: 3rem;
   position: absolute;
-  bottom: 25px;
+  bottom: 5rem;
   .price-title {
     display: block;
     color: #e0e0e0;
@@ -124,19 +132,14 @@ export default {
   .container {
     justify-content: space-around;
   }
-  .img-container {
-    img {
-      width: 420px;
-      height: 420px;
-    }
-  }
+
 
   .price-container {
     .price-title {
-      font-size: 25px;
+      font-size: 2rem;
     }
     .price {
-      font-size: 57px;
+      font-size: 2.2rem;
     }
   }
 
@@ -146,8 +149,8 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     img {
-      width: 320px;
-      height: 320px;
+      width: 200px;
+      height: 200px;
       size: 450px;
     }
   }
@@ -156,10 +159,10 @@ export default {
     position: absolute;
     top: 35%;
     left: 65%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -30%);
     img {
-      width: 150px;
-      height: 150px;
+      width: 60px;
+      height: 60px;
       size: 120px;
     }
   }
@@ -256,32 +259,33 @@ export default {
   }}
 
 @media screen and (max-height: 700px){
-  .img-container {
-    img {
-      height: 400px;
-      width: 400px;
-    }
-  }
-  .center-design-container {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    img {
-      width: 150px;
-      height: 150px;
-    }
-  }
+//   .img-container {
+//     img {
+//       height: 400px;
+//       width: 400px;
+//     }
+//   }
+//   .center-design-container {
+//     position: absolute;
+//     top: 35%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     img {
+//       width: 150px;
+//       height: 150px;
+//     }
+//   }
 
-  .chest-design-container {
-    position: absolute;
-    top: 25%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    img {
-      width: 70px;
-      height: 70px;
-      size: 120px;
-    }
-}}
+//   .chest-design-container {
+//     position: absolute;
+//     top: 25%;
+//     left: 65%;
+//     transform: translate(-50%, -50%);
+//     img {
+//       width: 70px;
+//       height: 70px;
+//       size: 120px;
+//     }
+// }
+}
 </style>

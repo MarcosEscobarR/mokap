@@ -85,6 +85,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .cart {
   display: block;
 }
@@ -94,27 +95,30 @@ export default {
 .cart-img-container {
   position: relative;
   cursor: pointer;
+  
   img {
     width: 60px;
   }
   .counter {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 27px;
+    height: 27px;
     border-radius: 100%;
     background-color: #D66A6A;
     z-index: 300;
-    left: 93%;
-    top: 10px;
+    left: 95%;
+    top: 15px;
 
     p {
-      font-size: 12px;
+      font-size: 15px;
       text-align: center;
       color: white;
       font-weight: bold;
+      margin-top: 2px;
     }
   }
 }
+
 
 .main-container {
   display: flex;
@@ -142,6 +146,14 @@ export default {
   z-index: 100;
   left: 90%;
   top: 20px;
+  border-radius: 100rem;
+  transition: 0.2s;
+  opacity: 1;
+}
+
+.cart-img:hover {
+  box-shadow: 0 0 7px rgba($color: #000000, $alpha: 0.5);
+  opacity: 0.96;
 }
 
 @media screen and (min-width:1025px) and (max-width: 1200px) {

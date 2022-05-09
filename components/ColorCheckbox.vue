@@ -59,10 +59,11 @@ export default {
 .radio-toolbar .radio-black {
   cursor: pointer;
   background-color: black;
-  border: 2px solid black;
+  border: 2px solid #e0e0e0;
   border-radius: 6px;
   width: 4rem;
   height: 4rem;
+  transition: 0.1s;
 }
 
 .radio-toolbar .radio-white {
@@ -70,14 +71,15 @@ export default {
   display: inline-block;
   background-color: white;
   font-size: 1rem;
-  border: 2px solid grey;
+  border: 2px solid #e0e0e0;
   border-radius: 8px;
   width: 4rem;
   height: 4rem;
+  transition: 0.1s;
 }
 
 .radio-toolbar label:hover {
-  border: 6px solid #43BFA2;
+  border: 6px solid #e0e0e0;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
@@ -86,7 +88,7 @@ export default {
 
 @media screen and(min-width:1025px)and(max-width:1200px){
   .radio-toolbar {
-    width: 150px;
+    width: 140px;
   }
   .radio-toolbar .radio-black {
     height: 60px;

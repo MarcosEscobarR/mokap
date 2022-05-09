@@ -3,7 +3,7 @@
     <div class="main">
       <div>
         <p class="big-title">
-          Customize su Remera
+          Customize su remera
         </p>
 
         <div class="item">
@@ -28,6 +28,7 @@
             type="number"
             class="quantity"
             value="1"
+            min= "1"
             @input="$store.commit('setOrder', {quantity: $event.target.value})"
           >
         </div>
@@ -41,7 +42,7 @@
       </div>
       <div class="btns">
         <p class="back" @click="$store.commit('nextStep', 1)">
-          Atras
+          Atrás
         </p>
         <custom-button title="Agregar al carrito" color="#D66A6A" @click="addToCart" />
       </div>
@@ -92,6 +93,8 @@ export default {
   font-weight: bold;
   font-size: 1.5rem;
   color: #4E4E51;
+  margin-bottom: 0.3rem;
+  margin-top: 0.7rem;
 }
 .checkbox-label {
   font-size: 1.2rem;
@@ -100,7 +103,7 @@ export default {
 }
 
 .item {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .navigator {
@@ -129,10 +132,15 @@ export default {
 
     .back {
       font-size: 1.1rem;
-      color: #8B8888;
+      color: #acacac;
       align-self: end;
       cursor: pointer;
       padding: 10px 10px 0;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      color: #666666;
     }
   }
 }
@@ -146,17 +154,17 @@ export default {
 
 .quantity {
   border: 2px solid #E0E0E0;
-  width: 100px;
+  width: 80px;
   height: 60px;
-  padding: 10px 0 10px 10px;
+  padding: 10px 0 10px 20px;
   border-radius: 6px;
   color: #8B8888;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500px;
 }
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
-    opacity: 1;
+    opacity: 0.5;
     height: 50px;
     padding: 2px;
   }
@@ -171,15 +179,17 @@ input[type=number]
     width: 90%;
   }
   .big-title {
-    font-size: 45px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .sub-title {
-    font-size: 25px;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .item {
-    padding: 10px 0;
+    padding: 5px 0;
   }
   .btn-container {
     .back {

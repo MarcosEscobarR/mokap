@@ -7,16 +7,20 @@
       <div class="row" style="height: 100%">
         <div class="custom-col">
           <p class="subt">
-            Entregamos pedidos en la Zona Marcada
+            Entregamos pedidos en la zona marcada
           </p>
-          <div class="map" />
+          <div class= "map">
+            <div class= "img-map">
+              <map-dialog/>
+            </div>
+          </div>
           <p class="subt">
-            Detalles del envío
+            Detalles del delivery
           </p>
           <div class="info-text">
             <p>
               El envío puede tardar hasta 24 hrs dependiendo de la carga de pedidos. Una
-              vez confirmada la orden, atención al cliente se contactara contigo por WhatsApp para ultimar detalles
+              vez confirmada la orden, un compañero de atención al cliente se contactará contigo por WhatsApp para ultimar detalles del envío.
             </p>
           </div>
         </div>
@@ -28,7 +32,7 @@
               </div>
               <p>Tu carrito esta vacío</p>
               <a class="link" href="#home" @click="addNewOrder">
-                Agrega un Pedido
+                Agrega un pedido
               </a>
             </div>
           </div>
@@ -43,11 +47,11 @@
             </div>
 
             <div class="d-flex justify-end ">
-              <p class="subt">
+              <p class="total-final">
                 TOTAL
               </p>
             </div>
-            <p class="total">
+            <p class="total"> Gs.
               {{ total.toLocaleString('es-es') }}
             </p>
             <div class="btn-container">
@@ -58,34 +62,34 @@
           <div v-if="step === 2">
             <div class="cart-items">
               <p class="subt">
-                Datos del Cliente
+                Datos del cliente
               </p>
               <div v-if="step === 2" class="form-g">
                 <v-form v-model="valid">
                   <form-input v-model="user.name" label="Nombre" :rules="[validators.required]" />
-                  <form-input v-model="user.email" label="Email" :rules="[validators.required, validators.email]" />
+                  <form-input v-model="user.email" label="Email" :rules="[validators.email, validators.notrequired]" />
                   <div class="form-divider">
                     <form-input v-model="user.phone" label="Celular" :rules="[validators.number, validators.required]" />
-                    <form-input v-model="user.ruc" label="Ruc" :rules="[validators.required]" />
+                    <form-input v-model="user.ruc" label="RUC/CI" :rules="[validators.notrequired]" />
                   </div>
                   <form-select
                     v-model="user.payment"
-                    label="Forma de Pago"
+                    label="Forma de pago"
                     :items="payment"
                     :rules="[validators.required]"
                   />
                   <div class="form-divider">
                     <form-select
                       v-model="user.shippingMethod"
-                      label="Metodo de Envio"
+                      label="Método de envío"
                       :items="shippingMethod"
                       :rules="[validators.required]"
                     />
                     <form-input
                       v-model="user.address"
-                      :disabled="user.shippingMethod === 'Retiro del Local'"
-                      label="Direccion"
-                      :rules=" user.shippingMethod === 'Retiro del Local' ? [] :[validators.required]"
+                      :disabled="user.shippingMethod === 'Retiro del local'"
+                      label="Dirección"
+                      :rules=" user.shippingMethod === 'Retiro del local' ? [] :[validators.required]"
                     />
                   </div>
                 </v-form>
@@ -93,12 +97,11 @@
                 <div>
                   <div>
                     <div class="d-flex justify-end">
-                      <p class="subt">
+                      <p class="total-final">
                         TOTAL
                       </p>
                     </div>
-
-                    <p class="total">
+                    <p class="total">Gs.
                       {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
@@ -107,7 +110,7 @@
             </div>
             <div class="btn-container">
               <p class="back" @click="step = 1">
-                Atras
+                Atrás
               </p>
               <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
               <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
@@ -129,6 +132,7 @@ import { EmailSenderModel } from '~/models/EmailSenderModel'
 import { OrderModel } from '~/models/OrderModel'
 import { UserModel } from '~/models/UserModel'
 import { Validators } from '~/shared/validators'
+import MapDialog from './MapDialog.vue'
 
 export default Vue.extend({
   name: 'Cart',
@@ -136,7 +140,8 @@ export default Vue.extend({
     CartDatatable,
     FormSelect,
     FormInput,
-    CustomButton
+    CustomButton,
+    MapDialog,
   },
   data: () => ({
     step: 1,
@@ -153,11 +158,11 @@ export default Vue.extend({
       shippingMethod: 'Delivery'
     } as UserModel,
     payment: ['Efectivo', 'Transferencia'],
-    shippingMethod: ['Delivery', 'Retiro del Local']
+    shippingMethod: ['Delivery', 'Retiro del local']
   }),
   computed: {
     disableAddress (): boolean {
-      return this.user.shippingMethod === 'Retiro del Local'
+      return this.user.shippingMethod === 'Retiro del local'
     },
     orders: {
       get (): OrderModel[] {
@@ -241,17 +246,20 @@ export default Vue.extend({
   justify-content: end;
   margin-top: auto;
   position: absolute;
-  //bottom: 0;
-  //bottom: 20px;
   right: 0;
 
   .back {
-    font-size: 1.1rem;
-    color: #d5d5d5;
-    align-self: end;
-    cursor: pointer;
-    margin-right: 20px;
-  }
+      font-size: 1.1rem;
+      color: #acacac;
+      align-self: end;
+      cursor: pointer;
+      padding: 10px 10px 0;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      color: #666666;
+    }
 }
 
 .total {
@@ -272,7 +280,6 @@ export default Vue.extend({
 }
 
 .cart-items {
-  //width: 500px;
   position: relative;
   padding: 0 10px;
   height: auto;
@@ -313,7 +320,6 @@ export default Vue.extend({
 .card {
   width: 80%;
   height: 800px;
-  max-height: 100%;
   background-color: white;
   border-radius: 25px;
   elevation: 1deg;
@@ -338,22 +344,57 @@ export default Vue.extend({
 }
 
 .subt {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #4E4E51;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4e4e51;
+
+}
+
+.total-final{
+  margin-bottom: 0;
+  color: #8B8888;
+}
+
+.total{
+  font-size:1.5rem;
+  color: #4e4e51;
+  margin-bottom: 0.5rem;
 }
 
 .map {
   height: 300px;
+  width: 100%;
+
+  padding-right: 3rem;
+  padding-bottom: 2rem;
+
+  .img-map{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    filter: grayscale(100%);
+    transition: 0.3s;
+
+  }
+
+  .img-map:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    filter: grayscale(0%);
+  }
+
+
+
 }
 
 .info-text {
-  width: 60%;
+  width: 90%;
 
   p {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #8B8888;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666666;
   }
 }
 
@@ -377,7 +418,14 @@ export default Vue.extend({
       width: fit-content;
 
       img {
-        width: 180px;
+        width: 130px;
+        opacity: 0.8;
+        transition: 0.3s
+      }
+
+      img:hover {
+        opacity: 1;
+        transform: scale(1.05);
       }
     }
 
@@ -391,8 +439,14 @@ export default Vue.extend({
     .link {
       color: #8B8888;
       font-size: 1rem;
-      text-decoration: underline;
+      text-decoration: none;
       text-align: center;
+      transition: 0.2s;
+    }
+
+    .link:hover{
+      text-decoration: underline;
+      color:#4e4e51
     }
   }
 }

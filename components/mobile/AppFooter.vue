@@ -5,11 +5,11 @@
     <div class="footer__sections">
       <div class="footer__section">
         <img src="location.png" alt="Ubicación" />
-        <address>Bélgica 4625, Asunción, Paraguay</address>
+        <a href="https://goo.gl/maps/buDPk4dhMEbmzrKt6" target="_blank">Bélgica 4624, Asunción, Paraguay</a>
       </div>
       <a href="https://wa.me/+595986186880"  class="footer__section">
         <img src="whatsapp.png" alt="Ubicación" />
-        <a style="color: white" href="https://wa.me/+595986186880" target="_blank">0986 168 880</a>
+        <a style="color: white" href="https://wa.me/+595986186880" target="_blank">0986 168880</a>
       </a>
     </div>
 
@@ -40,10 +40,11 @@ footer {
   .footer__logo {
     width: 80%;
     max-width: 400px;
+    margin-top: 2rem;
   }
 
   .footer__sections {
-    margin: 2rem 0;
+    margin: 1rem 0;
 
     .footer__section {
       display: flex;
@@ -59,12 +60,14 @@ footer {
         margin-top: 2rem;
       }
 
-      address {
+      a {
         font-style: normal;
+        text-decoration: underline;
+        color: white;
       }
 
       img {
-        max-width: 64px;
+        width: 40px;
         margin-bottom: 1rem;
       }
     }

@@ -16,7 +16,7 @@
             Precio
           </p>
           <p class="price">
-            {{ price.toLocaleString() }} Gs.
+            Gs. {{ price.toLocaleString('es-es') }} 
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@
           >
         </div>
         <div class="btn-container">
-          <custom-button title="AGREGA SU PEDIDO" color="#D66A6A" @click="addToCart" />
+          <custom-button title="AGREGAR AL CARRITO" color="#D66A6A" @click="addToCart" />
         </div>
       </div>
       <div v-else class="btn-navigator-container">
@@ -104,6 +104,10 @@ export default {
 
 <style scoped lang="scss">
 
+.img-container{
+  margin-top: 0.5rem;
+}
+
 .center-design-container {
   position: absolute;
   top: 54%;
@@ -152,7 +156,7 @@ export default {
 
 .big-title {
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 2rem;
   line-height: 2.7rem;
   font-family: 'Open Sans - Bold', "Roboto", sans-serif;
   font-weight: bold;
@@ -184,13 +188,14 @@ export default {
     color: white;
     font-size: 1.5rem;
     margin: 0;
+    font-weight: bold;
   }
 
   .price-title {
     margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 10px;
     color: white;
-    font-size: .9rem;
+    font-size: 1rem;
     text-align: center;
   }
 }

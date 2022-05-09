@@ -3,7 +3,7 @@
     <div class="main">
       <div>
         <p class="big-title">
-          Customize su Remera
+          Customize su remera
         </p>
         <v-checkbox color="#43BFA2" class="pl-2" @change="$store.commit('setOrder', {ownTShirt: $event})">
           <template #label>
@@ -17,15 +17,25 @@
           <color-checkbox v-model="order.color" />
         </div>
         <div class="item">
-          <p class="sub-title">
-            Tamaño
-          </p>
+          <div class= "size-item">
+            <p class="sub-title">
+              Tamaño
+            </p>
+            <div class=guia>
+              <Popup/>
+            </div>
+          </div>
           <size-checkbox v-model="order.size" />
         </div>
         <div class="item">
-          <p class="sub-title">
-            Calidad de tela
-          </p>
+          <div class= "calidad-item">
+            <p class="sub-title">
+              Calidad de tela
+            </p>
+            <div class= 'detalle'>
+              <FabricPopup/>
+            </div>
+          </div>
           <fabric-quality-checkbox v-model="order.quality" />
         </div>
       </div>
@@ -39,7 +49,7 @@
       </div>
       <div class="btns">
         <p class="back" @click="$store.commit('createNewOrder')">
-          Atras
+          Atrás
         </p>
         <custom-button
           title="Continuar"
@@ -52,11 +62,16 @@
 
 <script >
 import { gsap } from 'gsap'
+import Popup from './Popup'
+import FabricPopup from './FabricPopup.vue'
+
+ 
 export default {
   name: 'Customize',
+  components: { Popup, FabricPopup},
   data: () => ({
     order: {},
-    nextStep: 0
+    nextStep: 0,
   }),
   computed: {
     createNewOrder: {
@@ -69,7 +84,7 @@ export default {
     createNewOrder () {
       setTimeout(() => {
         const timeline = gsap.timeline()
-        timeline.from(this.$refs.container, 0.3, { x: 1000 })
+        timeline.from(this.$refs.container, 0.3, { opacity:0, x: 80 })
       }, 1000)
     },
     order: {
@@ -106,21 +121,45 @@ export default {
   font-size: 2.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  margin-bottom: 0rem;
 }
+
+.pl-2{
+  margin-top:0rem !important;
+ }
+
 
 .sub-title {
   font-weight: bold;
   font-size: 1.5rem;
   color: #4E4E51;
+  margin-bottom: 0.3rem;
+  margin-top: 0.7rem;
 }
 .checkbox-label {
   font-size: 1.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
+  
 }
 
 .item {
   padding: 5px 0;
+}
+
+.size-item{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+}
+
+
+.calidad-item{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
 }
 
 .navigator {
@@ -134,7 +173,7 @@ export default {
   flex-direction: column;
   position: absolute;
   background-color: white;
-  bottom: 30px;
+  bottom: 20px;
   justify-content: center;
   align-items: center;
 
@@ -148,10 +187,15 @@ export default {
     }
     .back {
       font-size: 1.1rem;
-      color: #8B8888;
+      color: #acacac;
       align-self: end;
       cursor: pointer ;
       padding: 10px 10px 0;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      color: #666666;
     }
   }
 }
@@ -164,14 +208,23 @@ export default {
 }
 
 @media screen and(min-width:1025px)and(max-width:1200px){
+
   .container {
     width: 90%;
   }
-
-  .item {
-    padding: 10px 0;
+  .big-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
+  .sub-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .item {
+    padding: 5px 0;
+  }
   .btn-container {
     .back {
       font-size: 20px;
@@ -211,6 +264,20 @@ export default {
       font-size: 20px;
     }
   }}
+
+@media screen and (max-height: 750px){
+.big-title {
+  margin-bottom: 0;
+
+}
+
+.sub-title {
+  margin-bottom: 2px;
+}
+.checkbox-label {
+  margin: 0;
+}
+}
 
 @media screen and(max-width:768px)and(min-width:481px){
   //Disenhomobile

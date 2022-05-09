@@ -27,7 +27,7 @@
     <template #item.tshirt="{item}">
       <div class="info-text">
         <p>
-          {{ item.TShirtBasic ? 'Remera Básica' : 'Remera con Diseño' }}
+          {{ item.TShirtBasic ? 'Remera básica' : 'Remera con diseño' }}
         </p>
       </div>
     </template>
