@@ -5,25 +5,42 @@
       name="quality"
       type="radio"
       value="Media"
-      checked
+      :checked="!disabled && order.quality === 'Media'"
+      :disabled="disabled"
       @click="handleClick"
     >
-    <label for="radioMedium">Media</label>
+    <label :class=" disabled ? 'disable' : null" for="radioMedium">Media</label>
 
-    <input id="radioHigh" name="quality" type="radio" value="Alta" @click="handleClick">
-    <label for="radioHigh">Alta</label>
+    <input
+      id="radioHigh"
+      :disabled="disabled"
+      :checked="order.quality === 'Alta'"
+      :class="'disable'"
+      name="quality"
+      type="radio"
+      value="Alta"
+      @click="handleClick"
+    >
+    <label :class="disabled ? 'disable' : null" for="radioHigh">Alta</label>
   </div>
 </template>
 
-<script>
-
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { OrderModel } from '~/models/OrderModel'
+export default Vue.extend({
   props: {
     value: {
       type: String
     }
   },
   computed: {
+    disabled (): boolean {
+      return this.$store.getters.order.ownTShirt
+    },
+    order (): OrderModel {
+      return this.$store.getters.order
+    },
     quality: {
       get () {
         return this.value
@@ -38,7 +55,7 @@ export default {
       this.quality = e.target.value
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
@@ -70,6 +87,22 @@ export default {
   height: 4rem;
   transition: 0.2s;
 }
+.radio-toolbar .disable {
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  font-family: 'Open Sans - Bold', "Roboto", sans-serif;
+  font-size: 1.2rem;
+  border: 2px solid #8B8888;
+  color: #acacac;
+  border-radius: 6px;
+  width: 220px;
+  height: 4rem;
+  transition: 0.2s;
+}
 
 .radio-toolbar label:hover {
   // border: 6px solid #43BFA2;
@@ -77,14 +110,27 @@ export default {
   color: white;
 
 }
+.radio-toolbar .disable:hover {
+  background-color: white;
+  color: #acacac;
+}
 
 .radio-toolbar input[type="radio"]:focus + label {
   border: 6px dashed #444;
+}
+.radio-toolbar input[type="radio"]:focus + .disable {
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
   border: 6px solid #43BFA2;
   color: #43BFA2;
+  font-weight: bold;
+  font-size: 1.4rem;
+  background-color: white;
+}
+.radio-toolbar input[type="radio"]:checked + .disable {
+  border: 6px solid #d5d5d5;
+  color: #d5d5d5;
   font-weight: bold;
   font-size: 1.4rem;
   background-color: white;

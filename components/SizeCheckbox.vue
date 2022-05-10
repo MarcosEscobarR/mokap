@@ -5,28 +5,57 @@
       type="radio"
       name="size"
       value="P"
-      checked
+      :checked="order.size === 'P'"
       @click="handleClick"
     >
     <label for="radioP">P</label>
 
-    <input id="radioM" type="radio" name="size" value="M" @click="handleClick">
+    <input
+      id="radioM"
+      type="radio"
+      name="size"
+      value="M"
+      :checked="order.size === 'M'"
+      @click="handleClick"
+    >
     <label for="radioM">M</label>
 
-    <input id="radioG" type="radio" name="size" value="G" @click="handleClick">
+    <input
+      id="radioG"
+      type="radio"
+      name="size"
+      value="G"
+      :checked="order.size === 'G'"
+      @click="handleClick"
+    >
     <label for="radioG">G</label>
 
-    <input id="radioXG" type="radio" name="size" value="XG" @click="handleClick">
+    <input
+      id="radioXG"
+      type="radio"
+      name="size"
+      value="XG"
+      :checked="order.size === 'XG'"
+      @click="handleClick"
+    >
     <label for="radioXG">XG</label>
 
-    <input id="radio2XG" type="radio" name="size" value="2XG" @click="handleClick">
+    <input
+      id="radio2XG"
+      type="radio"
+      name="size"
+      value="2XG"
+      :checked="order.size === '2XG'"
+      @click="handleClick"
+    >
     <label for="radio2XG">2XG</label>
   </div>
 </template>
 
-<script>
-
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { OrderModel } from '~/models/OrderModel'
+export default Vue.extend({
   props: {
     value: {
       type: String
@@ -34,6 +63,9 @@ export default {
   },
 
   computed: {
+    order (): OrderModel {
+      return this.$store.getters.order
+    },
     size: {
       get () {
         return this.value
@@ -49,7 +81,7 @@ export default {
       this.size = e.target.value
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
