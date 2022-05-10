@@ -84,7 +84,7 @@
               Gs. {{ total.toLocaleString('es-es') }}
             </p>
           </div>
-          <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail" />
+          <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
           <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
 
         </div>
@@ -97,7 +97,7 @@
 import { Validators } from '@/shared/validators'
 
 export default {
- 
+
   data: () => ({
     finished: false,
     user: {},
