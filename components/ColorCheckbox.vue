@@ -38,16 +38,16 @@ export default Vue.extend({
       return this.$store.getters.order
     },
     color: {
-      get () {
+      get (): string {
         return this.value
       },
-      set (val) {
+      set (val: string) {
         this.$emit('input', val)
       }
     }
   },
   methods: {
-    handleClick (e) {
+    handleClick (e: any) {
       this.color = e.target.value
     }
   }

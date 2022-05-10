@@ -42,16 +42,16 @@ export default Vue.extend({
       return this.$store.getters.order
     },
     quality: {
-      get () {
+      get (): string {
         return this.value
       },
-      set (val) {
+      set (val: string) {
         this.$emit('input', val)
       }
     }
   },
   methods: {
-    handleClick (e) {
+    handleClick (e: any) {
       this.quality = e.target.value
     }
   }

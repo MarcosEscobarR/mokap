@@ -35,7 +35,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleInput (e) {
+    handleInput (e: any) {
       this.$store.commit('setOrder', { location: e.target.value })
     }
   }

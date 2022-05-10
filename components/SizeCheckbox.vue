@@ -67,17 +67,17 @@ export default Vue.extend({
       return this.$store.getters.order
     },
     size: {
-      get () {
+      get (): string {
         return this.value
       },
-      set (val) {
+      set (val: string) : void {
         this.$emit('input', val)
       }
     }
   },
 
   methods: {
-    handleClick (e) {
+    handleClick (e: any) {
       this.size = e.target.value
     }
   }
