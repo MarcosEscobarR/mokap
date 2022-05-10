@@ -9,9 +9,9 @@
           <p class="subt">
             Entregamos pedidos en la zona marcada
           </p>
-          <div class= "map">
-            <div class= "img-map">
-              <map-dialog/>
+          <div class="map">
+            <div class="img-map">
+              <map-dialog />
             </div>
           </div>
           <p class="subt">
@@ -51,7 +51,8 @@
                 TOTAL
               </p>
             </div>
-            <p class="total"> Gs.
+            <p class="total">
+              Gs.
               {{ total.toLocaleString('es-es') }}
             </p>
             <div class="btn-container">
@@ -101,7 +102,8 @@
                         TOTAL
                       </p>
                     </div>
-                    <p class="total">Gs.
+                    <p class="total">
+                      Gs.
                       {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
@@ -128,11 +130,11 @@ import CustomButton from './CustomButton.vue'
 import FormInput from './FormInput.vue'
 import FormSelect from './FormSelect.vue'
 import CartDatatable from './CartDatatable.vue'
+import MapDialog from './MapDialog.vue'
 import { EmailSenderModel } from '~/models/EmailSenderModel'
 import { OrderModel } from '~/models/OrderModel'
 import { UserModel } from '~/models/UserModel'
 import { Validators } from '~/shared/validators'
-import MapDialog from './MapDialog.vue'
 
 export default Vue.extend({
   name: 'Cart',
@@ -141,7 +143,7 @@ export default Vue.extend({
     FormSelect,
     FormInput,
     CustomButton,
-    MapDialog,
+    MapDialog
   },
   data: () => ({
     step: 1,
@@ -162,7 +164,7 @@ export default Vue.extend({
   }),
   computed: {
     disableAddress (): boolean {
-      return this.user.shippingMethod === 'Retiro del local'
+      return this.user.shippingMethod === 'Retiro del Local'
     },
     orders: {
       get (): OrderModel[] {
@@ -177,7 +179,7 @@ export default Vue.extend({
   },
   methods: {
     async sendEmail () {
-      console.log("here")
+      console.log('here')
       this.step = 2
       try {
         console.log(this.user)
@@ -187,7 +189,7 @@ export default Vue.extend({
           order: this.orders
         }
         await this.$axios.$post('email-sender', model)
-        console.log("here")
+        console.log('here')
         this.$store.commit('setLoading')
         this.showDialog = true
       } catch (e) {
@@ -383,8 +385,6 @@ export default Vue.extend({
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     filter: grayscale(0%);
   }
-
-
 
 }
 
