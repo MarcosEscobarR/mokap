@@ -27,8 +27,8 @@
           <input
             type="number"
             class="quantity"
-            value="1"
-            min= "1"
+            :value="order.quantity"
+            min="1"
             @input="$store.commit('setOrder', {quantity: $event.target.value})"
           >
         </div>
@@ -50,16 +50,23 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { OrderModel } from '~/models/OrderModel'
+export default Vue.extend({
   name: 'DesignTShirt',
+  computed: {
+    order (): OrderModel {
+      return this.$store.getters.order
+    }
+  },
   methods: {
     addToCart () {
       this.$store.commit('newOrder')
       this.$store.commit('nextStep', 3)
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
