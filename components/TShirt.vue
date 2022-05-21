@@ -53,13 +53,11 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  // height: calc(100% - 15.5rem);
   height: 100%;
   width: 100%;
   padding-bottom: 8rem;
   display: flex;
   justify-content: center;
-  // align-items: center;
   flex-direction: column;
 }
 
@@ -80,6 +78,7 @@ export default {
 
 .center-design-container {
   position: absolute;
+  opacity: 0.85;
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);

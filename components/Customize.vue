@@ -36,7 +36,7 @@
               <FabricPopup/>
             </div>
           </div>
-          <fabric-quality-checkbox v-model="order.quality" />
+          <fabric-quality-checkbox  v-model="order.quality" />
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@ import { gsap } from 'gsap'
 import Popup from './Popup'
 import FabricPopup from './FabricPopup.vue'
 
- 
+
 export default {
   name: 'Customize',
   components: { Popup, FabricPopup},
@@ -140,7 +140,7 @@ export default {
   font-size: 1.2rem;
   color: #4E4E51;
   font-family: 'Open Sans - Bold',"Roboto", sans-serif;
-  
+
 }
 
 .item {

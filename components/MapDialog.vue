@@ -5,7 +5,7 @@
       width="800"
     >
       <template v-slot:activator="{ on, attrs }">
-        <img class= "img-map" src="map.png" alt="mapa de entrega" v-bind="attrs" v-on="on">
+        <img class= "inline-img" src="map.png" alt="mapa de entrega" v-bind="attrs" v-on="on">
       </template>
 
       <v-card>
@@ -27,10 +27,7 @@
   padding: 0.2rem;
   width: 100%;
   overflow: hidden;
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
+
 }
 .title-container {
   width: 100%;
@@ -49,9 +46,12 @@
 
 }
 
+.inline-img{
+  width: 100%;
+}
+
 .img-map{
-    width: 100%;
-    object-fit: cover;
+    width: 100%;;
 }
 
 

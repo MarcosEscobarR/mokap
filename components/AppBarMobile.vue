@@ -1,17 +1,15 @@
 <template>
   <div class="appbar">
     <div class="img-container">
-      <img class='logo-img' src="logo%20mokap.png" alt="logo" @click="$store.commit('resetCart')">
+      <img class='logo-img' src="logo%20mokap.png" alt="logo" @click="$store.commit('reset')">
     </div>
     <div class="icons-container">
-      <v-badge class="ma-4" color="#D66A6A" :content="orders.length" :value="orders.length" overlap>
-        <v-icon large class="mx-2" color="white" @click="$store.commit('reset')">
+      <v-badge class="ma-4" color="#D66A6A" bordered :content="orders.length" :value="orders.length" overlap>
+        <v-icon size="30" color="white" >
           mdi-cart
         </v-icon>
       </v-badge>
-      <!-- <v-icon x-large color="white">
-        mdi-menu
-      </v-icon> -->
+
     </div>
   </div>
 </template>
@@ -32,7 +30,7 @@ export default {
 <style scoped lang="scss">
   .appbar {
     width: 100%;
-    height: 60px;
+    height: 70px;
     position: fixed;
     z-index: 500;
     background-color: #4E4E51;
@@ -52,7 +50,7 @@ export default {
 
     img {
       object-fit: contain;
-      width: 160px;
+      width: 175px;
       align-self: end;
     }
 

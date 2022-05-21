@@ -48,7 +48,7 @@ export default {}
 <style scoped lang="scss">
 .footer {
   padding-top: 100px;
-  height: 100vh;
+  // height: 70vh !important;
   background-color: #4E4E51;
   display: flex;
   justify-content: center;
@@ -56,48 +56,12 @@ export default {}
 
 .main {
   width: 300px;
+  // max-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.white-card {
-  width: 600px;
-  height: 350px;
-  border-radius: 25px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 50px;
-  transform: rotate(-5deg);
-  position: relative;
-
-  .phrase {
-    padding-bottom: 20px;
-
-    p {
-      font-size: 25px;
-      color: #4E4E51;
-    }
-
-  }
-
-  .author {
-    margin-left: auto;
-    font-weight: bold;
-    font-size: 25px;
-    color: #4E4E51;
-  }
-
-  img {
-    top: -60px;
-    left: -55px;
-    position: absolute;
-    width: 100px;
-    transform: rotate(-35deg);
-  }
-}
 
 .copyright-container {
   width: 100%;

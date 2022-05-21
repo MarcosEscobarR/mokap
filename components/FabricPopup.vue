@@ -4,36 +4,33 @@
       v-model="dialog"
       width="500"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <p class= "details" v-bind="attrs" v-on="on">
-            Detalle
+      <template #activator="{ on, attrs }">
+        <p class="details" v-bind="attrs" v-on="on">
+          Detalle
         </p>
       </template>
 
       <v-card>
-      <div class="title-container">
-        <p>Calidad de la tela</p>
-  
-      </div>
-
-      <div class="info-container">
-        <span>Alta (100% algodón):</span>
-        <p>
-          Mantiene una excelente calidad hasta 40 - 50 
-          lavadas. Misma calidad que tus remeras Timberland 
-          o Caterpillar.
-        </p>
-        <span>Media (100% algodón):</span>
-        <p>
-          Mantiene la calidad hasta 15 - 20 lavadas. 
-          Similar a tus remeras de Springfield o Aeropostale.
-        </p>
-        <div class= "obs">
-          <p>Obs.: no es necesario especificar la calidad si traes tu propia remera.</p>
+        <div class="title-container">
+          <p>Calidad de la tela</p>
         </div>
-        
-      </div>
- 
+
+        <div class="info-container">
+          <span>Alta (100% algodón):</span>
+          <p>
+            Mantiene una excelente calidad hasta 40 - 50
+            lavadas. Misma calidad que tus remeras Timberland
+            o Caterpillar.
+          </p>
+          <span>Media (100% algodón):</span>
+          <p>
+            Mantiene la calidad hasta 15 - 20 lavadas.
+            Similar a tus remeras de Springfield o Aeropostale.
+          </p>
+          <div class="obs">
+            <p>Obs.: no es necesario especificar la calidad si traes tu propia remera.</p>
+          </div>
+        </div>
       </v-card>
     </v-dialog>
   </div>

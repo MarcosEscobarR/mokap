@@ -15,12 +15,12 @@
 
     <div class="footer__bottom">
       <div class="footer__bottom__socials">
-        <img src="linkedin-logo.png" alt="LinkedIn" />
-        <img src="facebook-app-logo.png" alt="Facebook" />
-        <img src="instagram (1).png" alt="Instagram" />
+        <a href="https://www.linkedin.com/company/mokapy/about/"><img src="linkedin-logo.png" alt="LinkedIn" /></a>
+        <a href="https://m.facebook.com/mokap.py"><img src="facebook-app-logo.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/mokap.py/"><img src="instagram (1).png" alt="Instagram" /></a>
       </div>
       <hr />
-      <span>&copy; Copyright 2022, All Rights Reserved </span>
+      <!-- <span>&copy; Copyright 2022, All Rights Reserved </span> -->
     </div>
   </footer>
 </template>
@@ -33,7 +33,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  min-height: calc(100vh - 60px);
+  min-height: calc(80vh - 60px);
   height: max-content;
   font-size: 1.25rem;
 

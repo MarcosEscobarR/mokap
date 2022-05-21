@@ -104,11 +104,13 @@ export default {
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .big-title {
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 3rem;
+    line-height: 3.8rem;
+    font-weight: 800;
   }
   .sub-title {
-    font-size: .8rem;
+    font-size: 1rem;
+    max-width: 80%;
   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {

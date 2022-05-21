@@ -225,6 +225,8 @@ export default {
   }
   .grid {
     height: 500px;
+    justify-content: space-between;
+    padding: 0 0.5rem;
   }
   .radio-toolbar {
     width: 120px;
@@ -240,7 +242,7 @@ export default {
     }
 
     p {
-      font-size: 20px;
+      font-size: 1.1rem;
     }
   }}
 </style>

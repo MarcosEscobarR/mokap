@@ -7,7 +7,7 @@
             <img src="feedback.png" alt="feedback">
             <div class="phrase">
               <p>
-                "Me encanto la remera y la presentacion esta increible! No puedo creer que hasta perfume le pongan
+                "Me encantó la remera y la presentación esta increíble! No puedo creer que hasta perfume le pongan
                 jaja se pasan"
               </p>
             </div>

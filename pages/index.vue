@@ -93,8 +93,10 @@ export default {
   display: none;
 }
 .cart-img-container {
-  position: relative;
+  position: fixed;
   cursor: pointer;
+  z-index: 1000;
+  right: 6rem;
   
   img {
     width: 60px;
@@ -106,15 +108,17 @@ export default {
     border-radius: 100%;
     background-color: #D66A6A;
     z-index: 300;
-    left: 95%;
-    top: 15px;
+    // left: 100%;
+    right: -4rem;
+    top: 16px;
+    border: 2px solid white;
 
     p {
       font-size: 15px;
       text-align: center;
       color: white;
       font-weight: bold;
-      margin-top: 2px;
+      margin-top: 0;
     }
   }
 }
@@ -183,18 +187,18 @@ export default {
   }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  .cart-img {
-    width: 50px;
-  }
+// @media screen and (max-width: 1024px) and (min-width: 769px) {
+//   .cart-img {
+//     width: 50px;
+//   }
 
-  .cart-img-container {
-    right: 20px;
-    .counter {
-      width: 25px;
-      height: 25px;
-    }
-  }}
+//   .cart-img-container {
+//     right: 20px;
+//     .counter {
+//       width: 25px;
+//       height: 25px;
+//     }
+//   }}
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .grey-container {

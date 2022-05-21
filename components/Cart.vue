@@ -2,16 +2,16 @@
   <div id="cart" class="cart-container ">
     <div class="card">
       <div class="big-title">
-        <p>Resumen de Pedido</p>
+        <p>Resumen de pedido</p>
       </div>
       <div class="row" style="height: 100%">
         <div class="custom-col">
           <p class="subt">
             Entregamos pedidos en la zona marcada
           </p>
-          <div class= "map">
-            <div class= "img-map">
-              <map-dialog/>
+          <div class="map">
+            <div class="img-map">
+              <map-dialog />
             </div>
           </div>
           <p class="subt">
@@ -19,7 +19,7 @@
           </p>
           <div class="info-text">
             <p>
-              El envío puede tardar hasta 24 hrs dependiendo de la carga de pedidos. Una
+              El envío tiene un costo fijo de <span>Gs.15.000</span> y puede tardar hasta 24 horas dependiendo de la carga de pedidos. Una
               vez confirmada la orden, un compañero de atención al cliente se contactará contigo por WhatsApp para ultimar detalles del envío.
             </p>
           </div>
@@ -51,7 +51,8 @@
                 TOTAL
               </p>
             </div>
-            <p class="total"> Gs.
+            <p class="total">
+              Gs.
               {{ total.toLocaleString('es-es') }}
             </p>
             <div class="btn-container">
@@ -101,7 +102,8 @@
                         TOTAL
                       </p>
                     </div>
-                    <p class="total">Gs.
+                    <p class="total">
+                      Gs.
                       {{ total.toLocaleString('es-es') }}
                     </p>
                   </div>
@@ -128,11 +130,11 @@ import CustomButton from './CustomButton.vue'
 import FormInput from './FormInput.vue'
 import FormSelect from './FormSelect.vue'
 import CartDatatable from './CartDatatable.vue'
+import MapDialog from './MapDialog.vue'
 import { EmailSenderModel } from '~/models/EmailSenderModel'
 import { OrderModel } from '~/models/OrderModel'
 import { UserModel } from '~/models/UserModel'
 import { Validators } from '~/shared/validators'
-import MapDialog from './MapDialog.vue'
 
 export default Vue.extend({
   name: 'Cart',
@@ -141,7 +143,7 @@ export default Vue.extend({
     FormSelect,
     FormInput,
     CustomButton,
-    MapDialog,
+    MapDialog
   },
   data: () => ({
     step: 1,
@@ -162,7 +164,7 @@ export default Vue.extend({
   }),
   computed: {
     disableAddress (): boolean {
-      return this.user.shippingMethod === 'Retiro del local'
+      return this.user.shippingMethod === 'Retiro del Local'
     },
     orders: {
       get (): OrderModel[] {
@@ -177,7 +179,7 @@ export default Vue.extend({
   },
   methods: {
     async sendEmail () {
-      console.log("here")
+      console.log('here')
       this.step = 2
       try {
         console.log(this.user)
@@ -187,7 +189,7 @@ export default Vue.extend({
           order: this.orders
         }
         await this.$axios.$post('email-sender', model)
-        console.log("here")
+        console.log('here')
         this.$store.commit('setLoading')
         this.showDialog = true
       } catch (e) {
@@ -367,6 +369,7 @@ export default Vue.extend({
 
   padding-right: 3rem;
   padding-bottom: 2rem;
+  position:relative;
 
   .img-map{
     object-fit: cover;
@@ -376,6 +379,7 @@ export default Vue.extend({
     overflow: hidden;
     filter: grayscale(100%);
     transition: 0.3s;
+    position:relative
 
   }
 
@@ -384,7 +388,17 @@ export default Vue.extend({
     filter: grayscale(0%);
   }
 
-
+  .img-map::after{
+    content: "";
+    background-image: url('static/zoom.png');
+    background-size: 30px;
+    opacity: 0.5;
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    left: calc(50% - 5px);
+    top: calc(50% - 15px);
+  }
 
 }
 
@@ -395,6 +409,10 @@ export default Vue.extend({
     font-size: 1rem;
     font-weight: 400;
     color: #666666;
+
+    span{
+      text-decoration: underline;
+    }
   }
 }
 

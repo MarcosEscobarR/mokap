@@ -80,10 +80,9 @@ export default {
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
   .btn {
-    height: 60px;
-    width: 250px;
-    font-size: 1.8rem;
-    font-weight: normal;
+    height: 40px;
+    font-size: 15px;
+    width: 150px;
   }
 }
 

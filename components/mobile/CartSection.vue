@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <div class="card">
+    <div class="card" id="card_section">
       <div class="card__content">
         <h2>Resumen del pedido</h2>
 
@@ -30,7 +30,7 @@
             <img class= "img-map" src="map.png" alt="Area de cobertura">
             <h3>Detalles del delivery</h3>
             <p class="details-info">
-              El envío puede tardar hasta 24 hrs. dependiendo de la carga de
+              El envío tiene un costo fijo de <span>Gs.15.000</span> y puede tardar hasta 24 horas dependiendo de la carga de
               pedidos. Una vez confirmada la orden, atención al cliente contactará
               contigo por WhatsApp para ultimar detalles.
             </p>
@@ -70,8 +70,8 @@
             <h3>Zona de entrega</h3>
             <img class= "img-map" src="map.png" alt="Area de cobertura">
             <h3>Detalles del delivery</h3>
-            <p class="details-info">
-              El envío puede tardar hasta 24 hrs. dependiendo de la carga de
+             <p class="details-info">
+              El envío tiene un costo fijo de <span>Gs.15.000</span> y puede tardar hasta 24 horas dependiendo de la carga de
               pedidos. Una vez confirmada la orden, atención al cliente contactará
               contigo por WhatsApp para ultimar detalles.
             </p>
@@ -84,7 +84,7 @@
               Gs. {{ total.toLocaleString('es-es') }}
             </p>
           </div>
-          <custom-button title="Finalizar" color="#D66A6A" @click="sendEmail" />
+          <custom-button :disabled="!valid" title="Finalizar" color="#D66A6A" @click="sendEmail" />
           <order-sent-dialog v-model="showDialog" @change="dialogClosed" />
 
         </div>
@@ -97,7 +97,7 @@
 import { Validators } from '@/shared/validators'
 
 export default {
- 
+
   data: () => ({
     finished: false,
     user: {},
@@ -149,11 +149,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .details-info {
   color: #666666;
   line-height: 1.7rem;
   font-size: 1.1rem;
   margin-bottom: 3rem;
+
+  span{
+    text-decoration: underline;
+  }
 }
 .price-container {
   width: 100%;
@@ -205,7 +211,8 @@ export default {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color:#4E4E51;
   }
 }
 
@@ -223,6 +230,7 @@ export default {
     img {
       margin: auto;
       width: 35%;
+      max-width: 150px;
     }
 
     .cart-overview__title {

@@ -1,10 +1,10 @@
 <template>
   <div class="radio-toolbar">
     <input id="basic" name="design" type="radio" value="media" checked>
-    <label style="padding: 10px" for="basic" @click="basicTShirt">Remera básica</label>
+    <label style="padding: 10px" for="basic" @click="basicTShirt">Básica</label>
 
     <input id="current-design" name="design" type="radio" value="alta" :checked="order.design === 'custom'">
-    <label for="current-design" @click="handleCustomDesignClick">Diseños disponibles</label>
+    <label for="current-design" @click="handleCustomDesignClick">Galería</label>
 
     <input
       id="own-design"
@@ -16,7 +16,7 @@
       @change="handleFile"
     >
     <input id="own-design" name="design" type="radio" value="alta" :checked="order.design === 'propio'">
-    <label for="own-design">Cargar tu diseño</label>
+    <label for="own-design">Subir</label>
 
     <current-designs-dialog v-model="openDialog" />
   </div>

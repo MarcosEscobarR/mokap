@@ -6,6 +6,7 @@
           Customize su remera
         </p>
         <div class="t-shirt-container">
+
           <div class="img-container">
             <img :src="order.color === 'Blanco' ? 'Blanco%20-%20Hombre.png' : 'Negro%20-%20Hombre.png'" alt="blanco">
             <div v-if="order.image" :class="order.location === 'Centro' ? 'center-design-container' : 'chest-design-container'">
@@ -22,10 +23,19 @@
       </div>
 
       <div v-if="showCheckboxes" class="customize-container">
-        <v-checkbox v-model="orderModel.ownTShirt" label="Tengo mi propia remera" />
+
+        <v-checkbox class="own-tshirt" v-model="orderModel.ownTShirt" label="Tengo mi propia remera" />
+        <div class="checkboxes">
+          <p>Diseño</p>
+          <mobile-design-checkbox v-model="orderModel.design" />
+        </div>
+        <div class="checkboxes">
+          <p>Ubicación</p>
+          <mobile-location-checkbox v-model="orderModel.location" />
+        </div>
         <div class="checkboxes">
           <p>Color</p>
-          <color-checkbox v-model="orderModel.color" />
+          <color-checkbox class="colors" v-model="orderModel.color" />
         </div>
         <div class="checkboxes">
           <p>Tamaño</p>
@@ -34,14 +44,6 @@
         <div class="checkboxes">
           <p>Calidad de tela</p>
           <mobile-fabric-quality-checkbox v-model="orderModel.quality" />
-        </div>
-        <div class="checkboxes">
-          <p>Diseño</p>
-          <mobile-design-checkbox v-model="orderModel.design" />
-        </div>
-        <div class="checkboxes">
-          <p>Ubicación</p>
-          <mobile-location-checkbox v-model="orderModel.location" />
         </div>
         <div class="quantity-input">
           <p>Cantidad</p>
@@ -57,7 +59,7 @@
         </div>
       </div>
       <div v-else class="btn-navigator-container">
-        <custom-button-outlined class="ma-5" title="IR AL CARRITO" outlined />
+        <!-- <custom-button-outlined class="ma-5" title="IR AL CARRITO" outlined /> -->
         <custom-button title="OTRA ORDEN" @click="$store.commit('reset')"/>
       </div>
     </div>
@@ -104,13 +106,17 @@ export default {
 
 <style scoped lang="scss">
 
+::v-deep .own-tshirt .v-label {
+ font-size: 1.2rem;
+}
+
 .img-container{
   margin-top: 0.5rem;
 }
 
 .center-design-container {
   position: absolute;
-  top: 54%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   img {
@@ -156,21 +162,22 @@ export default {
 
 .big-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 2.7rem;
   font-family: 'Open Sans - Bold', "Roboto", sans-serif;
   font-weight: bold;
-  color: #4E4E51;
-  padding: 10px;
+  color: #4e4e51;
+  margin-top: 20px;
+  margin-bottom: 5px !important;
 }
 
 .t-shirt-container {
   height: 400px;
-  border-radius: 10px;
+  // border-radius: 10px;
   background-color: #4E4E51;
   width: 100%;
   display: flex;
-  padding: 15px;
+  padding: 12px;
   flex-direction: column;
 
   .img-container {
@@ -189,13 +196,14 @@ export default {
     font-size: 1.5rem;
     margin: 0;
     font-weight: bold;
+
   }
 
   .price-title {
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top: 7px;
     color: white;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
   }
 }
@@ -212,6 +220,10 @@ export default {
 
 }
 .quantity-input {
+  input{
+    height: 60px;
+    padding-left: 1.5rem;
+  }
   p {
     color: #4E4E51;
     font-size: 1.2rem;
@@ -233,6 +245,9 @@ input[type=number]
 .checkboxes {
   margin-bottom: 15px;
 
+  // .colors{
+  //   max-width: 8.5rem;
+  // }
   p {
     color: #4E4E51;
     font-size: 1.2rem;
@@ -240,5 +255,7 @@ input[type=number]
     margin-bottom: 0;
   }
 }
+
+
 
 </style>

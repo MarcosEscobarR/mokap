@@ -5,28 +5,57 @@
       type="radio"
       name="size"
       value="P"
-      checked
+      :checked="order.size === 'P'"
       @click="handleClick"
     >
     <label for="radioP">P</label>
 
-    <input id="radioM" type="radio" name="size" value="M" @click="handleClick">
+    <input
+      id="radioM"
+      type="radio"
+      name="size"
+      value="M"
+      :checked="order.size === 'M'"
+      @click="handleClick"
+    >
     <label for="radioM">M</label>
 
-    <input id="radioG" type="radio" name="size" value="G" @click="handleClick">
+    <input
+      id="radioG"
+      type="radio"
+      name="size"
+      value="G"
+      :checked="order.size === 'G'"
+      @click="handleClick"
+    >
     <label for="radioG">G</label>
 
-    <input id="radioXG" type="radio" name="size" value="XG" @click="handleClick">
+    <input
+      id="radioXG"
+      type="radio"
+      name="size"
+      value="XG"
+      :checked="order.size === 'XG'"
+      @click="handleClick"
+    >
     <label for="radioXG">XG</label>
 
-    <input id="radio2XG" type="radio" name="size" value="2XG" @click="handleClick">
+    <input
+      id="radio2XG"
+      type="radio"
+      name="size"
+      value="2XG"
+      :checked="order.size === '2XG'"
+      @click="handleClick"
+    >
     <label for="radio2XG">2XG</label>
   </div>
 </template>
 
-<script>
-
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { OrderModel } from '~/models/OrderModel'
+export default Vue.extend({
   props: {
     value: {
       type: String
@@ -34,22 +63,25 @@ export default {
   },
 
   computed: {
+    order (): OrderModel {
+      return this.$store.getters.order
+    },
     size: {
-      get () {
+      get (): string {
         return this.value
       },
-      set (val) {
+      set (val: string) : void {
         this.$emit('input', val)
       }
     }
   },
 
   methods: {
-    handleClick (e) {
+    handleClick (e: any) {
       this.size = e.target.value
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
@@ -82,7 +114,6 @@ export default {
 }
 
 .radio-toolbar label:hover {
-  // border: 6px solid #43BFA2;
   background-color: #E0E0E0;
   color: white;
 
@@ -110,5 +141,24 @@ export default {
     height: 60px;
   }
 }
+
+@media screen and(min-width: 200px) and(max-width: 480px) {
+
+  .radio-toolbar label {
+    width: 18.4%;
+  }
+}
+
+// @media screen and(max-width: 480px) and(min-width: 320px) {
+//    .radio-toolbar {
+//     width: 100%
+//   }
+//    .radio-toolbar .radio-black {
+//     width: 49%;
+//   }
+//   .radio-toolbar .radio-white {
+//     width: 49%;
+//   }
+// }
 
 </style>
