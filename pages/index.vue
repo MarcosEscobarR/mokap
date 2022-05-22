@@ -54,9 +54,17 @@ export default {
       get () {
         return this.$store.getters.orders
       }
+    },
+    breakpoints () {
+      return this.$vuetify.breakpoint.name
     }
   },
   watch: {
+    breakpoints (val) {
+      if (val === 'sm' || val === 'xs') {
+        // this.$router.push({ path: '/mobile' })
+      }
+    },
     createNewOrder () {
       const timeline = gsap.timeline()
       timeline.to(this.$refs.container, 0.3, { x: 1000 })
@@ -67,10 +75,12 @@ export default {
     }
   },
   mounted () {
-    if (this.$vuetify.breakpoint.name === 'sm' || this.$vuetify.breakpoint.name === 'xs') {
+    const width = window.innerWidth
+    if (width <= 960) {
       this.$router.push({ path: '/mobile' })
     }
   },
+
   methods: {
     goToCart () {
       window.location.href = '/#cart'
