@@ -39,12 +39,7 @@ export default {
     show: false,
     isMobile: false
   }),
-
   computed: {
-    breakpoints () {
-      console.log(this.$vuetify.breakpoint)
-      return this.$vuetify.breakpoint.name
-    },
     step: {
       get () {
         return this.$store.getters.step
@@ -62,11 +57,6 @@ export default {
     }
   },
   watch: {
-    breakpoints (val) {
-      if (val === 'xs' || val === 'sm') {
-        this.$router.push({ path: '/mobile' })
-      }
-    },
     createNewOrder () {
       const timeline = gsap.timeline()
       timeline.to(this.$refs.container, 0.3, { x: 1000 })
@@ -74,6 +64,11 @@ export default {
         this.show = !this.show
         timeline.to(this.$refs.container, 0.3, { x: 0 })
       }, 1000)
+    }
+  },
+  mounted () {
+    if (this.$vuetify.breakpoint.name === 'sm' || this.$vuetify.breakpoint.name === 'xs') {
+      this.$router.push({ path: '/mobile' })
     }
   },
   methods: {
@@ -97,7 +92,7 @@ export default {
   cursor: pointer;
   z-index: 1000;
   right: 6rem;
-  
+
   img {
     width: 60px;
   }
@@ -122,7 +117,6 @@ export default {
     }
   }
 }
-
 
 .main-container {
   display: flex;
